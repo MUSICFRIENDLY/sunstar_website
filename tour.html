@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunstar Creation | 學生社區大使計劃</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --secondary-blue: #2c3e50;
+            --accent-orange: #e67e22;
+            --light-bg: #f9f9f9;
+        }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans TC', sans-serif; margin: 0; color: #333; line-height: 1.8; background: #fff; }
+        nav { 
+            position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.98); 
+            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000;
+        }
+        nav .brand { font-size: 1.5rem; font-weight: bold; color: var(--secondary-blue); letter-spacing: 1px; }
+        nav .links a { text-decoration: none; color: #555; margin-left: 20px; font-weight: 500; transition: 0.3s; }
+        nav .links a:hover { color: var(--primary-gold); }
+        section { padding: 100px 10% 80px; }
+        h2 { text-align: center; font-size: 2.2rem; color: var(--secondary-blue); margin-bottom: 50px; position: relative; }
+        h2::after { content: ''; width: 50px; height: 3px; background: var(--primary-gold); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+        .intro-text { text-align: center; max-width: 800px; margin: 0 auto 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+        .card h3 { color: var(--accent-orange); margin-top: 0; }
+        .card ul { margin: 10px 0 0 0; padding-left: 20px; }
+        footer { background: var(--secondary-blue); color: white; padding: 50px 10%; text-align: center; }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="brand">SUNSTAR CREATION</div>
+    <div class="links">
+        <a href="home.html">Home</a>
+        <a href="culture.html">中華文化</a>
+        <a href="music.html">音樂活動</a>
+        <a href="art.html">校本視藝</a>
+        <a href="tour.html">導賞計劃</a>
+        <a href="contact.html">聯絡我們</a>
+    </div>
+</nav>
+
+<section id="tour">
+    <h2>學生社區大使計劃</h2>
+    <div class="intro-text">透過專業導賞訓練，培養具備共情力與領導力的青少年領袖。我們不僅傳遞知識，更連結情感與社區。</div>
+    <div class="grid">
+        <div class="card"><h3>系統化培訓框架</h3><p><strong>三大支柱：</strong></p><ul><li><strong>體驗式學習：</strong>結合地質歷史與實地考察（如心園等場景）。</li><li><strong>PERMA 教學法：</strong>透過專屬卡牌與角色扮演，提升表達自信與抗壓能力。</li><li><strong>社會共融：</strong>透過定點導賞，實踐連結青少年與長者的社區服務。</li></ul></div>
+        <div class="card"><h3>核心目標與價值</h3><p><strong>連結知識與情感：</strong></p><ul><li><strong>Fact & Connection：</strong>將複雜學術內容轉化為生動導賞辭。</li><li><strong>成就感：</strong>經歷「試講—修正—再試」的循環，達成獨立導賞。</li><li><strong>使命感：</strong>以「社區服務大使」身份，深入探索地方故事與保育理念。</li></ul></div>
+    </div>
+</section>
+
+<footer>
+    <p>聯絡 WhatsApp: +852 5577 7252 / +852 5524 8338</p>
+    <p>&copy; 2026 Sunstar Creation Limited.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunstar Creation | 校本視藝課程方案</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --secondary-blue: #2c3e50;
+            --accent-orange: #e67e22;
+            --light-bg: #f9f9f9;
+        }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans TC', sans-serif; margin: 0; color: #333; line-height: 1.8; background: #fff; }
+        nav { 
+            position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.98); 
+            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000;
+        }
+        nav .brand { font-size: 1.5rem; font-weight: bold; color: var(--secondary-blue); letter-spacing: 1px; }
+        nav .links a { text-decoration: none; color: #555; margin-left: 20px; font-weight: 500; transition: 0.3s; }
+        nav .links a:hover { color: var(--primary-gold); }
+        section { padding: 100px 10% 80px; }
+        h2 { text-align: center; font-size: 2.2rem; color: var(--secondary-blue); margin-bottom: 50px; position: relative; }
+        h2::after { content: ''; width: 50px; height: 3px; background: var(--primary-gold); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+        .intro-text { text-align: center; max-width: 800px; margin: 0 auto 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+        .card h3 { color: var(--accent-orange); margin-top: 0; }
+        .card ul { margin: 10px 0 0 0; padding-left: 20px; }
+        footer { background: var(--secondary-blue); color: white; padding: 50px 10%; text-align: center; }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="brand">SUNSTAR CREATION</div>
+    <div class="links">
+        <a href="home.html">Home</a>
+        <a href="culture.html">中華文化</a>
+        <a href="music.html">音樂活動</a>
+        <a href="art.html">校本視藝</a>
+        <a href="tour.html">導賞計劃</a>
+        <a href="contact.html">聯絡我們</a>
+    </div>
+</nav>
+
+<section id="art" style="background: var(--light-bg);">
+    <h2>校本視藝課程方案</h2>
+    <div class="intro-text"><p>我們採用「體驗式藝術教學」，強調成品導向，由專業導師親自授課。課程彈性大，可配合校本主題靈活安排。</p></div>
+    <div class="grid">
+        <div class="card"><h3>彩虹書法體驗</h3><p><strong>傳統與現代碰撞：</strong>結合傳統書法技法與現代色彩運用，透過融入動物、植物圖案，將漢字轉化為藝術作品。</p><ul><li>導師示範與實作教學</li><li>完成「圓形」與「扇形」兩款創意成品</li></ul></div>
+        <div class="card"><h3>流動色彩創作</h3><p><strong>探索自由律動：</strong>使用專用流體顏料，建立色彩感與自由度，讓學生在色彩碰撞中感受創作快樂。</p><ul><li>製作圓形流體畫</li><li>創作立體流體雕塑（如動物造型）</li></ul></div>
+        <div class="card"><h3>軟陶與光影立體創作</h3><p><strong>觸感與空間：</strong>透過塑形、揉色技巧，訓練精細動作與立體思維。</p><ul><li>軟陶拼貼藝術</li><li>光影立體裝置創作</li></ul></div>
+        <div class="card"><h3>進階創作班 (多元工藝)</h3><p><strong>深化創作技巧：</strong>適合對藝術有更高追求的拔尖班或興趣班。</p><ul><li>拓染布藝：結合自然元素</li><li>羊毛氈：製作精緻玩偶飾品</li><li>3D 創作筆：突破平面空間限制</li></ul></div>
+    </div>
+    <div style="margin-top: 30px; text-align: center; color: #777;"><em>* 課程形式靈活：可安排為常規課、專題課、興趣班或拔尖課程。</em></div>
+</section>
+
+<footer>
+    <p>聯絡 WhatsApp: +852 5577 7252 / +852 5524 8338</p>
+    <p>&copy; 2026 Sunstar Creation Limited.</p>
+</footer>
+</body>
+</html>

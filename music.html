@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunstar Creation | 音樂活動</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --secondary-blue: #2c3e50;
+            --accent-orange: #e67e22;
+            --light-bg: #f9f9f9;
+        }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans TC', sans-serif; margin: 0; color: #333; line-height: 1.8; background: #fff; }
+        nav { 
+            position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.98); 
+            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000;
+        }
+        nav .brand { font-size: 1.5rem; font-weight: bold; color: var(--secondary-blue); letter-spacing: 1px; }
+        nav .links a { text-decoration: none; color: #555; margin-left: 20px; font-weight: 500; transition: 0.3s; }
+        nav .links a:hover { color: var(--primary-gold); }
+        section { padding: 100px 10% 80px; }
+        h2 { text-align: center; font-size: 2.2rem; color: var(--secondary-blue); margin-bottom: 50px; position: relative; }
+        h2::after { content: ''; width: 50px; height: 3px; background: var(--primary-gold); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+        .card h3 { color: var(--accent-orange); margin-top: 0; }
+        .card small { display: block; margin-top: 12px; color: #7f8c8d; font-size: 0.85rem; border-top: 1px dashed #eee; padding-top: 8px; }
+        footer { background: var(--secondary-blue); color: white; padding: 50px 10%; text-align: center; }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="brand">SUNSTAR CREATION</div>
+    <div class="links">
+        <a href="home.html">Home</a>
+        <a href="culture.html">中華文化</a>
+        <a href="music.html">音樂活動</a>
+        <a href="art.html">校本視藝</a>
+        <a href="tour.html">導賞計劃</a>
+        <a href="contact.html">聯絡我們</a>
+    </div>
+</nav>
+
+<section id="music">
+    <h2>音樂活動</h2>
+    <div class="grid">
+        <div class="card"><h3>學生樂器探索方案</h3><p>讓學生真正接觸樂器，透過親身試玩 8 至 20 種專業樂器，協助學生找到「第一件樂器」。</p><small>深度體驗 | 專業評估 | 正向啟蒙</small></div>
+        <div class="card"><h3>西方管弦樂器課程 / 中樂課程</h3><p>由零基礎到專業的系統化教學，掌握基本演奏與讀譜分析能力，建立基本合奏能力獲得自信，建立穩固的音樂根基。</p><small>三年進階大綱 | 趣味教學法 | 專業支援</small></div>
+        <div class="card"><h3>合奏團隊訓練</h3><p>透過系統化的管弦樂器教學，讓學生在合奏與練習中發掘潛能。</p><small>專業指導與啟蒙 | 強化團隊與合奏 | 提升舞臺表現力</small></div>
+        <div class="card"><h3>長幼共融生命計劃</h3><p>結合音樂演奏與生命教育，透過跨代交流活動，培養學生的同理心與社會責任感。</p><small>Drum Fitness鼓動樂 | 職業生涯規劃 | 跨學科整合</small></div>
+        <div class="card"><h3>幼兒音樂教師培訓</h3><p>賦予非音樂專業教師一套實用教學思維，將音樂巧妙轉化為幼兒園最受歡迎的日常特色活動。</p><small>實戰操作 | 模擬互動 | 校本定制方案</small></div>
+    </div>
+</section>
+
+<footer>
+    <p>聯絡 WhatsApp: +852 5577 7252 / +852 5524 8338</p>
+    <p>&copy; 2026 Sunstar Creation Limited.</p>
+</footer>
+</body>
+</html>

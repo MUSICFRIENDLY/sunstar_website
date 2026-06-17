@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunstar Creation | 中華文化日方案</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --secondary-blue: #2c3e50;
+            --accent-orange: #e67e22;
+            --light-bg: #f9f9f9;
+        }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans TC', sans-serif; margin: 0; color: #333; line-height: 1.8; background: #fff; }
+        nav { 
+            position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.98); 
+            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000;
+        }
+        nav .brand { font-size: 1.5rem; font-weight: bold; color: var(--secondary-blue); letter-spacing: 1px; }
+        nav .links a { text-decoration: none; color: #555; margin-left: 20px; font-weight: 500; transition: 0.3s; }
+        nav .links a:hover { color: var(--primary-gold); }
+        section { padding: 100px 10% 80px; }
+        h2 { text-align: center; font-size: 2.2rem; color: var(--secondary-blue); margin-bottom: 50px; position: relative; }
+        h2::after { content: ''; width: 50px; height: 3px; background: var(--primary-gold); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+        .intro-text { text-align: center; max-width: 800px; margin: 0 auto 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .card { 
+            background: white; 
+            border-radius: 12px; 
+            padding: 0 0 25px 0; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+            border: 1px solid #eee; 
+            transition: 0.3s;
+            overflow: hidden;
+        }
+        .card:hover { transform: translateY(-10px); }
+        .card h3 { color: var(--accent-orange); margin: 20px 20px 10px 20px; }
+        .card p { margin: 0 20px 10px 20px; }
+        .card small { display: block; margin: 10px 20px 0 20px; color: #7f8c8d; font-size: 0.85rem; }
+        .card ul { margin: 10px 20px 0 20px; padding-left: 20px; }
+        
+        /* 卡片圖片區域 */
+        .card-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+        .image-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            pointer-events: none;
+        }
+        
+        /* ===== 彈窗 Modal 樣式（箭頭已修正，保證顯示）===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            position: relative;
+            margin: auto;
+            width: 90%;
+            max-width: 1000px;
+            height: auto;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .modal-image-container {
+            position: relative;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .modal-image {
+            width: 100%;
+            height: auto;
+            max-height: 70vh;
+            object-fit: contain;
+            display: block;
+        }
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 2001;
+        }
+        .close-modal:hover {
+            color: var(--primary-gold);
+        }
+        
+        /* 箭頭按鈕 - 現在一定會顯示在圖片左右兩側內部 */
+        .prev-btn, .next-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.6);
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            padding: 16px 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: 0.3s;
+            border: none;
+            z-index: 2001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+        }
+        .prev-btn:hover, .next-btn:hover {
+            background-color: var(--primary-gold);
+            color: #333;
+        }
+        .prev-btn {
+            left: 20px;
+        }
+        .next-btn {
+            right: 20px;
+        }
+        
+        .image-counter {
+            text-align: center;
+            color: white;
+            padding: 12px;
+            font-size: 14px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 0 0 12px 12px;
+            margin-top: 8px;
+        }
+        .image-title {
+            text-align: center;
+            color: var(--primary-gold);
+            padding: 10px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        /* 手機版箭頭調整 */
+        @media (max-width: 768px) {
+            .prev-btn, .next-btn {
+                font-size: 28px;
+                padding: 10px 14px;
+                width: 45px;
+                height: 45px;
+            }
+            .prev-btn { left: 10px; }
+            .next-btn { right: 10px; }
+            .close-modal { top: 10px; right: 15px; font-size: 30px; }
+        }
+        
+        footer { background: var(--secondary-blue); color: white; padding: 50px 10%; text-align: center; }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="brand">SUNSTAR CREATION</div>
+    <div class="links">
+        <a href="home.html">Home</a>
+        <a href="culture.html">中華文化</a>
+        <a href="music.html">音樂活動</a>
+        <a href="art.html">校本視藝</a>
+        <a href="tour.html">導賞計劃</a>
+        <a href="contact.html">聯絡我們</a>
+    </div>
+</nav>
+
+<section id="culture" style="background: var(--light-bg);">
+    <h2>中華文化日方案</h2>
+    <div class="intro-text"><p>提供全校性文化體驗，透過「禮儀、競技、非遺」三大核心，讓學生在互動中建立文化自信。</p></div>
+    
+    <!-- 兩種活動形式 -->
+    <div class="grid" style="margin-bottom: 40px;">
+        <div class="card">
+            <div class="card-image" onclick="openModal('theme-workshop')">
+                <img src="https://placehold.co/600x400/2c3e50/white?text=主題式工作坊" alt="主題式工作坊">
+                <div class="image-badge">📷 點擊查看相簿</div>
+            </div>
+            <h3>主題式工作坊</h3>
+            <p><strong>適合：</strong>特定日子舉辦之深度活動</p>
+            <p>強調儀式感與文化脈絡，包含禮儀教學、表演欣賞及由導師引導的深入工坊。</p>
+        </div>
+        <div class="card">
+            <div class="card-image" onclick="openModal('carnival')">
+                <img src="https://placehold.co/600x400/2c3e50/white?text=嘉年華攤位體驗" alt="嘉年華攤位體驗">
+                <div class="image-badge">📷 點擊查看相簿</div>
+            </div>
+            <h3>嘉年華攤位體驗</h3>
+            <p><strong>適合：</strong>高參與度之互動活動</p>
+            <p>將競技與手作轉化為積分賽或 15 分鐘快閃 DIY 模組，節奏輕快、廣受學生歡迎。</p>
+        </div>
+    </div>
+    
+    <!-- 五大文化活動 -->
+    <div class="grid">
+        <div class="card">
+            <div class="card-image" onclick="openModal('shadow-puppet')">
+                <img src="https://placehold.co/600x400/d4af37/2c3e50?text=皮影戲" alt="皮影戲">
+                <div class="image-badge">📷 點擊查看相簿</div>
+            </div>
+            <h3>光影傳奇：皮影戲</h3>
+            <p>聯合國非遺項目。學員進入模擬劇場體驗光影律動，並學習傳統「揖禮」與角色操控。</p>
+        </div>
+        
+        <div class="card">
+            <div class="card-image" onclick="openModal('archery')">
+                <img src="https://placehold.co/600x400/e67e22/white?text=投壺與射藝" alt="投壺與射藝">
+                <div class="image-badge">📷 點擊查看相簿</div>
+            </div>
+            <h3>古禮競技：投壺與射藝</h3>
+            <p>源於先秦「射禮」。學習「發而不中，反求諸己」的自省精神，鍛鍊專注力與定力。</p>
+        </div>
+        
+        <div class="card">
+            <div class="card-image" onclick="openModal('printing')">
+                <img src="https://placehold.co/600x400/555/white?text=木活字印刷" alt="木活字印刷">
+                <div class="image-badge">📷 點擊查看相簿</div>
+            </div>
+            <h3>工藝傳承：木活字印刷</h3>
+            <p>體驗北宋發明的活字技術，親手印刷歷史，感悟文字傳承的智慧與匠心。</p>
+        </div>
+        
+        <div class="card">
+            <div class="card-image" onclick="openModal('performance')">
+                <img src="https://placehold.co/600x400/d42/white?text=傳統表演" alt="傳統表演">
+                <div class="image-badge">📷 點擊查看相簿</div>
+            </div>
+            <h3>傳統表演體驗</h3>
+            <p>包含舞獅、中樂（中國鼓）及民族舞蹈試彈與練習，並提供專業設備與主題背景音樂。</p>
+        </div>
+        
+        <div class="card">
+            <div class="card-image" onclick="openModal('wellness')">
+                <img src="https://placehold.co/600x400/27ae60/white?text=文字與養生" alt="文字與養生智慧">
+                <div class="image-badge">📷 點擊查看相簿</div>
+            </div>
+            <h3>文字與養生智慧</h3>
+            <p>結合甲骨文解密、涼茶草藥辨識與二十四節氣養生，將古人智慧與日常生活結合。</p>
+        </div>
+    </div>
+    
+    <div style="margin-top: 30px; text-align: center; color: #555;">
+        <em>* 我們提供全方位支援：含主題佈置、遊戲語音說明、互動展板及工作紙。</em>
+    </div>
+</section>
+
+<footer>
+    <p>聯絡 WhatsApp: +852 5577 7252 / +852 5524 8338</p>
+    <p>&copy; 2026 Sunstar Creation Limited.</p>
+</footer>
+
+<!-- ===== 彈窗 Modal ===== -->
+<div id="imageModal" class="modal" onclick="closeModalOnOutside(event)">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="modal-image-container">
+            <button class="prev-btn" onclick="event.stopPropagation(); changeImage(-1)">❮</button>
+            <img id="modalImage" class="modal-image" src="" alt="活動圖片">
+            <button class="next-btn" onclick="event.stopPropagation(); changeImage(1)">❯</button>
+        </div>
+        <div class="image-title" id="modalTitle"></div>
+        <div class="image-counter" id="imageCounter"></div>
+    </div>
+</div>
+
+<script>
+    // ===== 每個活動的圖片資料庫 =====
+    const galleries = {
+        'theme-workshop': {
+            title: '主題式工作坊',
+            images: [
+                { src: 'https://placehold.co/1200x800/2c3e50/white?text=工作坊+照片1', caption: '工作坊活動實況 - 導師講解' },
+                { src: 'https://placehold.co/1200x800/34495e/white?text=工作坊+照片2', caption: '學員專注參與' },
+                { src: 'https://placehold.co/1200x800/3b5998/white?text=工作坊+照片3', caption: '互動體驗環節' }
+            ]
+        },
+        'carnival': {
+            title: '嘉年華攤位體驗',
+            images: [
+                { src: 'https://placehold.co/1200x800/f39c12/white?text=嘉年華+照片1', caption: '攤位實況 - 學生排隊體驗' },
+                { src: 'https://placehold.co/1200x800/e67e22/white?text=嘉年華+照片2', caption: 'DIY手作環節' },
+                { src: 'https://placehold.co/1200x800/d35400/white?text=嘉年華+照片3', caption: '競技遊戲 - 歡樂時刻' },
+                { src: 'https://placehold.co/1200x800/f1c40f/white?text=嘉年華+照片4', caption: '頒獎與紀念品' }
+            ]
+        },
+        'shadow-puppet': {
+            title: '光影傳奇：皮影戲',
+            images: [
+                { src: 'https://placehold.co/1200x800/d4af37/2c3e50?text=皮影戲+表演1', caption: '傳統皮影戲表演' },
+                { src: 'https://placehold.co/1200x800/c9a82e/2c3e50?text=皮影戲+表演2', caption: '學員操控體驗' },
+                { src: 'https://placehold.co/1200x800/b8941f/2c3e50?text=皮影戲+幕後', caption: '幕後製作過程' }
+            ]
+        },
+        'archery': {
+            title: '古禮競技：投壺與射藝',
+            images: [
+                { src: 'https://placehold.co/1200x800/e67e22/white?text=投壺+競技', caption: '投壺競技 - 專注瞬間' },
+                { src: 'https://placehold.co/1200x800/d35400/white?text=射藝+教學', caption: '射藝教學 - 姿勢指導' },
+                { src: 'https://placehold.co/1200x800/f39c12/white?text=古禮+儀式', caption: '傳統揖禮教學' },
+                { src: 'https://placehold.co/1200x800/e67e22/white?text=投壺+團體賽', caption: '團體競賽 - 團隊精神' }
+            ]
+        },
+        'printing': {
+            title: '工藝傳承：木活字印刷',
+            images: [
+                { src: 'https://placehold.co/1200x800/555/white?text=活字+排版', caption: '活字排版教學' },
+                { src: 'https://placehold.co/1200x800/444/white?text=印刷+體驗', caption: '學生親自印刷' },
+                { src: 'https://placehold.co/1200x800/666/white?text=完成+作品', caption: '完成作品展示' }
+            ]
+        },
+        'performance': {
+            title: '傳統表演體驗',
+            images: [
+                { src: 'https://placehold.co/1200x800/d42/white?text=舞獅+表演', caption: '舞獅表演 - 氣勢磅礡' },
+                { src: 'https://placehold.co/1200x800/c33/white?text=中國鼓', caption: '中國鼓體驗 - 節奏訓練' },
+                { src: 'https://placehold.co/1200x800/b22/white?text=民族舞蹈', caption: '民族舞蹈 - 優美姿態' },
+                { src: 'https://placehold.co/1200x800/e74c3c/white?text=中樂+合奏', caption: '中樂合奏練習' }
+            ]
+        },
+        'wellness': {
+            title: '文字與養生智慧',
+            images: [
+                { src: 'https://placehold.co/1200x800/27ae60/white?text=甲骨文+解密', caption: '甲骨文解密 - 文字演變' },
+                { src: 'https://placehold.co/1200x800/229954/white?text=涼茶+藥材', caption: '涼茶藥材辨識' },
+                { src: 'https://placehold.co/1200x800/1e8449/white?text=節氣+養生', caption: '二十四節氣養生講座' },
+                { src: 'https://placehold.co/1200x800/2ecc71/white?text=養生+實作', caption: '養生茶飲實作' }
+            ]
+        }
+    };
+
+    let currentGalleryId = '';
+    let currentImageIndex = 0;
+    let currentImages = [];
+
+    function openModal(galleryId) {
+        const gallery = galleries[galleryId];
+        if (!gallery) return;
+        
+        currentGalleryId = galleryId;
+        currentImages = gallery.images;
+        currentImageIndex = 0;
+        
+        document.getElementById('modalTitle').innerText = gallery.title;
+        updateModalImage();
+        document.getElementById('imageModal').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function updateModalImage() {
+        const image = currentImages[currentImageIndex];
+        document.getElementById('modalImage').src = image.src;
+        document.getElementById('modalImage').alt = image.caption;
+        document.getElementById('imageCounter').innerHTML = `${currentImageIndex + 1} / ${currentImages.length} &nbsp;|&nbsp; ${image.caption}`;
+    }
+
+    function changeImage(delta) {
+        let newIndex = currentImageIndex + delta;
+        if (newIndex < 0) newIndex = currentImages.length - 1;
+        if (newIndex >= currentImages.length) newIndex = 0;
+        currentImageIndex = newIndex;
+        updateModalImage();
+    }
+
+    function closeModal() {
+        document.getElementById('imageModal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    function closeModalOnOutside(event) {
+        if (event.target === document.getElementById('imageModal')) {
+            closeModal();
+        }
+    }
+
+    // 鍵盤控制
+    document.addEventListener('keydown', function(event) {
+        if (document.getElementById('imageModal').style.display === 'block') {
+            if (event.key === 'ArrowLeft') {
+                changeImage(-1);
+            } else if (event.key === 'ArrowRight') {
+                changeImage(1);
+            } else if (event.key === 'Escape') {
+                closeModal();
+            }
+        }
+    });
+</script>
+</body>
+</html>
