@@ -10,7 +10,9 @@
             --primary-gold: #d4af37;
             --secondary-blue: #2c3e50;
             --accent-orange: #e67e22;
-            --light-bg: #f9f9f9;
+            --light-bg: #f5f0eb;
+            --shadow: 0 4px 20px rgba(0,0,0,0.06);
+            --red-accent: #c0392b;
         }
         * { box-sizing: border-box; scroll-behavior: smooth; margin: 0; padding: 0; }
         body {
@@ -97,20 +99,66 @@
         nav .links a:active { background: #f0f0f0; border-radius: 6px; }
         nav .links a:hover { color: var(--primary-gold); }
 
+        /* ===== HERO 橫幅 ===== */
+        .hero-culture {
+            background: linear-gradient(145deg, #1a0a0a 0%, #4a1a1a 40%, #2c3e50 100%);
+            padding: 40px 20px 36px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-culture::before {
+            content: '🏮';
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            font-size: 130px;
+            opacity: 0.06;
+        }
+        .hero-culture::after {
+            content: '🐉';
+            position: absolute;
+            left: -10px;
+            bottom: -10px;
+            font-size: 110px;
+            opacity: 0.05;
+        }
+        .hero-culture h1 {
+            color: #fff;
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-culture h1 .gold { color: var(--primary-gold); }
+        .hero-culture h1 .red { color: #e74c3c; }
+        .hero-culture p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            max-width: 550px;
+            margin: 12px auto 0;
+            position: relative;
+            z-index: 1;
+            line-height: 1.8;
+        }
+
         /* ===== 內容區塊 ===== */
         section {
             padding: 40px 16px 48px;
         }
-        section#culture { background: var(--light-bg); }
+        section#culture {
+            background: var(--light-bg);
+        }
 
-        h2 {
+        .section-title {
             text-align: center;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: var(--secondary-blue);
-            margin-bottom: 28px;
+            margin-bottom: 12px;
             position: relative;
         }
-        h2::after {
+        .section-title::after {
             content: '';
             width: 44px;
             height: 3px;
@@ -124,27 +172,48 @@
         .intro-text {
             text-align: center;
             font-size: 0.98rem;
-            max-width: 600px;
-            margin: 0 auto 28px;
+            max-width: 650px;
+            margin: 20px auto 28px;
             color: #555;
             padding: 0 4px;
+            line-height: 1.8;
+        }
+
+        /* ===== 分類標題 ===== */
+        .category-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 16px 0 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary-blue);
+        }
+        .category-label .line {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-gold), transparent);
+        }
+        .category-label .emoji {
+            font-size: 1.4rem;
         }
 
         /* ===== 卡片 ===== */
         .grid {
             display: flex;
             flex-direction: column;
-            gap: 24px;
-            margin-bottom: 24px;
+            gap: 20px;
+            margin-bottom: 16px;
         }
         .card {
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            border: 1px solid #eee;
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(238,238,238,0.5);
             overflow: hidden;
             transition: 0.3s;
             width: 100%;
+            position: relative;
         }
         .card:active { transform: scale(0.99); }
 
@@ -160,7 +229,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s;
+            transition: transform 0.4s;
         }
         .card:active .card-image img { transform: scale(1.03); }
 
@@ -168,45 +237,96 @@
             position: absolute;
             bottom: 10px;
             right: 10px;
-            background: rgba(0,0,0,0.65);
+            background: rgba(0,0,0,0.7);
             color: white;
-            padding: 4px 12px;
+            padding: 4px 14px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 11px;
             pointer-events: none;
+            backdrop-filter: blur(3px);
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+        .image-badge .icon { margin-right: 4px; }
+
+        /* 卡片右上角標籤 */
+        .card-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(212, 175, 55, 0.9);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 3px 14px;
+            border-radius: 30px;
+            letter-spacing: 0.5px;
             backdrop-filter: blur(2px);
+            z-index: 2;
+        }
+        .card-tag.red {
+            background: rgba(192, 57, 43, 0.85);
+        }
+        .card-tag.blue {
+            background: rgba(44, 62, 80, 0.85);
+        }
+        .card-tag.green {
+            background: rgba(39, 174, 96, 0.85);
         }
 
-        .card h3 {
-            color: var(--accent-orange);
-            font-size: 1.15rem;
-            margin: 16px 18px 6px 18px;
+        .card-body {
+            padding: 14px 18px 18px;
         }
-        .card p {
-            margin: 0 18px 8px 18px;
-            font-size: 0.95rem;
+        .card-body h3 {
+            color: var(--secondary-blue);
+            font-size: 1.1rem;
+            margin: 0 0 4px 0;
+        }
+        .card-body h3 .highlight {
+            color: var(--accent-orange);
+        }
+        .card-body p {
+            margin: 0 0 4px 0;
+            font-size: 0.93rem;
             color: #555;
         }
-        .card p strong { color: #333; }
-        .card small {
-            display: block;
-            margin: 6px 18px 12px 18px;
-            color: #7f8c8d;
-            font-size: 0.8rem;
+        .card-body p strong { color: #333; }
+
+        .card-body .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
         }
-        .card ul {
-            margin: 6px 18px 14px 18px;
-            padding-left: 20px;
-            font-size: 0.92rem;
+        .card-body .tag {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.10);
+            color: var(--accent-orange);
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 2px 12px;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
         }
-        .card ul li { margin-bottom: 2px; }
+        .card-body .tag.blue {
+            background: rgba(44, 62, 80, 0.07);
+            color: var(--secondary-blue);
+        }
+        .card-body .tag.red {
+            background: rgba(192, 57, 43, 0.08);
+            color: var(--red-accent);
+        }
 
         .note-text {
-            margin-top: 20px;
+            margin-top: 24px;
             text-align: center;
             color: #555;
             font-size: 0.9rem;
             padding: 0 8px;
+            background: rgba(212, 175, 55, 0.06);
+            border-radius: 12px;
+            padding: 16px 20px;
+            border: 1px dashed rgba(212, 175, 55, 0.2);
         }
         .note-text em { color: #777; }
 
@@ -220,7 +340,7 @@
         }
         footer p { margin: 4px 0; }
 
-        /* ===== Modal 彈窗（手機優化） ===== */
+        /* ===== Modal 彈窗 ===== */
         .modal {
             display: none;
             position: fixed;
@@ -351,10 +471,41 @@
                 border-radius: 6px;
             }
 
+            .hero-culture {
+                padding: 60px 40px 50px;
+            }
+            .hero-culture h1 {
+                font-size: 2.4rem;
+            }
+            .hero-culture p {
+                font-size: 1.1rem;
+                max-width: 650px;
+            }
+            .hero-culture::before {
+                font-size: 200px;
+                right: -20px;
+                top: -20px;
+            }
+            .hero-culture::after {
+                font-size: 170px;
+                left: -20px;
+                bottom: -20px;
+            }
+
             section {
                 padding: 60px 8% 80px;
             }
-            h2 { font-size: 2rem; }
+            .section-title { font-size: 2rem; }
+
+            .intro-text {
+                font-size: 1.05rem;
+                margin-bottom: 40px;
+            }
+
+            .category-label {
+                font-size: 1.2rem;
+                margin: 20px 0 20px;
+            }
 
             .grid {
                 display: grid;
@@ -362,10 +513,15 @@
                 gap: 30px;
                 flex-direction: row;
             }
-            .card:hover { transform: translateY(-6px); }
+            .card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+            }
             .card:hover .card-image img { transform: scale(1.05); }
 
             .card-image { height: 220px; }
+            .card-body { padding: 18px 22px 22px; }
+            .card-body h3 { font-size: 1.2rem; }
 
             .modal-image { max-height: 75vh; }
 
@@ -385,9 +541,15 @@
 
             .image-title { font-size: 1.2rem; }
             .image-counter { font-size: 0.9rem; }
+
+            .note-text {
+                padding: 20px 28px;
+                font-size: 0.95rem;
+            }
         }
 
         @media (min-width: 1024px) {
+            .hero-culture h1 { font-size: 3rem; }
             section { padding: 80px 10%; }
             .grid { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
         }
@@ -411,85 +573,154 @@
     </div>
 </nav>
 
+<!-- ===== HERO 橫幅 ===== -->
+<div class="hero-culture">
+    <h1>🏮 中華 <span class="gold">文化日</span> <span class="red">方案</span></h1>
+    <p>提供全校性文化體驗，透過「禮儀、競技、非遺」三大核心，<br>讓學生在互動中建立文化自信。</p>
+</div>
+
 <!-- ===== 主要內容 ===== -->
-<section id="culture" style="background: var(--light-bg);">
-    <h2>中華文化日方案</h2>
+<section id="culture">
+    <h2 class="section-title">活動形式</h2>
     <div class="intro-text">
-        <p>提供全校性文化體驗，透過「禮儀、競技、非遺」三大核心，讓學生在互動中建立文化自信。</p>
+        兩大活動模式，靈活配合學校需要，<br>
+        讓學生在體驗中感受中華文化的深厚底蘊。
     </div>
 
     <!-- 兩種活動形式 -->
-    <div class="grid" style="margin-bottom: 16px;">
+    <div class="grid" style="margin-bottom: 8px;">
         <div class="card">
             <div class="card-image" onclick="openModal('theme-workshop')">
                 <img src="https://placehold.co/600x400/2c3e50/white?text=主題式工作坊" alt="主題式工作坊">
-                <div class="image-badge">📷 點擊看相簿</div>
+                <span class="card-tag">深度體驗</span>
+                <div class="image-badge"><span class="icon">📷</span>點擊看相簿</div>
             </div>
-            <h3>主題式工作坊</h3>
-            <p><strong>適合：</strong>特定日子舉辦之深度活動</p>
-            <p>強調儀式感與文化脈絡，包含禮儀教學、表演欣賞及由導師引導的深入工坊。</p>
+            <div class="card-body">
+                <h3>📖 主題式 <span class="highlight">工作坊</span></h3>
+                <p><strong>適合：</strong>特定日子舉辦之深度活動</p>
+                <p>強調儀式感與文化脈絡，包含禮儀教學、表演欣賞及由導師引導的深入工坊。</p>
+                <div class="tag-group">
+                    <span class="tag">儀式感</span>
+                    <span class="tag blue">文化脈絡</span>
+                    <span class="tag red">導師引導</span>
+                </div>
+            </div>
         </div>
+
         <div class="card">
             <div class="card-image" onclick="openModal('carnival')">
                 <img src="https://placehold.co/600x400/2c3e50/white?text=嘉年華攤位體驗" alt="嘉年華攤位體驗">
-                <div class="image-badge">📷 點擊看相簿</div>
+                <span class="card-tag red">高參與度</span>
+                <div class="image-badge"><span class="icon">📷</span>點擊看相簿</div>
             </div>
-            <h3>嘉年華攤位體驗</h3>
-            <p><strong>適合：</strong>高參與度之互動活動</p>
-            <p>將競技與手作轉化為積分賽或 15 分鐘快閃 DIY 模組，節奏輕快、廣受學生歡迎。</p>
+            <div class="card-body">
+                <h3>🎪 嘉年華 <span class="highlight">攤位體驗</span></h3>
+                <p><strong>適合：</strong>高參與度之互動活動</p>
+                <p>將競技與手作轉化為積分賽或 15 分鐘快閃 DIY 模組，節奏輕快、廣受學生歡迎。</p>
+                <div class="tag-group">
+                    <span class="tag">互動體驗</span>
+                    <span class="tag blue">積分賽</span>
+                    <span class="tag red">快閃DIY</span>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- 五大文化活動 -->
+    <h2 class="section-title" style="margin-top: 16px;">文化活動</h2>
+    <div class="intro-text">
+        精選五大主題，涵蓋非遺技藝、古禮競技與傳統工藝。
+    </div>
+
     <div class="grid">
         <div class="card">
             <div class="card-image" onclick="openModal('shadow-puppet')">
                 <img src="https://placehold.co/600x400/d4af37/2c3e50?text=皮影戲" alt="皮影戲">
-                <div class="image-badge">📷 點擊看相簿</div>
+                <span class="card-tag">非遺</span>
+                <div class="image-badge"><span class="icon">📷</span>點擊看相簿</div>
             </div>
-            <h3>光影傳奇：皮影戲</h3>
-            <p>聯合國非遺項目。學員進入模擬劇場體驗光影律動，並學習傳統「揖禮」與角色操控。</p>
+            <div class="card-body">
+                <h3>🎭 光影傳奇：<span class="highlight">皮影戲</span></h3>
+                <p>聯合國非遺項目。學員進入模擬劇場體驗光影律動，並學習傳統「揖禮」與角色操控。</p>
+                <div class="tag-group">
+                    <span class="tag">非遺</span>
+                    <span class="tag blue">光影藝術</span>
+                    <span class="tag red">傳統禮儀</span>
+                </div>
+            </div>
         </div>
 
         <div class="card">
             <div class="card-image" onclick="openModal('archery')">
                 <img src="https://placehold.co/600x400/e67e22/white?text=投壺與射藝" alt="投壺與射藝">
-                <div class="image-badge">📷 點擊看相簿</div>
+                <span class="card-tag red">競技</span>
+                <div class="image-badge"><span class="icon">📷</span>點擊看相簿</div>
             </div>
-            <h3>古禮競技：投壺與射藝</h3>
-            <p>源於先秦「射禮」。學習「發而不中，反求諸己」的自省精神，鍛鍊專注力與定力。</p>
+            <div class="card-body">
+                <h3>🏹 古禮競技：<span class="highlight">投壺與射藝</span></h3>
+                <p>源於先秦「射禮」。學習「發而不中，反求諸己」的自省精神，鍛鍊專注力與定力。</p>
+                <div class="tag-group">
+                    <span class="tag">古禮</span>
+                    <span class="tag blue">專注訓練</span>
+                    <span class="tag red">自省精神</span>
+                </div>
+            </div>
         </div>
 
         <div class="card">
             <div class="card-image" onclick="openModal('printing')">
                 <img src="https://placehold.co/600x400/555/white?text=木活字印刷" alt="木活字印刷">
-                <div class="image-badge">📷 點擊看相簿</div>
+                <span class="card-tag blue">工藝</span>
+                <div class="image-badge"><span class="icon">📷</span>點擊看相簿</div>
             </div>
-            <h3>工藝傳承：木活字印刷</h3>
-            <p>體驗北宋發明的活字技術，親手印刷歷史，感悟文字傳承的智慧與匠心。</p>
+            <div class="card-body">
+                <h3>🔤 工藝傳承：<span class="highlight">木活字印刷</span></h3>
+                <p>體驗北宋發明的活字技術，親手印刷歷史，感悟文字傳承的智慧與匠心。</p>
+                <div class="tag-group">
+                    <span class="tag">活字印刷</span>
+                    <span class="tag blue">工藝傳承</span>
+                    <span class="tag red">文字智慧</span>
+                </div>
+            </div>
         </div>
 
         <div class="card">
             <div class="card-image" onclick="openModal('performance')">
                 <img src="https://placehold.co/600x400/d42/white?text=傳統表演" alt="傳統表演">
-                <div class="image-badge">📷 點擊看相簿</div>
+                <span class="card-tag red">表演</span>
+                <div class="image-badge"><span class="icon">📷</span>點擊看相簿</div>
             </div>
-            <h3>傳統表演體驗</h3>
-            <p>包含舞獅、中樂（中國鼓）及民族舞蹈試彈與練習，並提供專業設備與主題背景音樂。</p>
+            <div class="card-body">
+                <h3>🥁 傳統 <span class="highlight">表演體驗</span></h3>
+                <p>包含舞獅、中樂（中國鼓）及民族舞蹈試彈與練習，並提供專業設備與主題背景音樂。</p>
+                <div class="tag-group">
+                    <span class="tag">舞獅</span>
+                    <span class="tag blue">中樂</span>
+                    <span class="tag red">民族舞蹈</span>
+                </div>
+            </div>
         </div>
 
         <div class="card">
             <div class="card-image" onclick="openModal('wellness')">
                 <img src="https://placehold.co/600x400/27ae60/white?text=文字與養生" alt="文字與養生智慧">
-                <div class="image-badge">📷 點擊看相簿</div>
+                <span class="card-tag green">養生</span>
+                <div class="image-badge"><span class="icon">📷</span>點擊看相簿</div>
             </div>
-            <h3>文字與養生智慧</h3>
-            <p>結合甲骨文解密、涼茶草藥辨識與二十四節氣養生，將古人智慧與日常生活結合。</p>
+            <div class="card-body">
+                <h3>🌿 文字與 <span class="highlight">養生智慧</span></h3>
+                <p>結合甲骨文解密、涼茶草藥辨識與二十四節氣養生，將古人智慧與日常生活結合。</p>
+                <div class="tag-group">
+                    <span class="tag">甲骨文</span>
+                    <span class="tag blue">涼茶藥材</span>
+                    <span class="tag red">節氣養生</span>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="note-text">
-        <em>* 我們提供全方位支援：含主題佈置、遊戲語音說明、互動展板及工作紙。</em>
+        <em>✨ 我們提供全方位支援：含主題佈置、遊戲語音說明、互動展板及工作紙。</em>
     </div>
 </section>
 
