@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Sunstar Creation | 校本視藝</title>
+    <title>Sunstar Creation | 音樂活動</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-gold: #d4af37;
             --secondary-blue: #2c3e50;
             --accent-orange: #e67e22;
-            --light-bg: #f5f0eb;
+            --light-bg: #f0f4f8;
+            --shadow: 0 4px 20px rgba(0,0,0,0.06);
+            --music-purple: #6c3483;
         }
         * { box-sizing: border-box; scroll-behavior: smooth; margin: 0; padding: 0; }
         body {
@@ -97,22 +99,66 @@
         nav .links a:active { background: #f0f0f0; border-radius: 6px; }
         nav .links a:hover { color: var(--primary-gold); }
 
+        /* ===== HERO 橫幅 ===== */
+        .hero-music {
+            background: linear-gradient(145deg, #1a1a2e 0%, #2c3e50 50%, #1a2a3a 100%);
+            padding: 40px 20px 36px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-music::before {
+            content: '🎵';
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            font-size: 130px;
+            opacity: 0.06;
+        }
+        .hero-music::after {
+            content: '🎶';
+            position: absolute;
+            left: -10px;
+            bottom: -10px;
+            font-size: 110px;
+            opacity: 0.05;
+        }
+        .hero-music h1 {
+            color: #fff;
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-music h1 .gold { color: var(--primary-gold); }
+        .hero-music h1 .purple { color: #a569bd; }
+        .hero-music p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            max-width: 550px;
+            margin: 12px auto 0;
+            position: relative;
+            z-index: 1;
+            line-height: 1.8;
+        }
+
         /* ===== 內容區塊 ===== */
         section {
             padding: 40px 16px 48px;
         }
-        section#art {
+        section#music {
             background: var(--light-bg);
         }
 
-        h2 {
+        .section-title {
             text-align: center;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: var(--secondary-blue);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             position: relative;
         }
-        h2::after {
+        .section-title::after {
             content: '';
             width: 44px;
             height: 3px;
@@ -126,7 +172,7 @@
         .intro-text {
             text-align: center;
             font-size: 0.98rem;
-            max-width: 600px;
+            max-width: 650px;
             margin: 20px auto 28px;
             color: #555;
             padding: 0 4px;
@@ -138,22 +184,43 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
         .card {
             background: white;
-            border-radius: 12px;
-            padding: 20px 18px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
+            border-radius: 14px;
+            padding: 22px 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(238,238,238,0.5);
             transition: 0.3s;
             width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-gold);
+            border-radius: 4px 0 0 4px;
         }
         .card:active { transform: scale(0.99); }
+        .card .card-icon {
+            font-size: 2rem;
+            margin-bottom: 2px;
+        }
         .card h3 {
-            color: var(--accent-orange);
+            color: var(--secondary-blue);
             font-size: 1.1rem;
             margin-top: 0;
             margin-bottom: 6px;
+        }
+        .card h3 .highlight {
+            color: var(--accent-orange);
         }
         .card p {
             font-size: 0.95rem;
@@ -161,43 +228,47 @@
             margin: 0 0 4px 0;
         }
         .card p strong { color: #333; }
-        .card ul {
-            margin: 6px 0 0 0;
-            padding-left: 20px;
-            font-size: 0.93rem;
-            color: #555;
-        }
-        .card ul li {
-            margin-bottom: 4px;
-        }
-        .card ul li strong {
-            color: #333;
-        }
-        .card small {
-            display: block;
-            margin-top: 10px;
-            color: #7f8c8d;
-            font-size: 0.8rem;
-            border-top: 1px dashed #eee;
-            padding-top: 8px;
-        }
 
-        /* 特色標籤 */
-        .tag-group {
+        .card .tag-group {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 5px;
             margin-top: 10px;
         }
-        .tag {
+        .card .tag {
             display: inline-block;
-            background: rgba(212, 175, 55, 0.13);
+            background: rgba(212, 175, 55, 0.10);
             color: var(--accent-orange);
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 600;
             padding: 3px 12px;
             border-radius: 30px;
             letter-spacing: 0.3px;
+        }
+        .card .tag.blue {
+            background: rgba(44, 62, 80, 0.07);
+            color: var(--secondary-blue);
+        }
+        .card .tag.purple {
+            background: rgba(108, 52, 131, 0.08);
+            color: var(--music-purple);
+        }
+        .card .tag.green {
+            background: rgba(39, 174, 96, 0.08);
+            color: #27ae60;
+        }
+
+        .card small {
+            display: block;
+            margin-top: 12px;
+            color: #7f8c8d;
+            font-size: 0.8rem;
+            border-top: 1px dashed #eee;
+            padding-top: 10px;
+        }
+        .card small .sep {
+            margin: 0 6px;
+            color: #ddd;
         }
 
         /* ===== Footer ===== */
@@ -247,10 +318,31 @@
                 border-radius: 6px;
             }
 
+            .hero-music {
+                padding: 60px 40px 50px;
+            }
+            .hero-music h1 {
+                font-size: 2.4rem;
+            }
+            .hero-music p {
+                font-size: 1.1rem;
+                max-width: 650px;
+            }
+            .hero-music::before {
+                font-size: 200px;
+                right: -20px;
+                top: -20px;
+            }
+            .hero-music::after {
+                font-size: 170px;
+                left: -20px;
+                bottom: -20px;
+            }
+
             section {
                 padding: 60px 8% 80px;
             }
-            h2 { font-size: 2rem; }
+            .section-title { font-size: 2rem; }
 
             .intro-text {
                 font-size: 1.05rem;
@@ -262,21 +354,24 @@
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                 gap: 30px;
                 flex-direction: row;
-            }
-            .card:hover {
-                transform: translateY(-6px);
-                box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+                max-width: 1100px;
             }
             .card {
                 padding: 28px 24px;
+                transition: 0.3s;
+            }
+            .card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 35px rgba(0,0,0,0.08);
             }
             .card h3 { font-size: 1.2rem; }
-            .card ul { font-size: 0.98rem; }
+            .card small { font-size: 0.85rem; }
         }
 
         @media (min-width: 1024px) {
+            .hero-music h1 { font-size: 3rem; }
             section { padding: 80px 10%; }
-            .grid { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
+            .grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
         }
     </style>
 </head>
@@ -298,72 +393,84 @@
     </div>
 </nav>
 
+<!-- ===== HERO 橫幅 ===== -->
+<div class="hero-music">
+    <h1>🎵 音樂 <span class="gold">活動</span></h1>
+    <p>從樂器探索到專業培訓，從合奏訓練到跨代共融，<br>讓音樂成為校園生活的核心養分。</p>
+</div>
+
 <!-- ===== 主要內容 ===== -->
-<section id="art">
-    <h2>🎨 校本視藝</h2>
+<section id="music">
+    <h2 class="section-title">課程與活動</h2>
     <div class="intro-text">
-        以藝術啟發創意，結合校本特色與社區連結。<br>
-        我們提供多元視藝課程與展覽策劃，讓美學教育融入校園生活。
+        五大音樂主題，涵蓋探索、培訓、表演與生命教育，<br>
+        為學生提供全方位的音樂成長路徑。
     </div>
+
     <div class="grid">
+        <!-- 學生樂器探索方案 -->
         <div class="card">
-            <h3>🖌️ 校本視藝課程</h3>
-            <p>按學校需要設計專屬視藝課程，涵蓋繪畫、立體創作、數位藝術等多元媒介，激發學生的藝術潛能。</p>
+            <div class="card-icon">🎹</div>
+            <h3>學生 <span class="highlight">樂器探索</span> 方案</h3>
+            <p>讓學生真正接觸樂器，透過親身試玩 <strong>8 至 20 種</strong> 專業樂器，協助學生找到「第一件樂器」。</p>
             <div class="tag-group">
-                <span class="tag">校本設計</span>
-                <span class="tag">多元媒材</span>
-                <span class="tag">跨學科整合</span>
+                <span class="tag">深度體驗</span>
+                <span class="tag blue">專業評估</span>
+                <span class="tag purple">正向啟蒙</span>
             </div>
+            <small>🎯 深度體驗 <span class="sep">｜</span> 📊 專業評估 <span class="sep">｜</span> 🌱 正向啟蒙</small>
         </div>
 
+        <!-- 西方管弦樂器課程 / 中樂課程 -->
         <div class="card">
-            <h3>🖼️ 藝術展覽策劃</h3>
-            <p>協助學校策劃校內及社區藝術展覽，從主題構思、作品篩選到展場設計，打造專業展示空間。</p>
+            <div class="card-icon">🎻</div>
+            <h3>西方管弦樂器課程 <span class="highlight">/</span> 中樂課程</h3>
+            <p>由零基礎到專業的系統化教學，掌握基本演奏與讀譜分析能力，建立穩固的音樂根基。</p>
             <div class="tag-group">
-                <span class="tag">展覽規劃</span>
-                <span class="tag">社區連結</span>
-                <span class="tag">作品展示</span>
+                <span class="tag">系統化教學</span>
+                <span class="tag blue">讀譜分析</span>
+                <span class="tag green">合奏能力</span>
             </div>
+            <small>📚 三年進階大綱 <span class="sep">｜</span> 🎯 趣味教學法 <span class="sep">｜</span> 🤝 專業支援</small>
         </div>
 
+        <!-- 合奏團隊訓練 -->
         <div class="card">
-            <h3>🏫 社區藝術共創</h3>
-            <p>帶領學生參與社區藝術創作，透過壁畫、公共藝術等項目，培養社會參與意識與團隊協作能力。</p>
-            <div class="tag-group">
-                <span class="tag">社區參與</span>
-                <span class="tag">公共藝術</span>
-                <span class="tag">團隊協作</span>
-            </div>
-        </div>
-
-        <div class="card">
-            <h3>👩‍🎨 藝術家駐校計劃</h3>
-            <p>邀請本地藝術家駐校，與學生進行深度創作交流，提供專業指導與創作示範，拓展藝術視野。</p>
+            <div class="card-icon">🎼</div>
+            <h3><span class="highlight">合奏</span> 團隊訓練</h3>
+            <p>透過系統化的管弦樂器教學，讓學生在合奏與練習中發掘潛能，培養團隊協作精神。</p>
             <div class="tag-group">
                 <span class="tag">專業指導</span>
-                <span class="tag">創作交流</span>
-                <span class="tag">視野拓展</span>
+                <span class="tag blue">團隊協作</span>
+                <span class="tag purple">舞台表現</span>
             </div>
+            <small>🎓 專業指導與啟蒙 <span class="sep">｜</span> 🤝 強化團隊與合奏 <span class="sep">｜</span> 🎭 提升舞臺表現力</small>
         </div>
 
+        <!-- 長幼共融生命計劃 -->
         <div class="card">
-            <h3>📚 視藝教材開發</h3>
-            <p>為學校開發專屬視藝教材，配合校本課程需要，融入本地文化元素與當代藝術趨勢。</p>
+            <div class="card-icon">🤝</div>
+            <h3><span class="highlight">長幼共融</span> 生命計劃</h3>
+            <p>結合音樂演奏與生命教育，透過跨代交流活動，培養學生的同理心與社會責任感。</p>
             <div class="tag-group">
-                <span class="tag">教材設計</span>
-                <span class="tag">文化融入</span>
-                <span class="tag">校本課程</span>
+                <span class="tag">生命教育</span>
+                <span class="tag blue">跨代交流</span>
+                <span class="tag purple">社會責任</span>
             </div>
+            <small>🥁 Drum Fitness鼓動樂 <span class="sep">｜</span> 🧭 職業生涯規劃 <span class="sep">｜</span> 🔗 跨學科整合</small>
         </div>
 
+        <!-- 幼兒音樂教師培訓 -->
         <div class="card">
-            <h3>🏆 視藝比賽與活動</h3>
-            <p>策劃校內視藝比賽、開放日藝術活動及工作坊，提升學生參與度，營造校園藝術氛圍。</p>
+            <div class="card-icon">🧑‍🏫</div>
+            <h3>幼兒音樂 <span class="highlight">教師培訓</span></h3>
+            <p>賦予非音樂專業教師一套實用教學思維，將音樂巧妙轉化為幼兒園最受歡迎的日常特色活動。</p>
             <div class="tag-group">
-                <span class="tag">比賽策劃</span>
-                <span class="tag">工作坊</span>
-                <span class="tag">校園氛圍</span>
+                <span class="tag">實戰操作</span>
+                <span class="tag blue">模擬互動</span>
+                <span class="tag green">校本定制</span>
             </div>
+            <small>⚡ 實戰操作 <span class="sep">｜</span> 🗣️ 模擬互動 <span class="sep">｜</span> 🏫 校本定制方案</small>
         </div>
     </div>
 </section>
