@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Sunstar Creation | 聯絡我們</title>
+    <title>Sunstar Creation | 學生社區大使計劃</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-gold: #d4af37;
             --secondary-blue: #2c3e50;
             --accent-orange: #e67e22;
-            --light-bg: #f9f9f9;
+            --light-bg: #f0f4f0;
+            --shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
         * { box-sizing: border-box; scroll-behavior: smooth; margin: 0; padding: 0; }
         body {
@@ -97,26 +98,57 @@
         nav .links a:active { background: #f0f0f0; border-radius: 6px; }
         nav .links a:hover { color: var(--primary-gold); }
 
+        /* ===== HERO 橫幅 ===== */
+        .hero-tour {
+            background: linear-gradient(145deg, #1a2a3a 0%, #2c3e50 100%);
+            padding: 40px 20px 36px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-tour::before {
+            content: '🌍';
+            position: absolute;
+            right: -20px;
+            top: -20px;
+            font-size: 120px;
+            opacity: 0.08;
+        }
+        .hero-tour h1 {
+            color: #fff;
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-tour h1 .gold { color: var(--primary-gold); }
+        .hero-tour p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            max-width: 500px;
+            margin: 12px auto 0;
+            position: relative;
+            z-index: 1;
+            line-height: 1.8;
+        }
+
         /* ===== 內容區塊 ===== */
         section {
             padding: 40px 16px 48px;
         }
-        section#contact {
+        section#tour {
             background: var(--light-bg);
-            min-height: calc(100vh - 200px);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
-        h2 {
+        .section-title {
             text-align: center;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: var(--secondary-blue);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             position: relative;
         }
-        h2::after {
+        .section-title::after {
             content: '';
             width: 44px;
             height: 3px;
@@ -130,102 +162,125 @@
         .intro-text {
             text-align: center;
             font-size: 0.98rem;
-            max-width: 600px;
-            margin: 20px auto 32px;
+            max-width: 650px;
+            margin: 20px auto 28px;
             color: #555;
             padding: 0 4px;
             line-height: 1.8;
         }
 
-        /* ===== 聯絡卡片 ===== */
-        .contact-grid {
+        /* ===== 卡片 ===== */
+        .grid {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            max-width: 600px;
+            gap: 20px;
+            max-width: 900px;
             margin: 0 auto;
-            width: 100%;
         }
-        .contact-card {
+        .card {
             background: white;
-            border-radius: 12px;
-            padding: 18px 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
+            border-radius: 16px;
+            padding: 22px 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(238,238,238,0.6);
             transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 16px;
             width: 100%;
+            position: relative;
+            overflow: hidden;
         }
-        .contact-card:active { transform: scale(0.99); }
-        .contact-card .icon {
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-gold);
+            border-radius: 4px 0 0 4px;
+        }
+        .card:active { transform: scale(0.99); }
+        .card .card-icon {
             font-size: 2rem;
-            flex-shrink: 0;
-            width: 48px;
-            text-align: center;
+            margin-bottom: 4px;
         }
-        .contact-card .info {
-            flex: 1;
-        }
-        .contact-card .info .label {
-            font-size: 0.75rem;
-            color: #999;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-        .contact-card .info .value {
-            font-size: 1.05rem;
-            font-weight: 600;
+        .card h3 {
             color: var(--secondary-blue);
-            word-break: break-word;
+            font-size: 1.15rem;
+            margin-top: 0;
+            margin-bottom: 8px;
         }
-        .contact-card .info .value a {
-            color: var(--secondary-blue);
-            text-decoration: none;
+        .card h3 .highlight {
+            color: var(--accent-orange);
         }
-        .contact-card .info .value a:hover {
+        .card p {
+            font-size: 0.95rem;
+            color: #555;
+            margin: 0 0 6px 0;
+        }
+        .card p strong { color: #333; }
+        .card ul {
+            margin: 6px 0 0 0;
+            padding-left: 20px;
+            font-size: 0.93rem;
+            color: #555;
+            list-style: none;
+        }
+        .card ul li {
+            margin-bottom: 6px;
+            padding-left: 6px;
+            position: relative;
+        }
+        .card ul li::before {
+            content: '✦ ';
             color: var(--primary-gold);
+            font-weight: 700;
+        }
+        .card ul li strong {
+            color: #333;
         }
 
-        /* WhatsApp 按鈕 */
-        .whatsapp-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: #25D366;
-            color: #fff;
-            padding: 14px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: 0.2s;
-            border: none;
-            width: 100%;
-            max-width: 400px;
-            margin: 8px auto 0;
+        /* 標籤 */
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
         }
-        .whatsapp-btn:active {
-            transform: scale(0.96);
-            background: #1da85a;
-        }
-
-        /* 商界展關懷標章 */
-        .badge-area {
-            text-align: center;
-            margin-top: 24px;
-        }
-        .badge-area .badge {
+        .tag {
             display: inline-block;
             background: rgba(212, 175, 55, 0.12);
             color: var(--accent-orange);
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             font-weight: 600;
-            padding: 6px 18px;
+            padding: 3px 14px;
             border-radius: 30px;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
+        }
+        .tag-blue {
+            background: rgba(44, 62, 80, 0.08);
+            color: var(--secondary-blue);
+        }
+
+        /* ===== 額外資訊 ===== */
+        .info-box {
+            background: white;
+            border-radius: 16px;
+            padding: 20px 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(238,238,238,0.6);
+            max-width: 900px;
+            margin: 24px auto 0;
+            text-align: center;
+        }
+        .info-box p {
+            font-size: 0.95rem;
+            color: #555;
+            margin: 0;
+        }
+        .info-box .emoji-big {
+            font-size: 2.2rem;
+            display: block;
+            margin-bottom: 6px;
         }
 
         /* ===== Footer ===== */
@@ -275,47 +330,62 @@
                 border-radius: 6px;
             }
 
+            .hero-tour {
+                padding: 60px 40px 50px;
+            }
+            .hero-tour h1 {
+                font-size: 2.4rem;
+            }
+            .hero-tour p {
+                font-size: 1.1rem;
+                max-width: 600px;
+            }
+            .hero-tour::before {
+                font-size: 180px;
+                right: -30px;
+                top: -30px;
+            }
+
             section {
                 padding: 60px 8% 80px;
             }
-            h2 { font-size: 2rem; }
+            .section-title { font-size: 2rem; }
 
             .intro-text {
                 font-size: 1.05rem;
                 margin-bottom: 40px;
             }
 
-            .contact-grid {
-                gap: 20px;
-                max-width: 700px;
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+                gap: 30px;
+                flex-direction: row;
+                max-width: 1000px;
             }
-            .contact-card {
-                padding: 22px 28px;
+            .card {
+                padding: 30px 28px;
                 transition: 0.3s;
             }
-            .contact-card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            .card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 35px rgba(0,0,0,0.08);
             }
-            .contact-card .icon { font-size: 2.4rem; }
-            .contact-card .info .value { font-size: 1.15rem; }
+            .card h3 { font-size: 1.25rem; }
+            .card ul { font-size: 0.98rem; }
+            .card ul li::before { content: '✦ '; }
 
-            .whatsapp-btn {
-                font-size: 1.1rem;
-                padding: 16px 40px;
-                max-width: 450px;
+            .info-box {
+                padding: 28px 32px;
+                margin-top: 32px;
             }
-            .whatsapp-btn:hover {
-                background: #1da85a;
-                transform: translateY(-2px);
-            }
-
-            .badge-area .badge { font-size: 0.85rem; }
+            .info-box .emoji-big { font-size: 2.8rem; }
         }
 
         @media (min-width: 1024px) {
+            .hero-tour h1 { font-size: 3rem; }
             section { padding: 80px 10%; }
-            .contact-grid { max-width: 800px; }
+            .grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -337,62 +407,58 @@
     </div>
 </nav>
 
+<!-- ===== HERO 橫幅 ===== -->
+<div class="hero-tour">
+    <h1>🌱 學生社區 <span class="gold">大使計劃</span></h1>
+    <p>透過專業導賞訓練，培養具備共情力與領導力的青少年領袖。<br>我們不僅傳遞知識，更連結情感與社區。</p>
+</div>
+
 <!-- ===== 主要內容 ===== -->
-<section id="contact">
-    <h2>📬 聯絡我們</h2>
+<section id="tour">
+    <h2 class="section-title">計劃核心</h2>
     <div class="intro-text">
-        有任何查詢或合作需求？歡迎透過以下方式與我們聯繫。<br>
-        我們會儘快回覆您！
+        結合體驗式學習、正向心理學與社會共融，<br>
+        讓學生成為連結社區的橋樑。
     </div>
 
-    <div class="contact-grid">
-        <!-- WhatsApp 1 -->
-        <div class="contact-card">
-            <div class="icon">💬</div>
-            <div class="info">
-                <div class="label">WhatsApp 專線 1</div>
-                <div class="value"><a href="https://wa.me/85255777252" target="_blank" rel="noopener">+852 5577 7252</a></div>
+    <div class="grid">
+        <div class="card">
+            <div class="card-icon">📚</div>
+            <h3>系統化 <span class="highlight">培訓框架</span></h3>
+            <p><strong>三大支柱：</strong></p>
+            <ul>
+                <li><strong>體驗式學習：</strong>結合地質歷史與實地考察（如心園等場景）。</li>
+                <li><strong>PERMA 教學法：</strong>透過專屬卡牌與角色扮演，提升表達自信與抗壓能力。</li>
+                <li><strong>社會共融：</strong>透過定點導賞，實踐連結青少年與長者的社區服務。</li>
+            </ul>
+            <div class="tag-group">
+                <span class="tag">體驗式學習</span>
+                <span class="tag tag-blue">PERMA 教學法</span>
+                <span class="tag">社會共融</span>
             </div>
         </div>
 
-        <!-- WhatsApp 2 -->
-        <div class="contact-card">
-            <div class="icon">💬</div>
-            <div class="info">
-                <div class="label">WhatsApp 專線 2</div>
-                <div class="value"><a href="https://wa.me/85255248338" target="_blank" rel="noopener">+852 5524 8338</a></div>
-            </div>
-        </div>
-
-        <!-- 電郵 -->
-        <div class="contact-card">
-            <div class="icon">✉️</div>
-            <div class="info">
-                <div class="label">電郵</div>
-                <div class="value"><a href="mailto:info@sunstarcreation.com">info@sunstarcreation.com</a></div>
-            </div>
-        </div>
-
-        <!-- 地址 -->
-        <div class="contact-card">
-            <div class="icon">📍</div>
-            <div class="info">
-                <div class="label">地址</div>
-                <div class="value">香港九龍觀塘興業街 4 號<br>THE WAVE 8 樓 801 室</div>
+        <div class="card">
+            <div class="card-icon">🎯</div>
+            <h3>核心 <span class="highlight">目標與價值</span></h3>
+            <p><strong>連結知識與情感：</strong></p>
+            <ul>
+                <li><strong>Fact &amp; Connection：</strong>將複雜學術內容轉化為生動導賞辭。</li>
+                <li><strong>成就感：</strong>經歷「試講—修正—再試」的循環，達成獨立導賞。</li>
+                <li><strong>使命感：</strong>以「社區服務大使」身份，深入探索地方故事與保育理念。</li>
+            </ul>
+            <div class="tag-group">
+                <span class="tag">知識轉化</span>
+                <span class="tag tag-blue">成就感</span>
+                <span class="tag">使命感</span>
             </div>
         </div>
     </div>
 
-    <!-- WhatsApp 快速按鈕 -->
-    <div style="display: flex; justify-content: center; width: 100%;">
-        <a href="https://wa.me/85255777252" class="whatsapp-btn" target="_blank" rel="noopener">
-            💬 立即 WhatsApp 查詢
-        </a>
-    </div>
-
-    <!-- 認證標章 -->
-    <div class="badge-area">
-        <span class="badge">🏅 商界展關懷認證企業</span>
+    <!-- 額外資訊 -->
+    <div class="info-box">
+        <span class="emoji-big">🌟</span>
+        <p><strong>計劃適合對象：</strong>中學及大專院校學生 ｜ <strong>培訓時長：</strong>8 至 12 週 ｜ <strong>證書認可：</strong>完成培訓可獲社區大使證書</p>
     </div>
 </section>
 
