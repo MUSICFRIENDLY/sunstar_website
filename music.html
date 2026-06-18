@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Sunstar Creation | 音樂活動</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -12,31 +12,234 @@
             --accent-orange: #e67e22;
             --light-bg: #f9f9f9;
         }
-        * { box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Noto Sans TC', sans-serif; margin: 0; color: #333; line-height: 1.8; background: #fff; }
-        nav { 
-            position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.98); 
-            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000;
+        * { box-sizing: border-box; scroll-behavior: smooth; margin: 0; padding: 0; }
+        body {
+            font-family: 'Noto Sans TC', 'PingFang TC', 'Helvetica Neue', sans-serif;
+            color: #333;
+            line-height: 1.7;
+            background: #fff;
+            padding-top: 64px;
         }
-        nav .brand { font-size: 1.5rem; font-weight: bold; color: var(--secondary-blue); letter-spacing: 1px; }
-        nav .links a { text-decoration: none; color: #555; margin-left: 20px; font-weight: 500; transition: 0.3s; }
+
+        /* ===== NAV 手機優先 ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(6px);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            z-index: 1000;
+            min-height: 64px;
+        }
+        nav .brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary-blue);
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+        nav .brand span { color: var(--primary-gold); }
+
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 8px 4px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: var(--secondary-blue);
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+
+        nav .links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 64px;
+            left: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(6px);
+            padding: 16px 24px 28px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            border-top: 1px solid #eee;
+            gap: 4px;
+        }
+        nav .links.open { display: flex; }
+        nav .links a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            font-size: 1.05rem;
+            padding: 12px 8px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: 0.2s;
+            display: block;
+            width: 100%;
+        }
+        nav .links a:active { background: #f0f0f0; border-radius: 6px; }
         nav .links a:hover { color: var(--primary-gold); }
-        section { padding: 100px 10% 80px; }
-        h2 { text-align: center; font-size: 2.2rem; color: var(--secondary-blue); margin-bottom: 50px; position: relative; }
-        h2::after { content: ''; width: 50px; height: 3px; background: var(--primary-gold); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); }
-        .card h3 { color: var(--accent-orange); margin-top: 0; }
-        .card small { display: block; margin-top: 12px; color: #7f8c8d; font-size: 0.85rem; border-top: 1px dashed #eee; padding-top: 8px; }
-        footer { background: var(--secondary-blue); color: white; padding: 50px 10%; text-align: center; }
+
+        /* ===== 內容區塊 ===== */
+        section {
+            padding: 40px 16px 48px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 1.6rem;
+            color: var(--secondary-blue);
+            margin-bottom: 28px;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            width: 44px;
+            height: 3px;
+            background: var(--primary-gold);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* ===== 卡片 ===== */
+        .grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 18px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            transition: 0.3s;
+            width: 100%;
+        }
+        .card:active { transform: scale(0.99); }
+        .card h3 {
+            color: var(--accent-orange);
+            font-size: 1.1rem;
+            margin-top: 0;
+            margin-bottom: 6px;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #555;
+            margin: 0 0 4px 0;
+        }
+        .card small {
+            display: block;
+            margin-top: 10px;
+            color: #7f8c8d;
+            font-size: 0.8rem;
+            border-top: 1px dashed #eee;
+            padding-top: 8px;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background: var(--secondary-blue);
+            color: rgba(255,255,255,0.8);
+            padding: 32px 20px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        footer p { margin: 4px 0; }
+
+        /* ===== 平板/桌機 ===== */
+        @media (min-width: 768px) {
+            body { padding-top: 72px; }
+
+            nav {
+                padding: 16px 5%;
+                min-height: 72px;
+            }
+            nav .brand { font-size: 1.6rem; }
+
+            .menu-toggle { display: none; }
+
+            nav .links {
+                display: flex !important;
+                flex-direction: row;
+                position: static;
+                background: transparent;
+                backdrop-filter: none;
+                padding: 0;
+                box-shadow: none;
+                border-top: none;
+                width: auto;
+                gap: 4px;
+            }
+            nav .links a {
+                padding: 8px 16px;
+                border-bottom: none;
+                font-size: 0.95rem;
+                white-space: nowrap;
+                display: inline-block;
+                width: auto;
+            }
+            nav .links a:hover {
+                background: rgba(212, 175, 55, 0.08);
+                border-radius: 6px;
+            }
+
+            section {
+                padding: 60px 8% 80px;
+            }
+            h2 { font-size: 2rem; }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+                flex-direction: row;
+            }
+            .card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            }
+            .card:hover { transform: translateY(-6px); }
+            .card {
+                padding: 28px 24px;
+            }
+            .card h3 { font-size: 1.2rem; }
+        }
+
+        @media (min-width: 1024px) {
+            section { padding: 80px 10%; }
+            .grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+        }
     </style>
 </head>
 <body>
+
+<!-- ===== NAV ===== -->
 <nav>
-    <div class="brand">SUNSTAR CREATION</div>
-    <div class="links">
+    <div class="brand">SUNSTAR <span>CREATION</span></div>
+    <button class="menu-toggle" id="menuToggle" aria-label="選單">
+        <span></span><span></span><span></span>
+    </button>
+    <div class="links" id="navLinks">
         <a href="home.html">Home</a>
         <a href="culture.html">中華文化</a>
         <a href="music.html">音樂活動</a>
@@ -46,20 +249,65 @@
     </div>
 </nav>
 
+<!-- ===== 主要內容 ===== -->
 <section id="music">
     <h2>音樂活動</h2>
     <div class="grid">
-        <div class="card"><h3>學生樂器探索方案</h3><p>讓學生真正接觸樂器，透過親身試玩 8 至 20 種專業樂器，協助學生找到「第一件樂器」。</p><small>深度體驗 | 專業評估 | 正向啟蒙</small></div>
-        <div class="card"><h3>西方管弦樂器課程 / 中樂課程</h3><p>由零基礎到專業的系統化教學，掌握基本演奏與讀譜分析能力，建立基本合奏能力獲得自信，建立穩固的音樂根基。</p><small>三年進階大綱 | 趣味教學法 | 專業支援</small></div>
-        <div class="card"><h3>合奏團隊訓練</h3><p>透過系統化的管弦樂器教學，讓學生在合奏與練習中發掘潛能。</p><small>專業指導與啟蒙 | 強化團隊與合奏 | 提升舞臺表現力</small></div>
-        <div class="card"><h3>長幼共融生命計劃</h3><p>結合音樂演奏與生命教育，透過跨代交流活動，培養學生的同理心與社會責任感。</p><small>Drum Fitness鼓動樂 | 職業生涯規劃 | 跨學科整合</small></div>
-        <div class="card"><h3>幼兒音樂教師培訓</h3><p>賦予非音樂專業教師一套實用教學思維，將音樂巧妙轉化為幼兒園最受歡迎的日常特色活動。</p><small>實戰操作 | 模擬互動 | 校本定制方案</small></div>
+        <div class="card">
+            <h3>🎵 學生樂器探索方案</h3>
+            <p>讓學生真正接觸樂器，透過親身試玩 8 至 20 種專業樂器，協助學生找到「第一件樂器」。</p>
+            <small>深度體驗 ｜ 專業評估 ｜ 正向啟蒙</small>
+        </div>
+        <div class="card">
+            <h3>🎻 西方管弦樂器課程 / 中樂課程</h3>
+            <p>由零基礎到專業的系統化教學，掌握基本演奏與讀譜分析能力，建立基本合奏能力獲得自信，建立穩固的音樂根基。</p>
+            <small>三年進階大綱 ｜ 趣味教學法 ｜ 專業支援</small>
+        </div>
+        <div class="card">
+            <h3>🎼 合奏團隊訓練</h3>
+            <p>透過系統化的管弦樂器教學，讓學生在合奏與練習中發掘潛能。</p>
+            <small>專業指導與啟蒙 ｜ 強化團隊與合奏 ｜ 提升舞臺表現力</small>
+        </div>
+        <div class="card">
+            <h3>🤝 長幼共融生命計劃</h3>
+            <p>結合音樂演奏與生命教育，透過跨代交流活動，培養學生的同理心與社會責任感。</p>
+            <small>Drum Fitness鼓動樂 ｜ 職業生涯規劃 ｜ 跨學科整合</small>
+        </div>
+        <div class="card">
+            <h3>🧑‍🏫 幼兒音樂教師培訓</h3>
+            <p>賦予非音樂專業教師一套實用教學思維，將音樂巧妙轉化為幼兒園最受歡迎的日常特色活動。</p>
+            <small>實戰操作 ｜ 模擬互動 ｜ 校本定制方案</small>
+        </div>
     </div>
 </section>
 
+<!-- ===== FOOTER ===== -->
 <footer>
     <p>聯絡 WhatsApp: +852 5577 7252 / +852 5524 8338</p>
     <p>&copy; 2026 Sunstar Creation Limited.</p>
 </footer>
+
+<!-- ===== 手機選單 ===== -->
+<script>
+    (function() {
+        const toggle = document.getElementById('menuToggle');
+        const links = document.getElementById('navLinks');
+        if (toggle && links) {
+            toggle.addEventListener('click', function() {
+                const isOpen = links.classList.toggle('open');
+                toggle.classList.toggle('active');
+                toggle.setAttribute('aria-expanded', isOpen);
+            });
+            links.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    links.classList.remove('open');
+                    toggle.classList.remove('active');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+    })();
+</script>
+
 </body>
 </html>
