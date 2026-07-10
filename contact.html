@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Sunstar Creation | 聯絡我們</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-gold: #d4af37;
-            --secondary-blue: #2c3e50;
-            --accent-orange: #e67e22;
+            --primary-blue: #15345E;
+            --primary-gray: #727171;
             --light-bg: #f9f9f9;
         }
         * { box-sizing: border-box; scroll-behavior: smooth; margin: 0; padding: 0; }
@@ -21,7 +21,7 @@
             padding-top: 64px;
         }
 
-        /* ===== NAV 手機優先 ===== */
+        /* ===== NAV ===== */
         nav {
             position: fixed;
             top: 0;
@@ -38,13 +38,19 @@
             min-height: 64px;
         }
         nav .brand {
-            font-size: 1.2rem;
+            font-size: 0.95rem;
             font-weight: 700;
-            color: var(--secondary-blue);
-            letter-spacing: 1px;
+            color: #000;
+            letter-spacing: 1.5px;
             white-space: nowrap;
+            line-height: 1.2;
+            text-align: left;
         }
-        nav .brand span { color: var(--primary-gold); }
+        nav .brand .brand-top,
+        nav .brand .brand-bottom {
+            display: block;
+            font-size: 1rem;
+        }
 
         .menu-toggle {
             display: flex;
@@ -60,7 +66,7 @@
             display: block;
             width: 28px;
             height: 3px;
-            background: var(--secondary-blue);
+            background: var(--primary-blue);
             border-radius: 4px;
             transition: 0.3s;
         }
@@ -95,7 +101,7 @@
             width: 100%;
         }
         nav .links a:active { background: #f0f0f0; border-radius: 6px; }
-        nav .links a:hover { color: var(--primary-gold); }
+        nav .links a:hover { color: var(--primary-gray); }
 
         /* ===== 內容區塊 ===== */
         section {
@@ -112,15 +118,15 @@
         h2 {
             text-align: center;
             font-size: 1.6rem;
-            color: var(--secondary-blue);
-            margin-bottom: 16px;
+            color: var(--primary-blue);
+            margin-bottom: 28px;
             position: relative;
         }
         h2::after {
             content: '';
             width: 44px;
             height: 3px;
-            background: var(--primary-gold);
+            background: var(--primary-gray);
             position: absolute;
             bottom: -10px;
             left: 50%;
@@ -152,6 +158,7 @@
             padding: 18px 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border: 1px solid #eee;
+            border-left: 4px solid var(--primary-blue);
             transition: 0.3s;
             display: flex;
             align-items: center;
@@ -160,32 +167,38 @@
         }
         .contact-card:active { transform: scale(0.99); }
         .contact-card .icon {
-            font-size: 2rem;
+            font-size: 1.5rem;
             flex-shrink: 0;
             width: 48px;
-            text-align: center;
+            height: 48px;
+            background: rgba(21, 52, 94, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
         }
         .contact-card .info {
             flex: 1;
         }
         .contact-card .info .label {
             font-size: 0.75rem;
-            color: #999;
+            color: var(--primary-gray);
             font-weight: 500;
             letter-spacing: 0.5px;
         }
         .contact-card .info .value {
             font-size: 1.05rem;
             font-weight: 600;
-            color: var(--secondary-blue);
+            color: var(--primary-blue);
             word-break: break-word;
         }
         .contact-card .info .value a {
-            color: var(--secondary-blue);
+            color: var(--primary-blue);
             text-decoration: none;
         }
         .contact-card .info .value a:hover {
-            color: var(--primary-gold);
+            color: var(--primary-gray);
         }
 
         /* WhatsApp 按鈕 */
@@ -194,7 +207,7 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background: #25D366;
+            background: var(--primary-blue);
             color: #fff;
             padding: 14px 32px;
             border-radius: 50px;
@@ -209,7 +222,7 @@
         }
         .whatsapp-btn:active {
             transform: scale(0.96);
-            background: #1da85a;
+            background: #0e2a4a;
         }
 
         /* 商界展關懷標章 */
@@ -219,8 +232,8 @@
         }
         .badge-area .badge {
             display: inline-block;
-            background: rgba(212, 175, 55, 0.12);
-            color: var(--accent-orange);
+            background: rgba(21, 52, 94, 0.1);
+            color: var(--primary-blue);
             font-size: 0.8rem;
             font-weight: 600;
             padding: 6px 18px;
@@ -230,13 +243,34 @@
 
         /* ===== Footer ===== */
         footer {
-            background: var(--secondary-blue);
-            color: rgba(255,255,255,0.8);
+            background: var(--primary-blue);
+            color: rgba(255,255,255,0.9);
             padding: 32px 20px;
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
-        footer p { margin: 4px 0; }
+        footer .footer-brand {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        footer .footer-divider {
+            width: 40px;
+            height: 2px;
+            background: rgba(255,255,255,0.4);
+            margin: 14px auto;
+        }
+        footer .footer-contact {
+            margin: 6px 0;
+            font-size: 0.88rem;
+            opacity: 0.85;
+        }
+        footer .footer-copyright {
+            margin-top: 14px;
+            font-size: 0.78rem;
+            opacity: 0.6;
+        }
 
         /* ===== 平板/桌機 ===== */
         @media (min-width: 768px) {
@@ -246,7 +280,9 @@
                 padding: 16px 5%;
                 min-height: 72px;
             }
-            nav .brand { font-size: 1.6rem; }
+            nav .brand { font-size: 1rem; }
+            nav .brand .brand-top,
+            nav .brand .brand-bottom { font-size: 1.1rem; }
 
             .menu-toggle { display: none; }
 
@@ -271,7 +307,7 @@
                 width: auto;
             }
             nav .links a:hover {
-                background: rgba(212, 175, 55, 0.08);
+                background: rgba(114, 113, 113, 0.08);
                 border-radius: 6px;
             }
 
@@ -297,7 +333,11 @@
                 transform: translateY(-4px);
                 box-shadow: 0 8px 25px rgba(0,0,0,0.08);
             }
-            .contact-card .icon { font-size: 2.4rem; }
+            .contact-card .icon {
+                font-size: 1.6rem;
+                width: 52px;
+                height: 52px;
+            }
             .contact-card .info .value { font-size: 1.15rem; }
 
             .whatsapp-btn {
@@ -306,11 +346,15 @@
                 max-width: 450px;
             }
             .whatsapp-btn:hover {
-                background: #1da85a;
+                background: #0e2a4a;
                 transform: translateY(-2px);
             }
 
             .badge-area .badge { font-size: 0.85rem; }
+
+            footer {
+                padding: 40px 10%;
+            }
         }
 
         @media (min-width: 1024px) {
@@ -323,50 +367,53 @@
 
 <!-- ===== NAV ===== -->
 <nav>
-    <div class="brand">SUNSTAR <span>CREATION</span></div>
+    <div class="brand">
+        <span class="brand-top">SUNSTAR</span>
+        <span class="brand-bottom">CREATION</span>
+    </div>
     <button class="menu-toggle" id="menuToggle" aria-label="選單">
         <span></span><span></span><span></span>
     </button>
     <div class="links" id="navLinks">
-        <a href="home.html">Home</a>
-        <a href="culture.html">中華文化</a>
-        <a href="music.html">音樂活動</a>
-        <a href="art.html">校本視藝</a>
-        <a href="tour.html">導賞計劃</a>
+        <a href="home.html">首頁</a>
+        <a href="culture.html">中華文化日</a>
+        <a href="music.html">音樂課程與活動</a>
+        <a href="art.html">校本視藝課程</a>
+        <a href="tour.html">學生社區大使計劃</a>
         <a href="contact.html">聯絡我們</a>
     </div>
 </nav>
 
 <!-- ===== 主要內容 ===== -->
 <section id="contact">
-    <h2>📬 聯絡我們</h2>
+    <h2>聯絡我們</h2>
     <div class="intro-text">
         有任何查詢或合作需求？歡迎透過以下方式與我們聯繫。<br>
         我們會儘快回覆您！
     </div>
 
     <div class="contact-grid">
-        <!-- WhatsApp 1 -->
+        <!-- WhatsApp -->
         <div class="contact-card">
-            <div class="icon">💬</div>
+            <div class="icon"><i class="fab fa-whatsapp"></i></div>
             <div class="info">
-                <div class="label">WhatsApp 專線 1</div>
+                <div class="label">WhatsApp</div>
                 <div class="value"><a href="https://wa.me/85255777252" target="_blank" rel="noopener">+852 5577 7252</a></div>
             </div>
         </div>
 
         <!-- 電郵 -->
         <div class="contact-card">
-            <div class="icon">✉️</div>
+            <div class="icon"><i class="fas fa-envelope"></i></div>
             <div class="info">
                 <div class="label">電郵</div>
-                <div class="value"><a href="mailto:info@sunstarcreation.com">info@sunstarcreation.com</a></div>
+                <div class="value"><a href="mailto:enquiry@sunstarcreation.com">enquiry@sunstarcreation.com</a></div>
             </div>
         </div>
 
         <!-- 地址 -->
         <div class="contact-card">
-            <div class="icon">📍</div>
+            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
             <div class="info">
                 <div class="label">地址</div>
                 <div class="value">香港九龍觀塘興業街 4 號<br>THE WAVE 8 樓 801 室</div>
@@ -377,19 +424,23 @@
     <!-- WhatsApp 快速按鈕 -->
     <div style="display: flex; justify-content: center; width: 100%;">
         <a href="https://wa.me/85255777252" class="whatsapp-btn" target="_blank" rel="noopener">
-            💬 立即 WhatsApp 查詢
+            <i class="fab fa-whatsapp"></i> 立即 WhatsApp 查詢
         </a>
     </div>
 
     <!-- 認證標章 -->
     <div class="badge-area">
-        <span class="badge">🏅 商界展關懷認證企業</span>
+        <span class="badge"><i class="fas fa-award" style="margin-right: 6px;"></i> 商界展關懷認證企業</span>
     </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
 <footer>
-    <p>&copy; 2026 Sunstar Creation Limited.</p>
+    <div class="footer-brand">SUNSTAR CREATION</div>
+    <div class="footer-divider"></div>
+    <div class="footer-contact"><i class="fab fa-whatsapp" style="margin-right: 6px;"></i> WhatsApp: +852 5577 7252</div>
+    <div class="footer-contact"><i class="fas fa-envelope" style="margin-right: 6px;"></i> Email: enquiry@sunstarcreation.com</div>
+    <div class="footer-copyright">&copy; 2026 Sunstar Creation Limited. All rights reserved.</div>
 </footer>
 
 <!-- ===== 手機選單 ===== -->
