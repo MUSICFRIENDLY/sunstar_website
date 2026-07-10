@@ -202,6 +202,12 @@
         }
 
         /* WhatsApp 按鈕 */
+        .btn-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 40px;
+        }
         .whatsapp-btn {
             display: inline-flex;
             align-items: center;
@@ -218,27 +224,10 @@
             border: none;
             width: 100%;
             max-width: 400px;
-            margin: 8px auto 0;
         }
         .whatsapp-btn:active {
             transform: scale(0.96);
             background: #0e2a4a;
-        }
-
-        /* 商界展關懷標章 */
-        .badge-area {
-            text-align: center;
-            margin-top: 24px;
-        }
-        .badge-area .badge {
-            display: inline-block;
-            background: rgba(21, 52, 94, 0.1);
-            color: var(--primary-blue);
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 6px 18px;
-            border-radius: 30px;
-            letter-spacing: 0.5px;
         }
 
         /* ===== Footer ===== */
@@ -340,6 +329,9 @@
             }
             .contact-card .info .value { font-size: 1.15rem; }
 
+            .btn-wrapper {
+                margin-top: 48px;
+            }
             .whatsapp-btn {
                 font-size: 1.1rem;
                 padding: 16px 40px;
@@ -350,8 +342,6 @@
                 transform: translateY(-2px);
             }
 
-            .badge-area .badge { font-size: 0.85rem; }
-
             footer {
                 padding: 40px 10%;
             }
@@ -360,6 +350,9 @@
         @media (min-width: 1024px) {
             section { padding: 80px 10%; }
             .contact-grid { max-width: 800px; }
+            .btn-wrapper {
+                margin-top: 56px;
+            }
         }
     </style>
 </head>
@@ -422,16 +415,12 @@
     </div>
 
     <!-- WhatsApp 快速按鈕 -->
-    <div style="display: flex; justify-content: center; width: 100%;">
+    <div class="btn-wrapper">
         <a href="https://wa.me/85255777252" class="whatsapp-btn" target="_blank" rel="noopener">
             <i class="fab fa-whatsapp"></i> 立即 WhatsApp 查詢
         </a>
     </div>
 
-    <!-- 認證標章 -->
-    <div class="badge-area">
-        <span class="badge"><i class="fas fa-award" style="margin-right: 6px;"></i> 商界展關懷認證企業</span>
-    </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
