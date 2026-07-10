@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Sunstar Creation Limited | Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-gold: #d4af37;
-            --secondary-blue: #2c3e50;
-            --accent-orange: #e67e22;
+            --primary-blue: #15345E;
+            --primary-gray: #727171;
             --light-bg: #f5f5f5;
             --text-dark: #222;
             --shadow: 0 4px 20px rgba(0,0,0,0.08);
@@ -25,10 +25,10 @@
             color: var(--text-dark);
             line-height: 1.7;
             background: #fff;
-            padding-top: 64px; /* 給固定 nav 留空間 */
+            padding-top: 64px;
         }
 
-        /* ===== NAV 手機優先 ===== */
+        /* ===== NAV ===== */
         nav {
             position: fixed;
             top: 0;
@@ -44,14 +44,13 @@
             z-index: 1000;
             min-height: 64px;
         }
-        /* 修改：品牌名字改成上下分行，黑色 */
         nav .brand {
-            font-size: 0.95rem;  /* 調整字體大小適合兩行 */
+            font-size: 0.95rem;
             font-weight: 700;
-            color: #000;  /* 正常黑色 */
+            color: #000;
             letter-spacing: 1.5px;
             white-space: nowrap;
-            line-height: 1.2;  /* 緊湊行距 */
+            line-height: 1.2;
             text-align: left;
         }
         nav .brand .brand-top {
@@ -63,7 +62,6 @@
             font-size: 1rem;
         }
 
-        /* 漢堡按鈕 (手機) */
         .menu-toggle {
             display: flex;
             flex-direction: column;
@@ -78,7 +76,7 @@
             display: block;
             width: 28px;
             height: 3px;
-            background: var(--secondary-blue);
+            background: var(--primary-blue);
             border-radius: 4px;
             transition: 0.3s;
         }
@@ -92,7 +90,6 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
-        /* 導航連結 - 手機預設隱藏 */
         nav .links {
             display: none;
             flex-direction: column;
@@ -126,13 +123,13 @@
             border-radius: 6px;
         }
         nav .links a:hover {
-            color: var(--primary-gold);
+            color: var(--primary-gray);
         }
 
-        /* ===== HERO 修改：純色背景 #15345E ===== */
+        /* ===== HERO ===== */
         .hero {
             min-height: 40vh;
-            background: #15345E;  /* 修改為純色 */
+            background: #15345E;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -140,7 +137,6 @@
             padding: 40px 24px;
             margin-top: 0;
         }
-        /* 修改：所有文字保持白色，不換顏色 */
         .hero-content h1 {
             color: #fff;
             font-size: 2rem;
@@ -148,12 +144,8 @@
             letter-spacing: 2px;
             line-height: 1.3;
         }
-        /* 移除 .gold 金色樣式，改為白色 */
-        .hero-content h1 .highlight {
-            color: #fff;
-        }
         .hero-content p {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.85);
             font-size: 1rem;
             margin-top: 12px;
             max-width: 400px;
@@ -169,7 +161,7 @@
             text-align: center;
             font-size: 1.7rem;
             font-weight: 700;
-            color: var(--secondary-blue);
+            color: var(--primary-blue);
             margin-bottom: 28px;
             position: relative;
         }
@@ -177,7 +169,7 @@
             content: '';
             width: 44px;
             height: 3px;
-            background: var(--primary-gold);
+            background: var(--primary-gray);
             position: absolute;
             bottom: -8px;
             left: 50%;
@@ -193,7 +185,7 @@
             padding: 0 4px;
         }
 
-        /* ===== 卡片式內容 (手機友善) ===== */
+        /* ===== 卡片 ===== */
         .card-grid {
             display: flex;
             flex-direction: column;
@@ -206,11 +198,12 @@
             padding: 24px 20px;
             box-shadow: var(--shadow);
             border: 1px solid #f0f0f0;
+            border-top: 4px solid var(--primary-blue);
             transition: 0.2s;
         }
         .card h3 {
             font-size: 1.2rem;
-            color: var(--secondary-blue);
+            color: var(--primary-blue);
             margin-bottom: 8px;
         }
         .card p {
@@ -220,67 +213,44 @@
         }
         .card .tag {
             display: inline-block;
-            background: var(--primary-gold);
-            color: #fff;
+            background: rgba(21, 52, 94, 0.1);
+            color: var(--primary-blue);
             font-size: 0.75rem;
-            font-weight: 700;
+            font-weight: 600;
             padding: 4px 14px;
             border-radius: 30px;
             letter-spacing: 0.5px;
         }
 
-        /* ===== 聯絡資訊 ===== */
-        .contact-block {
-            background: var(--secondary-blue);
-            color: #fff;
-            padding: 48px 24px;
-            text-align: center;
-            border-radius: 0;
-        }
-        .contact-block h2 {
-            font-size: 1.5rem;
-            color: #fff;
-            margin-bottom: 16px;
-        }
-        .contact-block h2::after {
-            background: var(--primary-gold);
-        }
-        .contact-block p {
-            font-size: 1rem;
-            opacity: 0.9;
-            margin: 6px 0;
-        }
-        .contact-block .whatsapp {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #25D366;
-            color: #fff;
-            padding: 12px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            margin-top: 16px;
-            transition: 0.2s;
-            border: none;
-        }
-        .contact-block .whatsapp:active {
-            transform: scale(0.96);
-            background: #1da85a;
-        }
-
         /* ===== Footer ===== */
         footer {
-            background: #1a2a3a;
-            color: rgba(255,255,255,0.7);
+            background: var(--primary-blue);
+            color: rgba(255,255,255,0.9);
             padding: 32px 20px;
             text-align: center;
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.9rem;
         }
-        footer p {
-            margin: 4px 0;
+        footer .footer-brand {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        footer .footer-divider {
+            width: 40px;
+            height: 2px;
+            background: rgba(255,255,255,0.4);
+            margin: 14px auto;
+        }
+        footer .footer-contact {
+            margin: 6px 0;
+            font-size: 0.88rem;
+            opacity: 0.85;
+        }
+        footer .footer-copyright {
+            margin-top: 14px;
+            font-size: 0.78rem;
+            opacity: 0.6;
         }
 
         /* ===== 平板/桌機 ===== */
@@ -291,7 +261,6 @@
                 padding: 16px 5%;
                 min-height: 72px;
             }
-            /* 桌機版品牌名字也保持兩行黑色 */
             nav .brand {
                 font-size: 1rem;
             }
@@ -323,7 +292,7 @@
                 white-space: nowrap;
             }
             nav .links a:hover {
-                background: rgba(212, 175, 55, 0.08);
+                background: rgba(114, 113, 113, 0.08);
                 border-radius: 6px;
             }
 
@@ -354,14 +323,15 @@
                 flex: 1 1 280px;
                 max-width: 340px;
                 padding: 28px 24px;
+                transition: 0.3s;
+            }
+            .card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 35px rgba(0,0,0,0.08);
             }
 
-            .contact-block {
-                padding: 60px 10%;
-            }
-            .contact-block .whatsapp:hover {
-                background: #1da85a;
-                transform: translateY(-2px);
+            footer {
+                padding: 40px 10%;
             }
         }
 
@@ -376,7 +346,6 @@
 
 <!-- ===== NAV ===== -->
 <nav>
-    <!-- 修改：品牌名字改成上下分行 -->
     <div class="brand">
         <span class="brand-top">SUNSTAR</span>
         <span class="brand-bottom">CREATION</span>
@@ -389,11 +358,11 @@
     </button>
 
     <div class="links" id="navLinks">
-        <a href="home.html">Home</a>
-        <a href="culture.html">中華文化</a>
-        <a href="music.html">音樂活動</a>
-        <a href="art.html">校本視藝</a>
-        <a href="tour.html">導賞計劃</a>
+        <a href="home.html">首頁</a>
+        <a href="culture.html">中華文化日</a>
+        <a href="music.html">音樂課程與活動</a>
+        <a href="art.html">校本視藝課程</a>
+        <a href="tour.html">學生社區大使計劃</a>
         <a href="contact.html">聯絡我們</a>
     </div>
 </nav>
@@ -401,7 +370,6 @@
 <!-- ===== HERO ===== -->
 <section class="hero">
     <div class="hero-content">
-        <!-- 修改：所有文字保持白色 -->
         <h1>點亮校園文化創造無限可能</h1>
         <p>專注於校園文化與藝術方案，連結傳統與創新。</p>
     </div>
@@ -417,22 +385,22 @@
 
     <div class="card-grid">
         <div class="card">
-            <h3>🏫 中華文化</h3>
+            <h3>中華文化</h3>
             <p>從傳統節慶到國學經典，為校園注入深厚的文化底蘊。</p>
             <span class="tag">文化傳承</span>
         </div>
         <div class="card">
-            <h3>🎵 音樂活動</h3>
+            <h3>音樂活動</h3>
             <p>合唱團、中樂團、流行音樂製作，讓音符在校園流動。</p>
             <span class="tag">藝術實踐</span>
         </div>
         <div class="card">
-            <h3>🎨 校本視藝</h3>
+            <h3>校本視藝</h3>
             <p>視覺藝術課程與展覽策劃，啟發學生的創意潛能。</p>
             <span class="tag">美感教育</span>
         </div>
         <div class="card">
-            <h3>🚶 導賞計劃</h3>
+            <h3>導賞計劃</h3>
             <p>歷史文化導賞，帶學生走出課室，體驗在地故事。</p>
             <span class="tag">體驗學習</span>
         </div>
@@ -441,11 +409,14 @@
 
 <!-- ===== FOOTER ===== -->
 <footer>
-    <p>&copy; 2026 Sunstar Creation Limited. All rights reserved.</p>
-    <p style="opacity: 0.6; font-size: 0.75rem;">商界展關懷企業 ｜ 校園文化・藝術方案</p>
+    <div class="footer-brand">SUNSTAR CREATION</div>
+    <div class="footer-divider"></div>
+    <div class="footer-contact"><i class="fab fa-whatsapp" style="margin-right: 6px;"></i> WhatsApp: +852 5577 7252</div>
+    <div class="footer-contact"><i class="fas fa-envelope" style="margin-right: 6px;"></i> Email: enquiry@sunstarcreation.com</div>
+    <div class="footer-copyright">&copy; 2026 Sunstar Creation Limited. All rights reserved.</div>
 </footer>
 
-<!-- ===== 手機選單 Toggle ===== -->
+<!-- ===== 手機選單 ===== -->
 <script>
     (function() {
         const toggle = document.getElementById('menuToggle');
