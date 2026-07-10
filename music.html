@@ -8,13 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-gold: #d4af37;
-            --secondary-blue: #2c3e50;
-            --m-blue: #002d73;
-            --m-cyan: #26cad3;
+            --primary-blue: #15345E;
+            --primary-gray: #727171;
             --m-bg-light: #f8f9fa;
-            --m-text-dark: #333333;
-            --m-text-gray: #444444;
             --shadow: 0 4px 20px rgba(0,0,0,0.06);
             --font-h2: 36px;
             --font-h3: 24px;
@@ -74,7 +70,7 @@
             display: block;
             width: 28px;
             height: 3px;
-            background: var(--secondary-blue);
+            background: var(--primary-blue);
             border-radius: 4px;
             transition: 0.3s;
         }
@@ -109,7 +105,7 @@
             width: 100%;
         }
         nav .links a:active { background: #f0f0f0; border-radius: 6px; }
-        nav .links a:hover { color: var(--primary-gold); }
+        nav .links a:hover { color: var(--primary-gray); }
 
         /* ===== HERO ===== */
         .hero-music {
@@ -145,10 +141,21 @@
 
         .section-title {
             font-size: var(--font-h2);
-            color: var(--m-blue);
+            color: var(--primary-blue);
             font-weight: 800;
             text-align: center;
             margin-bottom: 60px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            width: 44px;
+            height: 3px;
+            background: var(--primary-gray);
+            position: absolute;
+            bottom: -14px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         /* ===== 電腦版：左邊1張 (中西樂器) + 右邊4張 (兩排) ===== */
@@ -179,7 +186,7 @@
             padding: 40px 30px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
             border: 1px solid #eeeeee;
-            border-top: 8px solid var(--m-blue);
+            border-top: 8px solid var(--primary-blue);
             display: flex;
             flex-direction: column;
             transition: all 0.3s ease;
@@ -188,12 +195,12 @@
 
         .standard-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0, 45, 115, 0.15);
+            box-shadow: 0 12px 30px rgba(21, 52, 94, 0.15);
         }
 
         .card-h3 {
             font-size: var(--font-h3);
-            color: var(--m-blue);
+            color: var(--primary-blue);
             font-weight: 800;
             margin-bottom: 25px;
             display: flex;
@@ -204,11 +211,12 @@
 
         .card-h3 i {
             font-size: 45px;
+            color: var(--primary-blue);
         }
 
         .card-p {
             font-size: var(--font-p);
-            color: var(--m-text-gray);
+            color: #555;
             line-height: 1.9;
             margin-bottom: 20px;
             text-align: justify;
@@ -217,7 +225,7 @@
 
         .card-list {
             font-size: 16px;
-            color: var(--m-text-gray);
+            color: #555;
             line-height: 1.8;
             padding-left: 22px;
             margin-top: auto;
@@ -239,19 +247,21 @@
 
         .feature-points li {
             font-size: 17px;
-            color: var(--m-text-gray);
+            color: #555;
             padding-left: 24px;
             position: relative;
             font-weight: 600;
         }
 
         .feature-points li::before {
-            content: "✦";
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--primary-blue);
+            border-radius: 50%;
             position: absolute;
-            left: 0;
-            color: var(--m-cyan);
-            font-weight: 700;
-            font-size: 18px;
+            left: 4px;
+            top: 8px;
         }
 
         .instrument-tag-section {
@@ -263,7 +273,7 @@
         .instrument-tag-section .label {
             font-size: 14px;
             font-weight: 700;
-            color: var(--m-blue);
+            color: var(--primary-blue);
             letter-spacing: 1px;
             margin-bottom: 12px;
             display: block;
@@ -277,7 +287,7 @@
 
         .instrument-tag {
             background: #f0f4f9;
-            color: var(--m-text-gray);
+            color: #555;
             padding: 3px 12px;
             border-radius: 20px;
             font-size: 13px;
@@ -288,9 +298,9 @@
         }
 
         .instrument-tag:hover {
-            background: var(--m-cyan);
+            background: var(--primary-blue);
             color: #fff;
-            border-color: var(--m-cyan);
+            border-color: var(--primary-blue);
             transform: translateY(-2px);
         }
 
@@ -301,61 +311,61 @@
             width: 100%;
         }
 
-        .btn-outline-cyan {
+        .btn-outline {
             display: inline-flex;
             align-items: center;
             justify-content: space-between;
             gap: 12px;
             background: #ffffff !important;
-            border: 2px solid var(--m-cyan);
+            border: 2px solid var(--primary-blue);
             border-radius: 16px;
             width: 100%;
             max-width: 400px;
             padding: 18px 28px;
             font-size: 18px;
             font-weight: 700;
-            color: var(--m-cyan) !important;
+            color: var(--primary-blue) !important;
             text-decoration: none !important;
             transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2), box-shadow 0.3s ease;
-            box-shadow: 0 10px 25px -5px rgba(0, 45, 115, 0.15);
+            box-shadow: 0 10px 25px -5px rgba(21, 52, 94, 0.15);
             cursor: pointer;
             position: relative;
         }
 
-        .btn-outline-cyan:hover,
-        .btn-outline-cyan:focus,
-        .btn-outline-cyan:active,
-        .btn-outline-cyan:visited {
+        .btn-outline:hover,
+        .btn-outline:focus,
+        .btn-outline:active,
+        .btn-outline:visited {
             text-decoration: none !important;
-            color: var(--m-cyan) !important;
+            color: var(--primary-blue) !important;
         }
 
-        .btn-outline-cyan:hover {
+        .btn-outline:hover {
             transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 20px 30px -8px rgba(38, 202, 211, 0.3);
-            border-color: var(--m-cyan);
+            box-shadow: 0 20px 30px -8px rgba(21, 52, 94, 0.25);
+            border-color: var(--primary-blue);
         }
 
-        .btn-outline-cyan .btn-icon {
+        .btn-outline .btn-icon {
             font-size: 1.8rem;
-            color: var(--m-cyan);
+            color: var(--primary-blue);
             transition: all 0.3s ease;
             flex-shrink: 0;
             width: 40px;
             text-align: center;
         }
 
-        .btn-outline-cyan .btn-text {
+        .btn-outline .btn-text {
             flex: 1;
             text-align: center;
             padding: 0 4px;
         }
 
-        .btn-outline-cyan .btn-arrow {
+        .btn-outline .btn-arrow {
             font-size: 1.3rem;
             opacity: 0.8;
             transition: all 0.3s ease;
-            background: rgba(38, 202, 211, 0.1);
+            background: rgba(21, 52, 94, 0.1);
             width: 44px;
             height: 44px;
             display: flex;
@@ -363,16 +373,17 @@
             justify-content: center;
             border-radius: 50%;
             flex-shrink: 0;
+            color: var(--primary-blue);
         }
 
-        .btn-outline-cyan:hover .btn-icon {
+        .btn-outline:hover .btn-icon {
             transform: scale(1.1) rotate(5deg);
         }
 
-        .btn-outline-cyan:hover .btn-arrow {
+        .btn-outline:hover .btn-arrow {
             opacity: 1;
             transform: translateX(5px);
-            background: rgba(38, 202, 211, 0.2);
+            background: rgba(21, 52, 94, 0.2);
         }
 
         /* ===== 手機顯示 ===== */
@@ -396,7 +407,7 @@
 
         /* ===== Footer ===== */
         footer {
-            background: var(--secondary-blue);
+            background: var(--primary-blue);
             color: rgba(255,255,255,0.9);
             padding: 32px 20px;
             text-align: center;
@@ -411,7 +422,7 @@
         footer .footer-divider {
             width: 40px;
             height: 2px;
-            background: var(--primary-gold);
+            background: rgba(255,255,255,0.4);
             margin: 14px auto;
         }
         footer .footer-contact {
@@ -460,7 +471,7 @@
                 width: auto;
             }
             nav .links a:hover {
-                background: rgba(212, 175, 55, 0.08);
+                background: rgba(114, 113, 113, 0.08);
                 border-radius: 6px;
             }
 
@@ -519,18 +530,18 @@
                 margin-bottom: 40px;
             }
 
-            .btn-outline-cyan {
+            .btn-outline {
                 font-size: 16px;
                 padding: 14px 20px;
                 max-width: 100%;
             }
 
-            .btn-outline-cyan .btn-icon {
+            .btn-outline .btn-icon {
                 font-size: 1.5rem;
                 width: 34px;
             }
 
-            .btn-outline-cyan .btn-arrow {
+            .btn-outline .btn-arrow {
                 width: 38px;
                 height: 38px;
                 font-size: 1.1rem;
@@ -576,19 +587,19 @@
                 margin-bottom: 30px;
             }
 
-            .btn-outline-cyan {
+            .btn-outline {
                 font-size: 15px;
                 padding: 12px 16px;
                 max-width: 100%;
                 gap: 8px;
             }
 
-            .btn-outline-cyan .btn-icon {
+            .btn-outline .btn-icon {
                 font-size: 1.3rem;
                 width: 30px;
             }
 
-            .btn-outline-cyan .btn-arrow {
+            .btn-outline .btn-arrow {
                 width: 34px;
                 height: 34px;
                 font-size: 1rem;
@@ -626,8 +637,8 @@
         <a href="home.html">首頁</a>
         <a href="culture.html">中華文化日</a>
         <a href="music.html">音樂課程與活動</a>
-        <a href="art.html">校本視藝</a>
-        <a href="tour.html">導賞計劃</a>
+        <a href="art.html">校本視藝課程</a>
+        <a href="tour.html">學生社區大使計劃</a>
         <a href="contact.html">聯絡我們</a>
     </div>
 </nav>
@@ -654,18 +665,15 @@
                     <h3 class="card-h3"><i class="fas fa-music"></i>中西樂器課程</h3>
                     <p class="card-p">由零基礎到專業的系統化教學，帶領學生掌握基本演奏與讀譜技巧，建立基本合奏能力獲得自信，長遠奠定穩固的音樂根基。</p>
 
-                    <!-- 三點特色 -->
                     <ul class="feature-points">
                         <li>三年進階大綱</li>
                         <li>趣味教學法</li>
                         <li>專業支援</li>
                     </ul>
 
-                    <!-- 樂器列表區域 -->
                     <div class="instrument-tag-section">
                         <span class="label"><i class="fas fa-drumstick-bite" style="margin-right: 6px;"></i> 我們舉辦的樂器班</span>
                         <div class="instrument-tags">
-                            <!-- 管弦樂器 -->
                             <span class="instrument-tag">小提琴</span>
                             <span class="instrument-tag">中提琴</span>
                             <span class="instrument-tag">大提琴</span>
@@ -681,7 +689,6 @@
                             <span class="instrument-tag">次中音號</span>
                             <span class="instrument-tag">圓號</span>
                             <span class="instrument-tag">敲擊樂器</span>
-                            <!-- 中國樂器 -->
                             <span class="instrument-tag">笛子</span>
                             <span class="instrument-tag">琵琶</span>
                             <span class="instrument-tag">中阮</span>
@@ -689,7 +696,6 @@
                             <span class="instrument-tag">二胡</span>
                             <span class="instrument-tag">揚琴</span>
                             <span class="instrument-tag">中式敲擊</span>
-                            <!-- 流行及民族樂器 -->
                             <span class="instrument-tag">鍵盤</span>
                             <span class="instrument-tag">民歌結他</span>
                             <span class="instrument-tag">電子結他</span>
@@ -705,7 +711,7 @@
                 </div>
 
                 <div class="btn-wrapper">
-                    <a href="https://wa.me/85255777252" target="_blank" class="btn-outline-cyan">
+                    <a href="https://wa.me/85255777252" target="_blank" class="btn-outline">
                         <span class="btn-icon"><i class="fab fa-whatsapp"></i></span>
                         <span class="btn-text">預約課程諮詢</span>
                         <span class="btn-arrow"><i class="fas fa-chevron-right"></i></span>
@@ -758,7 +764,7 @@
         </div>
 
         <!-- ========================================= -->
-        <!-- 手機版佈局：中西樂器+按鈕在最上面，其餘4張在下方 -->
+        <!-- 手機版佈局 -->
         <!-- ========================================= -->
         <div class="card-layout-mobile">
 
@@ -813,7 +819,7 @@
                 </div>
 
                 <div class="btn-wrapper">
-                    <a href="https://wa.me/85255777252" target="_blank" class="btn-outline-cyan">
+                    <a href="https://wa.me/85255777252" target="_blank" class="btn-outline">
                         <span class="btn-icon"><i class="fab fa-whatsapp"></i></span>
                         <span class="btn-text">預約課程諮詢</span>
                         <span class="btn-arrow"><i class="fas fa-chevron-right"></i></span>
@@ -871,8 +877,8 @@
 <footer>
     <div class="footer-brand">SUNSTAR CREATION</div>
     <div class="footer-divider"></div>
-    <div class="footer-contact">📞 電話：+852 5577 7252</div>
-    <div class="footer-contact">✉️ 電郵：info@sunstarcreation.com</div>
+    <div class="footer-contact"><i class="fab fa-whatsapp" style="margin-right: 6px;"></i> WhatsApp: +852 5577 7252</div>
+    <div class="footer-contact"><i class="fas fa-envelope" style="margin-right: 6px;"></i> Email: enquiry@sunstarcreation.com</div>
     <div class="footer-copyright">&copy; 2026 Sunstar Creation Limited. All rights reserved.</div>
 </footer>
 
