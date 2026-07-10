@@ -9,7 +9,6 @@
         :root {
             --primary-gold: #d4af37;
             --secondary-blue: #2c3e50;
-            --accent-orange: #e67e22;
             --light-bg: #f7f3ee;
             --shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
@@ -22,7 +21,7 @@
             padding-top: 64px;
         }
 
-        /* ===== NAV 手機優先 ===== */
+        /* ===== NAV ===== */
         nav {
             position: fixed;
             top: 0;
@@ -39,13 +38,19 @@
             min-height: 64px;
         }
         nav .brand {
-            font-size: 1.2rem;
+            font-size: 0.95rem;
             font-weight: 700;
-            color: var(--secondary-blue);
-            letter-spacing: 1px;
+            color: #000;
+            letter-spacing: 1.5px;
             white-space: nowrap;
+            line-height: 1.2;
+            text-align: left;
         }
-        nav .brand span { color: var(--primary-gold); }
+        nav .brand .brand-top,
+        nav .brand .brand-bottom {
+            display: block;
+            font-size: 1rem;
+        }
 
         .menu-toggle {
             display: flex;
@@ -98,46 +103,23 @@
         nav .links a:active { background: #f0f0f0; border-radius: 6px; }
         nav .links a:hover { color: var(--primary-gold); }
 
-        /* ===== HERO 橫幅 ===== */
+        /* ===== HERO ===== */
         .hero-art {
-            background: linear-gradient(145deg, #2c1810 0%, #4a2c1e 50%, #2c3e50 100%);
+            background: #15345E;
             padding: 40px 20px 36px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-art::before {
-            content: '🎨';
-            position: absolute;
-            right: -10px;
-            top: -10px;
-            font-size: 120px;
-            opacity: 0.08;
-        }
-        .hero-art::after {
-            content: '🖌️';
-            position: absolute;
-            left: -10px;
-            bottom: -10px;
-            font-size: 100px;
-            opacity: 0.06;
         }
         .hero-art h1 {
             color: #fff;
             font-size: 1.7rem;
             font-weight: 700;
             letter-spacing: 2px;
-            position: relative;
-            z-index: 1;
         }
-        .hero-art h1 .gold { color: var(--primary-gold); }
         .hero-art p {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.85);
             font-size: 1rem;
             max-width: 550px;
             margin: 12px auto 0;
-            position: relative;
-            z-index: 1;
             line-height: 1.8;
         }
 
@@ -153,7 +135,7 @@
             text-align: center;
             font-size: 1.5rem;
             color: var(--secondary-blue);
-            margin-bottom: 12px;
+            margin-bottom: 28px;
             position: relative;
         }
         .section-title::after {
@@ -165,16 +147,6 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-        }
-
-        .intro-text {
-            text-align: center;
-            font-size: 0.98rem;
-            max-width: 650px;
-            margin: 20px auto 28px;
-            color: #555;
-            padding: 0 4px;
-            line-height: 1.8;
         }
 
         /* ===== 卡片 ===== */
@@ -217,15 +189,11 @@
             margin-top: 0;
             margin-bottom: 6px;
         }
-        .card h3 .highlight {
-            color: var(--accent-orange);
-        }
         .card p {
             font-size: 0.95rem;
             color: #555;
             margin: 0 0 6px 0;
         }
-        .card p strong { color: #333; }
         .card ul {
             margin: 6px 0 0 0;
             padding-left: 0;
@@ -244,35 +212,6 @@
             font-weight: 700;
             position: absolute;
             left: 0;
-        }
-        .card ul li strong {
-            color: #333;
-        }
-
-        /* 標籤 */
-        .tag-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 12px;
-        }
-        .tag {
-            display: inline-block;
-            background: rgba(212, 175, 55, 0.12);
-            color: var(--accent-orange);
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 3px 14px;
-            border-radius: 30px;
-            letter-spacing: 0.3px;
-        }
-        .tag-blue {
-            background: rgba(44, 62, 80, 0.08);
-            color: var(--secondary-blue);
-        }
-        .tag-green {
-            background: rgba(39, 174, 96, 0.10);
-            color: #27ae60;
         }
 
         /* ===== 課程形式 ===== */
@@ -308,19 +247,40 @@
             padding: 4px 16px;
             border-radius: 30px;
             font-size: 0.85rem;
-            color: var(--accent-orange);
-            font-weight: 500;
+            color: #555;
+            font-weight: 400;
         }
 
         /* ===== Footer ===== */
         footer {
             background: var(--secondary-blue);
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.9);
             padding: 32px 20px;
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
-        footer p { margin: 4px 0; }
+        footer .footer-brand {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        footer .footer-divider {
+            width: 40px;
+            height: 2px;
+            background: var(--primary-gold);
+            margin: 14px auto;
+        }
+        footer .footer-contact {
+            margin: 6px 0;
+            font-size: 0.88rem;
+            opacity: 0.85;
+        }
+        footer .footer-copyright {
+            margin-top: 14px;
+            font-size: 0.78rem;
+            opacity: 0.6;
+        }
 
         /* ===== 平板/桌機 ===== */
         @media (min-width: 768px) {
@@ -330,7 +290,9 @@
                 padding: 16px 5%;
                 min-height: 72px;
             }
-            nav .brand { font-size: 1.6rem; }
+            nav .brand { font-size: 1rem; }
+            nav .brand .brand-top,
+            nav .brand .brand-bottom { font-size: 1.1rem; }
 
             .menu-toggle { display: none; }
 
@@ -369,30 +331,15 @@
                 font-size: 1.1rem;
                 max-width: 650px;
             }
-            .hero-art::before {
-                font-size: 180px;
-                right: -20px;
-                top: -20px;
-            }
-            .hero-art::after {
-                font-size: 150px;
-                left: -20px;
-                bottom: -20px;
-            }
 
             section {
                 padding: 60px 8% 80px;
             }
             .section-title { font-size: 2rem; }
 
-            .intro-text {
-                font-size: 1.05rem;
-                margin-bottom: 40px;
-            }
-
             .grid {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
                 gap: 30px;
                 flex-direction: row;
             }
@@ -413,12 +360,15 @@
             }
             .info-box .emoji-big { font-size: 2.6rem; }
             .info-box .formats span { font-size: 0.9rem; }
+
+            footer {
+                padding: 40px 10%;
+            }
         }
 
         @media (min-width: 1024px) {
             .hero-art h1 { font-size: 3rem; }
             section { padding: 80px 10%; }
-            .grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -426,118 +376,101 @@
 
 <!-- ===== NAV ===== -->
 <nav>
-    <div class="brand">SUNSTAR <span>CREATION</span></div>
+    <div class="brand">
+        <span class="brand-top">SUNSTAR</span>
+        <span class="brand-bottom">CREATION</span>
+    </div>
     <button class="menu-toggle" id="menuToggle" aria-label="選單">
         <span></span><span></span><span></span>
     </button>
     <div class="links" id="navLinks">
-        <a href="home.html">Home</a>
-        <a href="culture.html">中華文化</a>
-        <a href="music.html">音樂活動</a>
-        <a href="art.html">校本視藝</a>
-        <a href="tour.html">導賞計劃</a>
+        <a href="home.html">首頁</a>
+        <a href="culture.html">中華文化日</a>
+        <a href="music.html">音樂課程與活動</a>
+        <a href="art.html">校本視藝課程</a>
+        <a href="tour.html">學生社區大使計劃</a>
         <a href="contact.html">聯絡我們</a>
     </div>
 </nav>
 
-<!-- ===== HERO 橫幅 ===== -->
+<!-- ===== HERO ===== -->
 <div class="hero-art">
-    <h1>🎨 校本 <span class="gold">視藝課程</span> 方案</h1>
+    <h1>校本視藝課程方案</h1>
     <p>體驗式藝術教學，強調成品導向，由專業導師親自授課。<br>課程彈性大，可配合校本主題靈活安排。</p>
 </div>
 
 <!-- ===== 主要內容 ===== -->
 <section id="art">
     <h2 class="section-title">課程特色</h2>
-    <div class="intro-text">
-        四大主題課程，涵蓋傳統工藝、現代創作與立體藝術，<br>
-        讓學生在多元媒材中發掘藝術潛能。
-    </div>
 
     <div class="grid">
         <!-- 彩虹書法 -->
         <div class="card">
             <div class="card-icon">🌈</div>
-            <h3>彩虹 <span class="highlight">書法體驗</span></h3>
-            <p><strong>傳統與現代碰撞：</strong>結合傳統書法技法與現代色彩運用，透過融入動物、植物圖案，將漢字轉化為藝術作品。</p>
+            <h3>彩虹書法體驗</h3>
+            <p>傳統與現代碰撞：結合傳統書法技法與現代色彩運用，透過融入動物、植物圖案，將漢字轉化為藝術作品。</p>
             <ul>
-                <li><strong>導師示範</strong>與實作教學</li>
-                <li>完成「圓形」與「扇形」兩款創意成品</li>
+                <li>導師示範與實作教學</li>
+                <li>完成圓形與扇形兩款創意成品</li>
             </ul>
-            <div class="tag-group">
-                <span class="tag">傳統書法</span>
-                <span class="tag tag-blue">色彩運用</span>
-                <span class="tag">創意轉化</span>
-            </div>
         </div>
 
         <!-- 流動色彩 -->
         <div class="card">
             <div class="card-icon">🌊</div>
-            <h3>流動 <span class="highlight">色彩創作</span></h3>
-            <p><strong>探索自由律動：</strong>使用專用流體顏料，建立色彩感與自由度，讓學生在色彩碰撞中感受創作快樂。</p>
+            <h3>流動色彩創作</h3>
+            <p>探索自由律動：使用專用流體顏料，建立色彩感與自由度，讓學生在色彩碰撞中感受創作快樂。</p>
             <ul>
-                <li>製作圓形 <strong>流體畫</strong></li>
-                <li>創作立體 <strong>流體雕塑</strong>（如動物造型）</li>
+                <li>製作圓形流體畫</li>
+                <li>創作立體流體雕塑（如動物造型）</li>
             </ul>
-            <div class="tag-group">
-                <span class="tag">流體藝術</span>
-                <span class="tag tag-green">自由創作</span>
-                <span class="tag tag-blue">立體造型</span>
-            </div>
         </div>
 
         <!-- 軟陶與光影 -->
         <div class="card">
             <div class="card-icon">🧱</div>
-            <h3>軟陶與 <span class="highlight">光影立體創作</span></h3>
-            <p><strong>觸感與空間：</strong>透過塑形、揉色技巧，訓練精細動作與立體思維。</p>
+            <h3>軟陶與光影立體創作</h3>
+            <p>觸感與空間：透過塑形、揉色技巧，訓練精細動作與立體思維。</p>
             <ul>
-                <li><strong>軟陶拼貼</strong>藝術</li>
-                <li><strong>光影立體</strong>裝置創作</li>
+                <li>軟陶拼貼藝術</li>
+                <li>光影立體裝置創作</li>
             </ul>
-            <div class="tag-group">
-                <span class="tag">軟陶工藝</span>
-                <span class="tag tag-blue">立體思維</span>
-                <span class="tag">光影裝置</span>
-            </div>
         </div>
 
         <!-- 進階創作班 -->
         <div class="card">
             <div class="card-icon">✨</div>
-            <h3>進階 <span class="highlight">多元工藝班</span></h3>
-            <p><strong>深化創作技巧：</strong>適合對藝術有更高追求的拔尖班或興趣班。</p>
+            <h3>進階多元工藝班</h3>
+            <p>深化創作技巧：適合對藝術有更高追求的拔尖班或興趣班。</p>
             <ul>
-                <li><strong>拓染布藝：</strong>結合自然元素</li>
-                <li><strong>羊毛氈：</strong>製作精緻玩偶飾品</li>
-                <li><strong>3D 創作筆：</strong>突破平面空間限制</li>
+                <li>拓染布藝：結合自然元素</li>
+                <li>羊毛氈：製作精緻玩偶飾品</li>
+                <li>3D 創作筆：突破平面空間限制</li>
             </ul>
-            <div class="tag-group">
-                <span class="tag">拔尖課程</span>
-                <span class="tag tag-green">多元媒材</span>
-                <span class="tag tag-blue">深度創作</span>
-            </div>
         </div>
     </div>
 
     <!-- 課程形式 -->
     <div class="info-box">
         <span class="emoji-big">📋</span>
-        <p><strong>課程形式靈活多變</strong></p>
+        <p>課程形式靈活多變</p>
         <div class="formats">
-            <span>🏫 常規課</span>
-            <span>📖 專題課</span>
-            <span>🎯 興趣班</span>
-            <span>⭐ 拔尖課程</span>
-            <span>🎪 課外活動</span>
+            <span>常規課</span>
+            <span>專題課</span>
+            <span>興趣班</span>
+            <span>拔尖課程</span>
+            <span>課外活動</span>
         </div>
     </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
 <footer>
-    <p>&copy; 2026 Sunstar Creation Limited.</p>
+    <div class="footer-brand">SUNSTAR CREATION</div>
+    <div class="footer-divider"></div>
+    <div class="footer-contact">📞 電話：+852 1234 5678</div>
+    <div class="footer-contact">✉️ 電郵：info@sunstarcreation.com</div>
+    <div class="footer-copyright">&copy; 2026 Sunstar Creation Limited. All rights reserved.</div>
 </footer>
 
 <!-- ===== 手機選單 ===== -->
