@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Sunstar Creation | 校本視藝課程方案</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-gold: #d4af37;
-            --secondary-blue: #2c3e50;
-            --light-bg: #f7f3ee;
+            --primary-blue: #15345E;
+            --primary-gray: #727171;
+            --light-bg: #f7f5f0;
             --shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
         * { box-sizing: border-box; scroll-behavior: smooth; margin: 0; padding: 0; }
@@ -66,7 +67,7 @@
             display: block;
             width: 28px;
             height: 3px;
-            background: var(--secondary-blue);
+            background: var(--primary-blue);
             border-radius: 4px;
             transition: 0.3s;
         }
@@ -101,7 +102,7 @@
             width: 100%;
         }
         nav .links a:active { background: #f0f0f0; border-radius: 6px; }
-        nav .links a:hover { color: var(--primary-gold); }
+        nav .links a:hover { color: var(--primary-gray); }
 
         /* ===== HERO ===== */
         .hero-art {
@@ -134,7 +135,7 @@
         .section-title {
             text-align: center;
             font-size: 1.5rem;
-            color: var(--secondary-blue);
+            color: var(--primary-blue);
             margin-bottom: 28px;
             position: relative;
         }
@@ -142,7 +143,7 @@
             content: '';
             width: 44px;
             height: 3px;
-            background: var(--primary-gold);
+            background: var(--primary-gray);
             position: absolute;
             bottom: -10px;
             left: 50%;
@@ -153,38 +154,95 @@
         .grid {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 24px;
             max-width: 1000px;
             margin: 0 auto;
         }
         .card {
             background: white;
             border-radius: 16px;
-            padding: 22px 20px;
             box-shadow: var(--shadow);
             border: 1px solid rgba(238,238,238,0.6);
             transition: 0.3s;
             width: 100%;
-            position: relative;
             overflow: hidden;
         }
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--primary-gold);
-            border-radius: 4px 0 0 4px;
+
+        /* 圖片滑動區域 */
+        .card-slider {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background: #f0f0f0;
         }
-        .card:active { transform: scale(0.99); }
-        .card .card-icon {
-            font-size: 2rem;
-            margin-bottom: 2px;
+        .card-slider .slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+        .card-slider .slides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .card-slider .slide-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.45);
+            color: #fff;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 14px;
+            cursor: pointer;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+        .card-slider .slide-btn:active {
+            background: rgba(0,0,0,0.7);
+        }
+        .card-slider .slide-prev {
+            left: 10px;
+        }
+        .card-slider .slide-next {
+            right: 10px;
+        }
+        .card-slider .slide-dots {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 2;
+        }
+        .card-slider .slide-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .card-slider .slide-dot.active {
+            background: #fff;
+            width: 20px;
+            border-radius: 10px;
+        }
+
+        .card-body {
+            padding: 20px 18px;
         }
         .card h3 {
-            color: var(--secondary-blue);
+            color: var(--primary-blue);
             font-size: 1.15rem;
             margin-top: 0;
             margin-bottom: 6px;
@@ -203,57 +261,23 @@
         }
         .card ul li {
             margin-bottom: 4px;
-            padding-left: 20px;
+            padding-left: 18px;
             position: relative;
         }
         .card ul li::before {
-            content: '✦ ';
-            color: var(--primary-gold);
-            font-weight: 700;
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--primary-gray);
+            border-radius: 50%;
             position: absolute;
-            left: 0;
-        }
-
-        /* ===== 課程形式 ===== */
-        .info-box {
-            background: white;
-            border-radius: 16px;
-            padding: 20px 20px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(238,238,238,0.6);
-            max-width: 1000px;
-            margin: 24px auto 0;
-            text-align: center;
-        }
-        .info-box .emoji-big {
-            font-size: 2rem;
-            display: block;
-            margin-bottom: 4px;
-        }
-        .info-box p {
-            font-size: 0.95rem;
-            color: #555;
-            margin: 0;
-        }
-        .info-box .formats {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px 16px;
-            margin-top: 10px;
-        }
-        .info-box .formats span {
-            background: rgba(212, 175, 55, 0.08);
-            padding: 4px 16px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            color: #555;
-            font-weight: 400;
+            left: 2px;
+            top: 9px;
         }
 
         /* ===== Footer ===== */
         footer {
-            background: var(--secondary-blue);
+            background: var(--primary-blue);
             color: rgba(255,255,255,0.9);
             padding: 32px 20px;
             text-align: center;
@@ -268,7 +292,7 @@
         footer .footer-divider {
             width: 40px;
             height: 2px;
-            background: var(--primary-gold);
+            background: rgba(255,255,255,0.4);
             margin: 14px auto;
         }
         footer .footer-contact {
@@ -317,7 +341,7 @@
                 width: auto;
             }
             nav .links a:hover {
-                background: rgba(212, 175, 55, 0.08);
+                background: rgba(114, 113, 113, 0.08);
                 border-radius: 6px;
             }
 
@@ -341,11 +365,6 @@
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 30px;
-                flex-direction: row;
-            }
-            .card {
-                padding: 28px 26px;
-                transition: 0.3s;
             }
             .card:hover {
                 transform: translateY(-6px);
@@ -354,12 +373,14 @@
             .card h3 { font-size: 1.2rem; }
             .card ul { font-size: 0.98rem; }
 
-            .info-box {
-                padding: 28px 32px;
-                margin-top: 32px;
+            .card-slider {
+                height: 180px;
             }
-            .info-box .emoji-big { font-size: 2.6rem; }
-            .info-box .formats span { font-size: 0.9rem; }
+            .card-slider .slide-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
 
             footer {
                 padding: 40px 10%;
@@ -369,6 +390,9 @@
         @media (min-width: 1024px) {
             .hero-art h1 { font-size: 3rem; }
             section { padding: 80px 10%; }
+            .card-slider {
+                height: 200px;
+            }
         }
     </style>
 </head>
@@ -406,70 +430,102 @@
     <div class="grid">
         <!-- 彩虹書法 -->
         <div class="card">
-            <div class="card-icon">🌈</div>
-            <h3>彩虹書法體驗</h3>
-            <p>傳統與現代碰撞：結合傳統書法技法與現代色彩運用，透過融入動物、植物圖案，將漢字轉化為藝術作品。</p>
-            <ul>
-                <li>導師示範與實作教學</li>
-                <li>完成圓形與扇形兩款創意成品</li>
-            </ul>
+            <div class="card-slider" id="slider1">
+                <div class="slides">
+                    <img src="https://placehold.co/600x400/15345E/white?text=彩虹書法+1" alt="彩虹書法1">
+                    <img src="https://placehold.co/600x400/2c5f8a/white?text=彩虹書法+2" alt="彩虹書法2">
+                    <img src="https://placehold.co/600x400/1a3a5c/white?text=彩虹書法+3" alt="彩虹書法3">
+                </div>
+                <button class="slide-btn slide-prev" onclick="prevSlide('slider1')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slide-btn slide-next" onclick="nextSlide('slider1')"><i class="fas fa-chevron-right"></i></button>
+                <div class="slide-dots" id="slider1-dots"></div>
+            </div>
+            <div class="card-body">
+                <h3>彩虹書法體驗</h3>
+                <p>傳統與現代碰撞：結合傳統書法技法與現代色彩運用，透過融入動物、植物圖案，將漢字轉化為藝術作品。</p>
+                <ul>
+                    <li>導師示範與實作教學</li>
+                    <li>完成圓形與扇形兩款創意成品</li>
+                </ul>
+            </div>
         </div>
 
         <!-- 流動色彩 -->
         <div class="card">
-            <div class="card-icon">🌊</div>
-            <h3>流動色彩創作</h3>
-            <p>探索自由律動：使用專用流體顏料，建立色彩感與自由度，讓學生在色彩碰撞中感受創作快樂。</p>
-            <ul>
-                <li>製作圓形流體畫</li>
-                <li>創作立體流體雕塑（如動物造型）</li>
-            </ul>
+            <div class="card-slider" id="slider2">
+                <div class="slides">
+                    <img src="https://placehold.co/600x400/15345E/white?text=流動色彩+1" alt="流動色彩1">
+                    <img src="https://placehold.co/600x400/2c5f8a/white?text=流動色彩+2" alt="流動色彩2">
+                    <img src="https://placehold.co/600x400/1a3a5c/white?text=流動色彩+3" alt="流動色彩3">
+                </div>
+                <button class="slide-btn slide-prev" onclick="prevSlide('slider2')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slide-btn slide-next" onclick="nextSlide('slider2')"><i class="fas fa-chevron-right"></i></button>
+                <div class="slide-dots" id="slider2-dots"></div>
+            </div>
+            <div class="card-body">
+                <h3>流動色彩創作</h3>
+                <p>探索自由律動：使用專用流體顏料，建立色彩感與自由度，讓學生在色彩碰撞中感受創作快樂。</p>
+                <ul>
+                    <li>製作圓形流體畫</li>
+                    <li>創作立體流體雕塑（如動物造型）</li>
+                </ul>
+            </div>
         </div>
 
         <!-- 軟陶與光影 -->
         <div class="card">
-            <div class="card-icon">🧱</div>
-            <h3>軟陶與光影立體創作</h3>
-            <p>觸感與空間：透過塑形、揉色技巧，訓練精細動作與立體思維。</p>
-            <ul>
-                <li>軟陶拼貼藝術</li>
-                <li>光影立體裝置創作</li>
-            </ul>
+            <div class="card-slider" id="slider3">
+                <div class="slides">
+                    <img src="https://placehold.co/600x400/15345E/white?text=軟陶光影+1" alt="軟陶光影1">
+                    <img src="https://placehold.co/600x400/2c5f8a/white?text=軟陶光影+2" alt="軟陶光影2">
+                    <img src="https://placehold.co/600x400/1a3a5c/white?text=軟陶光影+3" alt="軟陶光影3">
+                </div>
+                <button class="slide-btn slide-prev" onclick="prevSlide('slider3')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slide-btn slide-next" onclick="nextSlide('slider3')"><i class="fas fa-chevron-right"></i></button>
+                <div class="slide-dots" id="slider3-dots"></div>
+            </div>
+            <div class="card-body">
+                <h3>軟陶與光影立體創作</h3>
+                <p>觸感與空間：透過塑形、揉色技巧，訓練精細動作與立體思維。</p>
+                <ul>
+                    <li>軟陶拼貼藝術</li>
+                    <li>光影立體裝置創作</li>
+                </ul>
+            </div>
         </div>
 
         <!-- 進階創作班 -->
         <div class="card">
-            <div class="card-icon">✨</div>
-            <h3>進階多元工藝班</h3>
-            <p>深化創作技巧：適合對藝術有更高追求的拔尖班或興趣班。</p>
-            <ul>
-                <li>拓染布藝：結合自然元素</li>
-                <li>羊毛氈：製作精緻玩偶飾品</li>
-                <li>3D 創作筆：突破平面空間限制</li>
-            </ul>
+            <div class="card-slider" id="slider4">
+                <div class="slides">
+                    <img src="https://placehold.co/600x400/15345E/white?text=進階工藝+1" alt="進階工藝1">
+                    <img src="https://placehold.co/600x400/2c5f8a/white?text=進階工藝+2" alt="進階工藝2">
+                    <img src="https://placehold.co/600x400/1a3a5c/white?text=進階工藝+3" alt="進階工藝3">
+                </div>
+                <button class="slide-btn slide-prev" onclick="prevSlide('slider4')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slide-btn slide-next" onclick="nextSlide('slider4')"><i class="fas fa-chevron-right"></i></button>
+                <div class="slide-dots" id="slider4-dots"></div>
+            </div>
+            <div class="card-body">
+                <h3>進階多元工藝班</h3>
+                <p>深化創作技巧：適合對藝術有更高追求的拔尖班或興趣班。</p>
+                <ul>
+                    <li>拓染布藝：結合自然元素</li>
+                    <li>羊毛氈：製作精緻玩偶飾品</li>
+                    <li>3D 創作筆：突破平面空間限制</li>
+                </ul>
+            </div>
         </div>
     </div>
 
-    <!-- 課程形式 -->
-    <div class="info-box">
-        <span class="emoji-big">📋</span>
-        <p>課程形式靈活多變</p>
-        <div class="formats">
-            <span>常規課</span>
-            <span>專題課</span>
-            <span>興趣班</span>
-            <span>拔尖課程</span>
-            <span>課外活動</span>
-        </div>
-    </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
 <footer>
     <div class="footer-brand">SUNSTAR CREATION</div>
     <div class="footer-divider"></div>
-    <div class="footer-contact">📞 電話：+852 1234 5678</div>
-    <div class="footer-contact">✉️ 電郵：info@sunstarcreation.com</div>
+    <div class="footer-contact"><i class="fab fa-whatsapp" style="margin-right: 6px;"></i> WhatsApp: +852 5577 7252</div>
+    <div class="footer-contact"><i class="fas fa-envelope" style="margin-right: 6px;"></i> Email: enquiry@sunstarcreation.com</div>
     <div class="footer-copyright">&copy; 2026 Sunstar Creation Limited. All rights reserved.</div>
 </footer>
 
@@ -493,6 +549,75 @@
             });
         }
     })();
+
+    // ===== 圖片滑動功能 =====
+    const sliders = {};
+
+    function initSlider(sliderId) {
+        const slider = document.getElementById(sliderId);
+        if (!slider) return;
+        const slides = slider.querySelector('.slides');
+        const dotsContainer = slider.querySelector('.slide-dots');
+        const totalSlides = slides.children.length;
+
+        sliders[sliderId] = {
+            current: 0,
+            total: totalSlides
+        };
+
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('span');
+            dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
+            dot.addEventListener('click', function() {
+                goToSlide(sliderId, i);
+            });
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function goToSlide(sliderId, index) {
+        const slider = document.getElementById(sliderId);
+        const slides = slider.querySelector('.slides');
+        const dots = slider.querySelectorAll('.slide-dot');
+
+        sliders[sliderId].current = index;
+        slides.style.transform = 'translateX(-' + (index * 100) + '%)';
+
+        dots.forEach(function(dot, i) {
+            if (i === index) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+
+    function prevSlide(sliderId) {
+        const data = sliders[sliderId];
+        let newIndex = data.current - 1;
+        if (newIndex < 0) newIndex = data.total - 1;
+        goToSlide(sliderId, newIndex);
+    }
+
+    function nextSlide(sliderId) {
+        const data = sliders[sliderId];
+        let newIndex = data.current + 1;
+        if (newIndex >= data.total) newIndex = 0;
+        goToSlide(sliderId, newIndex);
+    }
+
+    // 初始化所有滑塊
+    initSlider('slider1');
+    initSlider('slider2');
+    initSlider('slider3');
+    initSlider('slider4');
+
+    // 自動播放
+    setInterval(function() { nextSlide('slider1'); }, 4000);
+    setInterval(function() { nextSlide('slider2'); }, 4500);
+    setInterval(function() { nextSlide('slider3'); }, 5000);
+    setInterval(function() { nextSlide('slider4'); }, 4200);
 </script>
 
 </body>
