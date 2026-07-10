@@ -44,15 +44,23 @@
             z-index: 1000;
             min-height: 64px;
         }
+        /* 修改：品牌名字改成上下分行，黑色 */
         nav .brand {
-            font-size: 1.25rem;
+            font-size: 0.95rem;  /* 調整字體大小適合兩行 */
             font-weight: 700;
-            color: var(--secondary-blue);
-            letter-spacing: 1px;
+            color: #000;  /* 正常黑色 */
+            letter-spacing: 1.5px;
             white-space: nowrap;
+            line-height: 1.2;  /* 緊湊行距 */
+            text-align: left;
         }
-        nav .brand span {
-            color: var(--primary-gold);
+        nav .brand .brand-top {
+            display: block;
+            font-size: 1rem;
+        }
+        nav .brand .brand-bottom {
+            display: block;
+            font-size: 1rem;
         }
 
         /* 漢堡按鈕 (手機) */
@@ -121,10 +129,10 @@
             color: var(--primary-gold);
         }
 
-        /* ===== HERO 手機友善 ===== */
+        /* ===== HERO 修改：純色背景 #15345E ===== */
         .hero {
             min-height: 40vh;
-            background: linear-gradient(145deg, #1a2a3a 0%, #2c3e50 100%);
+            background: #15345E;  /* 修改為純色 */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -132,6 +140,7 @@
             padding: 40px 24px;
             margin-top: 0;
         }
+        /* 修改：所有文字保持白色，不換顏色 */
         .hero-content h1 {
             color: #fff;
             font-size: 2rem;
@@ -139,8 +148,9 @@
             letter-spacing: 2px;
             line-height: 1.3;
         }
-        .hero-content h1 .gold {
-            color: var(--primary-gold);
+        /* 移除 .gold 金色樣式，改為白色 */
+        .hero-content h1 .highlight {
+            color: #fff;
         }
         .hero-content p {
             color: rgba(255,255,255,0.8);
@@ -281,7 +291,16 @@
                 padding: 16px 5%;
                 min-height: 72px;
             }
-            nav .brand { font-size: 1.6rem; }
+            /* 桌機版品牌名字也保持兩行黑色 */
+            nav .brand {
+                font-size: 1rem;
+            }
+            nav .brand .brand-top {
+                font-size: 1.1rem;
+            }
+            nav .brand .brand-bottom {
+                font-size: 1.1rem;
+            }
 
             .menu-toggle { display: none; }
 
@@ -357,7 +376,11 @@
 
 <!-- ===== NAV ===== -->
 <nav>
-    <div class="brand">SUNSTAR <span>CREATION</span></div>
+    <!-- 修改：品牌名字改成上下分行 -->
+    <div class="brand">
+        <span class="brand-top">SUNSTAR</span>
+        <span class="brand-bottom">CREATION</span>
+    </div>
 
     <button class="menu-toggle" id="menuToggle" aria-label="選單">
         <span></span>
@@ -378,8 +401,9 @@
 <!-- ===== HERO ===== -->
 <section class="hero">
     <div class="hero-content">
-        <h1>點亮 <span class="gold">校園</span> 文化<br>創造無限可能</h1>
-        <p>Sunstar Creation 專注於校園文化與藝術方案，連結傳統與創新。</p>
+        <!-- 修改：所有文字保持白色 -->
+        <h1>點亮校園文化創造無限可能</h1>
+        <p>專注於校園文化與藝術方案，連結傳統與創新。</p>
     </div>
 </section>
 
@@ -431,11 +455,9 @@
             toggle.addEventListener('click', function() {
                 const isOpen = links.classList.toggle('open');
                 toggle.classList.toggle('active');
-                // 可選：改變 aria-expanded
                 toggle.setAttribute('aria-expanded', isOpen);
             });
 
-            // 點選連結後自動關閉選單（手機體驗更好）
             links.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', function() {
                     links.classList.remove('open');
