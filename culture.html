@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Sunstar Creation | 中華文化日方案</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-gold: #d4af37;
-            --secondary-blue: #2c3e50;
-            --accent-orange: #e67e22;
+            --primary-blue: #15345E;
+            --primary-gray: #727171;
             --shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
         * { box-sizing: border-box; scroll-behavior: smooth; margin: 0; padding: 0; }
@@ -66,7 +66,7 @@
             display: block;
             width: 28px;
             height: 3px;
-            background: var(--secondary-blue);
+            background: var(--primary-blue);
             border-radius: 4px;
             transition: 0.3s;
         }
@@ -101,7 +101,7 @@
             width: 100%;
         }
         nav .links a:active { background: #f0f0f0; border-radius: 6px; }
-        nav .links a:hover { color: var(--primary-gold); }
+        nav .links a:hover { color: var(--primary-gray); }
 
         /* ===== HERO ===== */
         .hero-culture {
@@ -134,7 +134,7 @@
         .section-title {
             text-align: center;
             font-size: 1.5rem;
-            color: var(--secondary-blue);
+            color: var(--primary-blue);
             margin-bottom: 28px;
             position: relative;
         }
@@ -142,7 +142,7 @@
             content: '';
             width: 44px;
             height: 3px;
-            background: var(--primary-gold);
+            background: var(--primary-gray);
             position: absolute;
             bottom: -10px;
             left: 50%;
@@ -238,10 +238,10 @@
         }
         .activity-card h3 {
             font-size: 1.15rem;
-            color: var(--secondary-blue);
+            color: var(--primary-blue);
             margin-bottom: 10px;
             padding-bottom: 8px;
-            border-bottom: 2px solid var(--primary-gold);
+            border-bottom: 2px solid var(--primary-gray);
             display: inline-block;
         }
         .activity-card .subtitle {
@@ -257,8 +257,8 @@
             line-height: 1.7;
         }
         .activity-card .highlight-list {
-            background: #f9f7f2;
-            border-left: 3px solid var(--primary-gold);
+            background: #f5f6f8;
+            border-left: 3px solid var(--primary-blue);
             padding: 12px 16px;
             margin: 10px 0;
             border-radius: 0 8px 8px 0;
@@ -273,12 +273,13 @@
             border-radius: 14px;
             box-shadow: var(--shadow);
             border: 1px solid #eee;
+            border-left: 4px solid var(--primary-blue);
             padding: 20px 18px;
             margin-bottom: 16px;
         }
         .mode-card h3 {
             font-size: 1.15rem;
-            color: var(--secondary-blue);
+            color: var(--primary-blue);
             margin-bottom: 8px;
         }
         .mode-card p {
@@ -299,7 +300,7 @@
 
         /* ===== Footer ===== */
         footer {
-            background: var(--secondary-blue);
+            background: var(--primary-blue);
             color: rgba(255,255,255,0.9);
             padding: 32px 20px;
             text-align: center;
@@ -314,7 +315,7 @@
         footer .footer-divider {
             width: 40px;
             height: 2px;
-            background: var(--primary-gold);
+            background: rgba(255,255,255,0.4);
             margin: 14px auto;
         }
         footer .footer-contact {
@@ -363,7 +364,7 @@
                 width: auto;
             }
             nav .links a:hover {
-                background: rgba(212, 175, 55, 0.08);
+                background: rgba(114, 113, 113, 0.08);
                 border-radius: 6px;
             }
 
@@ -442,9 +443,9 @@
     <div class="links" id="navLinks">
         <a href="home.html">首頁</a>
         <a href="culture.html">中華文化日</a>
-        <a href="music.html">音樂活動</a>
-        <a href="art.html">校本視藝</a>
-        <a href="tour.html">導賞計劃</a>
+        <a href="music.html">音樂課程與活動</a>
+        <a href="art.html">校本視藝課程</a>
+        <a href="tour.html">學生社區大使計劃</a>
         <a href="contact.html">聯絡我們</a>
     </div>
 </nav>
@@ -464,12 +465,12 @@
         <div class="activity-card">
             <div class="card-slider" id="slider1">
                 <div class="slides">
-                    <img src="https://placehold.co/600x400/2c3e50/white?text=遊戲體驗+1" alt="遊戲體驗1">
-                    <img src="https://placehold.co/600x400/34495e/white?text=遊戲體驗+2" alt="遊戲體驗2">
-                    <img src="https://placehold.co/600x400/3b5998/white?text=遊戲體驗+3" alt="遊戲體驗3">
+                    <img src="https://placehold.co/600x400/15345E/white?text=遊戲體驗+1" alt="遊戲體驗1">
+                    <img src="https://placehold.co/600x400/2c5f8a/white?text=遊戲體驗+2" alt="遊戲體驗2">
+                    <img src="https://placehold.co/600x400/1a3a5c/white?text=遊戲體驗+3" alt="遊戲體驗3">
                 </div>
-                <button class="slide-btn slide-prev" onclick="prevSlide('slider1')">❮</button>
-                <button class="slide-btn slide-next" onclick="nextSlide('slider1')">❯</button>
+                <button class="slide-btn slide-prev" onclick="prevSlide('slider1')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slide-btn slide-next" onclick="nextSlide('slider1')"><i class="fas fa-chevron-right"></i></button>
                 <div class="slide-dots" id="slider1-dots"></div>
             </div>
             <div class="card-body">
@@ -487,12 +488,12 @@
         <div class="activity-card">
             <div class="card-slider" id="slider2">
                 <div class="slides">
-                    <img src="https://placehold.co/600x400/8e44ad/white?text=藝術手作+1" alt="藝術手作1">
-                    <img src="https://placehold.co/600x400/9b59b6/white?text=藝術手作+2" alt="藝術手作2">
-                    <img src="https://placehold.co/600x400/7d3c98/white?text=藝術手作+3" alt="藝術手作3">
+                    <img src="https://placehold.co/600x400/15345E/white?text=藝術手作+1" alt="藝術手作1">
+                    <img src="https://placehold.co/600x400/2c5f8a/white?text=藝術手作+2" alt="藝術手作2">
+                    <img src="https://placehold.co/600x400/1a3a5c/white?text=藝術手作+3" alt="藝術手作3">
                 </div>
-                <button class="slide-btn slide-prev" onclick="prevSlide('slider2')">❮</button>
-                <button class="slide-btn slide-next" onclick="nextSlide('slider2')">❯</button>
+                <button class="slide-btn slide-prev" onclick="prevSlide('slider2')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slide-btn slide-next" onclick="nextSlide('slider2')"><i class="fas fa-chevron-right"></i></button>
                 <div class="slide-dots" id="slider2-dots"></div>
             </div>
             <div class="card-body">
@@ -510,12 +511,12 @@
         <div class="activity-card">
             <div class="card-slider" id="slider3">
                 <div class="slides">
-                    <img src="https://placehold.co/600x400/c0392b/white?text=文化表演+1" alt="文化表演1">
-                    <img src="https://placehold.co/600x400/e74c3c/white?text=文化表演+2" alt="文化表演2">
-                    <img src="https://placehold.co/600x400/d35400/white?text=文化表演+3" alt="文化表演3">
+                    <img src="https://placehold.co/600x400/15345E/white?text=文化表演+1" alt="文化表演1">
+                    <img src="https://placehold.co/600x400/2c5f8a/white?text=文化表演+2" alt="文化表演2">
+                    <img src="https://placehold.co/600x400/1a3a5c/white?text=文化表演+3" alt="文化表演3">
                 </div>
-                <button class="slide-btn slide-prev" onclick="prevSlide('slider3')">❮</button>
-                <button class="slide-btn slide-next" onclick="nextSlide('slider3')">❯</button>
+                <button class="slide-btn slide-prev" onclick="prevSlide('slider3')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slide-btn slide-next" onclick="nextSlide('slider3')"><i class="fas fa-chevron-right"></i></button>
                 <div class="slide-dots" id="slider3-dots"></div>
             </div>
             <div class="card-body">
@@ -554,8 +555,8 @@
 <footer>
     <div class="footer-brand">SUNSTAR CREATION</div>
     <div class="footer-divider"></div>
-    <div class="footer-contact">📞 電話：+852 1234 5678</div>
-    <div class="footer-contact">✉️ 電郵：info@sunstarcreation.com</div>
+    <div class="footer-contact"><i class="fab fa-whatsapp" style="margin-right: 6px;"></i> WhatsApp: +852 5577 7252</div>
+    <div class="footer-contact"><i class="fas fa-envelope" style="margin-right: 6px;"></i> Email: enquiry@sunstarcreation.com</div>
     <div class="footer-copyright">&copy; 2026 Sunstar Creation Limited. All rights reserved.</div>
 </footer>
 
