@@ -243,24 +243,21 @@
             background: var(--primary-blue);
             color: rgba(255,255,255,0.9);
             padding: 32px 20px;
-            text-align: center;
             font-size: 0.9rem;
         }
-        footer .footer-top {
+        footer .footer-content {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 24px;
-            margin-bottom: 16px;
+            max-width: 1000px;
+            margin: 0 auto;
             flex-wrap: wrap;
         }
-        footer .footer-badge img {
-            width: 108px;
-            height: auto;
-            display: inline-block;
-        }
-        footer .footer-info {
+        footer .footer-left {
             text-align: left;
+            flex: 1;
+            min-width: 250px;
         }
         footer .footer-brand {
             font-size: 1.1rem;
@@ -277,12 +274,19 @@
             width: 40px;
             height: 2px;
             background: rgba(255,255,255,0.4);
-            margin: 14px auto;
+            margin: 8px 0;
         }
         footer .footer-copyright {
-            margin-top: 4px;
             font-size: 0.78rem;
             opacity: 0.6;
+        }
+        footer .footer-badge {
+            flex-shrink: 0;
+        }
+        footer .footer-badge img {
+            width: 108px;
+            height: auto;
+            display: inline-block;
         }
 
         /* ===== 平板/桌機 ===== */
@@ -441,18 +445,19 @@
 
 <!-- ===== FOOTER ===== -->
 <footer>
-    <div class="footer-top">
-        <div class="footer-info">
+    <div class="footer-content">
+        <div class="footer-left">
             <div class="footer-brand">SUNSTAR CREATION</div>
+            <div class="footer-divider"></div>
             <div class="footer-contact"><i class="fab fa-whatsapp" style="margin-right: 6px;"></i> WhatsApp: +852 5577 7252</div>
             <div class="footer-contact"><i class="fas fa-envelope" style="margin-right: 6px;"></i> Email: enquiry@sunstarcreation.com</div>
+            <div class="footer-divider" style="margin-top: 8px;"></div>
+            <div class="footer-copyright">&copy; 2026 Sunstar Creation Limited. All rights reserved.</div>
         </div>
         <div class="footer-badge">
             <img src="images/2425_Logo_CHI.jpg" alt="商界展關懷">
         </div>
     </div>
-    <div class="footer-divider"></div>
-    <div class="footer-copyright">&copy; 2026 Sunstar Creation Limited. All rights reserved.</div>
 </footer>
 
 <!-- ===== 手機選單 ===== -->
