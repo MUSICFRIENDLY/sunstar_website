@@ -200,6 +200,8 @@
             border: 1px solid #f0f0f0;
             border-top: 4px solid var(--primary-blue);
             transition: 0.2s;
+            display: flex;
+            flex-direction: column;
         }
         .card h3 {
             font-size: 1.2rem;
@@ -209,17 +211,31 @@
         .card p {
             font-size: 0.95rem;
             color: #555;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
+            flex-grow: 1;
         }
-        .card .tag {
-            display: inline-block;
-            background: rgba(21, 52, 94, 0.1);
-            color: var(--primary-blue);
-            font-size: 0.75rem;
+        .card .card-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: var(--primary-blue);
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.85rem;
             font-weight: 600;
-            padding: 4px 14px;
+            padding: 10px 20px;
             border-radius: 30px;
             letter-spacing: 0.5px;
+            transition: 0.2s;
+            align-self: flex-start;
+        }
+        .card .card-btn:hover {
+            background: #0e2a4a;
+            transform: translateY(-2px);
+        }
+        .card .card-btn i {
+            font-size: 0.8rem;
         }
 
         /* ===== Footer ===== */
@@ -385,24 +401,24 @@
 
     <div class="card-grid">
         <div class="card">
-            <h3>中華文化</h3>
-            <p>從傳統節慶到國學經典，為校園注入深厚的文化底蘊。</p>
-            <span class="tag">文化傳承</span>
+            <h3>中華文化日</h3>
+            <p>可容納全校學生參與 | 傳統競技 ‧ 民族樂舞 ‧ 非遺工藝</p>
+            <a href="culture.html" class="card-btn">了解更多 <i class="fas fa-chevron-right"></i></a>
         </div>
         <div class="card">
-            <h3>音樂活動</h3>
-            <p>合唱團、中樂團、流行音樂製作，讓音符在校園流動。</p>
-            <span class="tag">藝術實踐</span>
+            <h3>音樂課程與活動</h3>
+            <p>以音樂啟蒙心靈，以小組激發潛能</p>
+            <a href="music.html" class="card-btn">了解更多 <i class="fas fa-chevron-right"></i></a>
         </div>
         <div class="card">
-            <h3>校本視藝</h3>
-            <p>視覺藝術課程與展覽策劃，啟發學生的創意潛能。</p>
-            <span class="tag">美感教育</span>
+            <h3>校本視藝課程</h3>
+            <p>體驗式藝術教學 ｜ 成品導向 ｜ 專業導師授課</p>
+            <a href="art.html" class="card-btn">了解更多 <i class="fas fa-chevron-right"></i></a>
         </div>
         <div class="card">
-            <h3>導賞計劃</h3>
-            <p>歷史文化導賞，帶學生走出課室，體驗在地故事。</p>
-            <span class="tag">體驗學習</span>
+            <h3>學生社區大使計劃</h3>
+            <p>透過專業導賞訓練，培養具備共情力與領導力的青少年領袖</p>
+            <a href="tour.html" class="card-btn">了解更多 <i class="fas fa-chevron-right"></i></a>
         </div>
     </div>
 </section>
