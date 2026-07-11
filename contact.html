@@ -51,7 +51,6 @@
             display: block;
             font-size: 1rem;
         }
-
         .menu-toggle {
             display: flex;
             flex-direction: column;
@@ -73,7 +72,6 @@
         .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
         .menu-toggle.active span:nth-child(2) { opacity: 0; }
         .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
-
         nav .links {
             display: none;
             flex-direction: column;
@@ -114,7 +112,6 @@
             flex-direction: column;
             justify-content: center;
         }
-
         h2 {
             text-align: center;
             font-size: 1.6rem;
@@ -132,7 +129,6 @@
             left: 50%;
             transform: translateX(-50%);
         }
-
         .intro-text {
             text-align: center;
             font-size: 0.98rem;
@@ -142,8 +138,6 @@
             padding: 0 4px;
             line-height: 1.8;
         }
-
-        /* ===== 聯絡卡片 ===== */
         .contact-grid {
             display: flex;
             flex-direction: column;
@@ -178,9 +172,7 @@
             justify-content: center;
             color: var(--primary-blue);
         }
-        .contact-card .info {
-            flex: 1;
-        }
+        .contact-card .info { flex: 1; }
         .contact-card .info .label {
             font-size: 0.75rem;
             color: var(--primary-gray);
@@ -197,11 +189,8 @@
             color: var(--primary-blue);
             text-decoration: none;
         }
-        .contact-card .info .value a:hover {
-            color: var(--primary-gray);
-        }
+        .contact-card .info .value a:hover { color: var(--primary-gray); }
 
-        /* WhatsApp 按鈕 */
         .btn-wrapper {
             display: flex;
             justify-content: center;
@@ -225,64 +214,65 @@
             width: 100%;
             max-width: 400px;
         }
-        .whatsapp-btn:active {
-            transform: scale(0.96);
-            background: #0e2a4a;
-        }
+        .whatsapp-btn:active { transform: scale(0.96); background: #0e2a4a; }
 
         /* ===== Footer ===== */
         footer {
             background: var(--primary-blue);
             color: rgba(255,255,255,0.9);
             padding: 32px 20px;
-            text-align: center;
             font-size: 0.9rem;
         }
+        footer .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+        footer .footer-left {
+            text-align: left;
+            flex: 1;
+            min-width: 250px;
+        }
+        footer .footer-brand {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+        footer .footer-contact {
+            margin: 3px 0;
+            font-size: 0.88rem;
+            opacity: 0.85;
+        }
+        footer .footer-divider {
+            width: 40px;
+            height: 2px;
+            background: rgba(255,255,255,0.4);
+            margin: 8px 0;
+        }
+        footer .footer-copyright {
+            font-size: 0.78rem;
+            opacity: 0.6;
+        }
         footer .footer-badge {
-            margin-bottom: 20px;
+            flex-shrink: 0;
         }
         footer .footer-badge img {
             width: 108px;
             height: auto;
             display: inline-block;
         }
-        footer .footer-brand {
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 4px;
-        }
-        footer .footer-divider {
-            width: 40px;
-            height: 2px;
-            background: rgba(255,255,255,0.4);
-            margin: 14px auto;
-        }
-        footer .footer-contact {
-            margin: 6px 0;
-            font-size: 0.88rem;
-            opacity: 0.85;
-        }
-        footer .footer-copyright {
-            margin-top: 14px;
-            font-size: 0.78rem;
-            opacity: 0.6;
-        }
 
-        /* ===== 平板/桌機 ===== */
         @media (min-width: 768px) {
             body { padding-top: 72px; }
-
-            nav {
-                padding: 16px 5%;
-                min-height: 72px;
-            }
+            nav { padding: 16px 5%; min-height: 72px; }
             nav .brand { font-size: 1rem; }
-            nav .brand .brand-top,
-            nav .brand .brand-bottom { font-size: 1.1rem; }
-
+            nav .brand .brand-top, nav .brand .brand-bottom { font-size: 1.1rem; }
             .menu-toggle { display: none; }
-
             nav .links {
                 display: flex !important;
                 flex-direction: row;
@@ -303,70 +293,29 @@
                 display: inline-block;
                 width: auto;
             }
-            nav .links a:hover {
-                background: rgba(114, 113, 113, 0.08);
-                border-radius: 6px;
-            }
-
-            section {
-                padding: 60px 8% 80px;
-            }
+            nav .links a:hover { background: rgba(114, 113, 113, 0.08); border-radius: 6px; }
+            section { padding: 60px 8% 80px; }
             h2 { font-size: 2rem; }
-
-            .intro-text {
-                font-size: 1.05rem;
-                margin-bottom: 40px;
-            }
-
-            .contact-grid {
-                gap: 20px;
-                max-width: 700px;
-            }
-            .contact-card {
-                padding: 22px 28px;
-                transition: 0.3s;
-            }
-            .contact-card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            }
-            .contact-card .icon {
-                font-size: 1.6rem;
-                width: 52px;
-                height: 52px;
-            }
+            .intro-text { font-size: 1.05rem; margin-bottom: 40px; }
+            .contact-grid { gap: 20px; max-width: 700px; }
+            .contact-card { padding: 22px 28px; transition: 0.3s; }
+            .contact-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+            .contact-card .icon { font-size: 1.6rem; width: 52px; height: 52px; }
             .contact-card .info .value { font-size: 1.15rem; }
-
-            .btn-wrapper {
-                margin-top: 48px;
-            }
-            .whatsapp-btn {
-                font-size: 1.1rem;
-                padding: 16px 40px;
-                max-width: 450px;
-            }
-            .whatsapp-btn:hover {
-                background: #0e2a4a;
-                transform: translateY(-2px);
-            }
-
-            footer {
-                padding: 40px 10%;
-            }
+            .btn-wrapper { margin-top: 48px; }
+            .whatsapp-btn { font-size: 1.1rem; padding: 16px 40px; max-width: 450px; }
+            .whatsapp-btn:hover { background: #0e2a4a; transform: translateY(-2px); }
+            footer { padding: 40px 10%; }
         }
-
         @media (min-width: 1024px) {
             section { padding: 80px 10%; }
             .contact-grid { max-width: 800px; }
-            .btn-wrapper {
-                margin-top: 56px;
-            }
+            .btn-wrapper { margin-top: 56px; }
         }
     </style>
 </head>
 <body>
 
-<!-- ===== NAV ===== -->
 <nav>
     <div class="brand">
         <span class="brand-top">SUNSTAR</span>
@@ -385,7 +334,6 @@
     </div>
 </nav>
 
-<!-- ===== 主要內容 ===== -->
 <section id="contact">
     <h2>聯絡我們</h2>
     <div class="intro-text">
@@ -394,7 +342,6 @@
     </div>
 
     <div class="contact-grid">
-        <!-- WhatsApp -->
         <div class="contact-card">
             <div class="icon"><i class="fab fa-whatsapp"></i></div>
             <div class="info">
@@ -402,8 +349,6 @@
                 <div class="value"><a href="https://wa.me/85255777252" target="_blank" rel="noopener">+852 5577 7252</a></div>
             </div>
         </div>
-
-        <!-- 電郵 -->
         <div class="contact-card">
             <div class="icon"><i class="fas fa-envelope"></i></div>
             <div class="info">
@@ -411,8 +356,6 @@
                 <div class="value"><a href="mailto:enquiry@sunstarcreation.com">enquiry@sunstarcreation.com</a></div>
             </div>
         </div>
-
-        <!-- 地址 -->
         <div class="contact-card">
             <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
             <div class="info">
@@ -422,28 +365,29 @@
         </div>
     </div>
 
-    <!-- WhatsApp 快速按鈕 -->
     <div class="btn-wrapper">
         <a href="https://wa.me/85255777252" class="whatsapp-btn" target="_blank" rel="noopener">
             <i class="fab fa-whatsapp"></i> 立即 WhatsApp 查詢
         </a>
     </div>
-
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer>
-    <div class="footer-badge">
-        <img src="images/2425_Logo_CHI.jpg" alt="商界展關懷">
+    <div class="footer-content">
+        <div class="footer-left">
+            <div class="footer-brand">SUNSTAR CREATION</div>
+            <div class="footer-divider"></div>
+            <div class="footer-contact"><i class="fab fa-whatsapp" style="margin-right: 6px;"></i> WhatsApp: +852 5577 7252</div>
+            <div class="footer-contact"><i class="fas fa-envelope" style="margin-right: 6px;"></i> Email: enquiry@sunstarcreation.com</div>
+            <div class="footer-divider" style="margin-top: 8px;"></div>
+            <div class="footer-copyright">&copy; 2026 Sunstar Creation Limited. All rights reserved.</div>
+        </div>
+        <div class="footer-badge">
+            <img src="images/2425_Logo_CHI.jpg" alt="商界展關懷">
+        </div>
     </div>
-    <div class="footer-brand">SUNSTAR CREATION</div>
-    <div class="footer-divider"></div>
-    <div class="footer-contact"><i class="fab fa-whatsapp" style="margin-right: 6px;"></i> WhatsApp: +852 5577 7252</div>
-    <div class="footer-contact"><i class="fas fa-envelope" style="margin-right: 6px;"></i> Email: enquiry@sunstarcreation.com</div>
-    <div class="footer-copyright">&copy; 2026 Sunstar Creation Limited. All rights reserved.</div>
 </footer>
 
-<!-- ===== 手機選單 ===== -->
 <script>
     (function() {
         const toggle = document.getElementById('menuToggle');
@@ -464,6 +408,5 @@
         }
     })();
 </script>
-
 </body>
 </html>
