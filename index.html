@@ -246,19 +246,32 @@
             text-align: center;
             font-size: 0.9rem;
         }
-        footer .footer-badge {
-            margin-bottom: 20px;
+        footer .footer-top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
         }
         footer .footer-badge img {
             width: 108px;
             height: auto;
             display: inline-block;
         }
+        footer .footer-info {
+            text-align: left;
+        }
         footer .footer-brand {
             font-size: 1.1rem;
             font-weight: 700;
             letter-spacing: 1px;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
+        }
+        footer .footer-contact {
+            margin: 3px 0;
+            font-size: 0.88rem;
+            opacity: 0.85;
         }
         footer .footer-divider {
             width: 40px;
@@ -266,13 +279,8 @@
             background: rgba(255,255,255,0.4);
             margin: 14px auto;
         }
-        footer .footer-contact {
-            margin: 6px 0;
-            font-size: 0.88rem;
-            opacity: 0.85;
-        }
         footer .footer-copyright {
-            margin-top: 14px;
+            margin-top: 4px;
             font-size: 0.78rem;
             opacity: 0.6;
         }
@@ -433,13 +441,17 @@
 
 <!-- ===== FOOTER ===== -->
 <footer>
-    <div class="footer-badge">
-        <img src="images/2425_Logo_CHI.jpg" alt="商界展關懷">
+    <div class="footer-top">
+        <div class="footer-badge">
+            <img src="images/2425_Logo_CHI.jpg" alt="商界展關懷">
+        </div>
+        <div class="footer-info">
+            <div class="footer-brand">SUNSTAR CREATION</div>
+            <div class="footer-contact"><i class="fab fa-whatsapp" style="margin-right: 6px;"></i> WhatsApp: +852 5577 7252</div>
+            <div class="footer-contact"><i class="fas fa-envelope" style="margin-right: 6px;"></i> Email: enquiry@sunstarcreation.com</div>
+        </div>
     </div>
-    <div class="footer-brand">SUNSTAR CREATION</div>
     <div class="footer-divider"></div>
-    <div class="footer-contact"><i class="fab fa-whatsapp" style="margin-right: 6px;"></i> WhatsApp: +852 5577 7252</div>
-    <div class="footer-contact"><i class="fas fa-envelope" style="margin-right: 6px;"></i> Email: enquiry@sunstarcreation.com</div>
     <div class="footer-copyright">&copy; 2026 Sunstar Creation Limited. All rights reserved.</div>
 </footer>
 
