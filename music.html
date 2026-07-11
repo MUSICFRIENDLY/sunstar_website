@@ -169,7 +169,6 @@
             flex: 0 0 33%;
             display: flex;
             flex-direction: column;
-            gap: 20px;
         }
 
         .right-col {
@@ -177,6 +176,14 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
+        }
+
+        /* 電腦版：按鈕移到最下面 */
+        .btn-wrapper-desktop {
+            display: none;
+            justify-content: center;
+            width: 100%;
+            margin-top: 32px;
         }
 
         /* ===== 通用卡片樣式 ===== */
@@ -490,6 +497,11 @@
                 padding: 60px 0 80px;
             }
 
+            /* 電腦版按鈕顯示在最下面 */
+            .btn-wrapper-desktop {
+                display: flex;
+            }
+
             footer {
                 padding: 40px 10%;
             }
@@ -646,6 +658,7 @@
 <!-- ===== HERO ===== -->
 <div class="hero-music">
     <h1>音樂課程與活動</h1>
+    <p>從樂器探索到專業培訓，從合奏訓練到跨代共融，讓音樂成為校園生活的核心養分。</p>
 </div>
 
 <!-- ===== 主要內容 ===== -->
@@ -659,7 +672,7 @@
         <!-- ========================================= -->
         <div class="card-layout-desktop">
 
-            <!-- 左欄：中西樂器課程卡片 + 按鈕 -->
+            <!-- 左欄：中西樂器課程卡片 -->
             <div class="left-col">
                 <div class="standard-card">
                     <h3 class="card-h3"><i class="fas fa-music"></i>中西樂器課程</h3>
@@ -709,14 +722,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="btn-wrapper">
-                    <a href="https://wa.me/85255777252" target="_blank" class="btn-outline">
-                        <span class="btn-icon"><i class="fab fa-whatsapp"></i></span>
-                        <span class="btn-text">預約課程諮詢</span>
-                        <span class="btn-arrow"><i class="fas fa-chevron-right"></i></span>
-                    </a>
-                </div>
             </div>
 
             <!-- 右欄：4張卡片 (2x2) -->
@@ -761,6 +766,15 @@
                     </ul>
                 </div>
             </div>
+        </div>
+
+        <!-- 電腦版：按鈕放在最下面 -->
+        <div class="btn-wrapper-desktop">
+            <a href="https://wa.me/85255777252" target="_blank" class="btn-outline">
+                <span class="btn-icon"><i class="fab fa-whatsapp"></i></span>
+                <span class="btn-text">預約課程諮詢</span>
+                <span class="btn-arrow"><i class="fas fa-chevron-right"></i></span>
+            </a>
         </div>
 
         <!-- ========================================= -->
