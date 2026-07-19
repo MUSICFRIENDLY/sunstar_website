@@ -171,7 +171,7 @@
             gap: 30px;
         }
         
-        /* 修改：電腦版按鈕外層，改為並排且置中 */
+        /* 電腦版按鈕區塊 */
         .btn-wrapper-desktop {
             display: none;
             justify-content: center;
@@ -286,13 +286,14 @@
             transform: translateY(-2px);
         }
 
-        /* 修改：手機版單個按鈕的包裹容器，改為垂直排列並設定間距 */
-        .btn-wrapper {
-            display: flex;
+        /* 手機版按鈕包裹容器 */
+        .btn-wrapper-mobile {
+            display: none;
             flex-direction: column;
             align-items: center;
             gap: 16px;
             width: 100%;
+            margin-top: 32px; /* 與上方所有卡片區塊保持舒適間距 */
         }
         .btn-outline {
             display: inline-flex;
@@ -414,6 +415,7 @@
             .card-layout-desktop { display: none; }
             .btn-wrapper-desktop { display: none; }
             .card-layout-mobile { display: flex; }
+            .btn-wrapper-mobile { display: flex; } /* 行動版啟用底部按鈕包裹容器 */
             .mobile-grid-4 { grid-template-columns: 1fr 1fr; gap: 20px; }
             .standard-card { padding: 30px 20px; }
             .card-h3 { font-size: 20px; }
@@ -423,10 +425,9 @@
             .btn-outline { font-size: 16px; padding: 14px 20px; max-width: 100%; }
             .btn-outline .btn-icon { font-size: 1.5rem; width: 34px; }
             .btn-outline .btn-arrow { width: 38px; height: 38px; font-size: 1.1rem; }
-            .feature-points { font-size: 15px; }
+            .feature-points li { font-size: 15px; }
             .instrument-tag { font-size: 12px; padding: 2px 10px; }
-            /* 手機板時讓兩個按鈕都有最大寬度限制，看起來更精緻 */
-            .btn-wrapper .btn-outline { max-width: 400px; }
+            .btn-wrapper-mobile .btn-outline { max-width: 400px; }
         }
         @media (max-width: 600px) {
             .mobile-grid-4 { grid-template-columns: 1fr; }
@@ -477,6 +478,7 @@
     <div class="container">
         <h2 class="section-title">課程及活動</h2>
 
+        <!-- 電腦版排版 -->
         <div class="card-layout-desktop">
             <div class="left-col">
                 <div class="standard-card">
@@ -499,7 +501,7 @@
                 <div class="standard-card">
                     <h3 class="card-h3"><i class="fas fa-search-plus"></i>學生樂器探索方案</h3>
                     <p class="card-p">讓學生真正接觸樂器，透過親身試玩 8 至 20 種專業樂器，協助學生找到「第一件樂器」。</p>
-                    <ul class="card-list"><li>深度體驗</li><li>專業評估</li><li>正向啟盟</li></ul>
+                    <ul class="card-list"><li>深度體驗</li><li>專業評估</li><li>正向啟蒙</li></ul>
                 </div>
                 <div class="standard-card">
                     <h3 class="card-h3"><i class="fas fa-drum"></i>合奏團隊訓練</h3>
@@ -519,7 +521,7 @@
             </div>
         </div>
 
-        <!-- 修改：電腦版雙按鈕區塊 -->
+        <!-- 電腦版雙按鈕區塊 -->
         <div class="btn-wrapper-desktop">
             <a href="https://wa.me/85255777252" target="_blank" class="btn-outline">
                 <span class="btn-icon"><i class="fab fa-whatsapp"></i></span>
@@ -533,6 +535,7 @@
             </a>
         </div>
 
+        <!-- 手機版排版 -->
         <div class="card-layout-mobile">
             <div class="left-col-mobile">
                 <div class="standard-card">
@@ -545,20 +548,6 @@
                             <span class="instrument-tag">小提琴</span><span class="instrument-tag">中提琴</span><span class="instrument-tag">大提琴</span><span class="instrument-tag">低音大提琴</span><span class="instrument-tag">豎琴</span><span class="instrument-tag">長笛</span><span class="instrument-tag">單簧管</span><span class="instrument-tag">色士風</span><span class="instrument-tag">雙簧管</span><span class="instrument-tag">巴松管</span><span class="instrument-tag">小號</span><span class="instrument-tag">長號</span><span class="instrument-tag">次中音號</span><span class="instrument-tag">圓號</span><span class="instrument-tag">敲擊樂器</span><span class="instrument-tag">笛子</span><span class="instrument-tag">琵琶</span><span class="instrument-tag">中阮</span><span class="instrument-tag">古箏</span><span class="instrument-tag">二胡</span><span class="instrument-tag">揚琴</span><span class="instrument-tag">中式敲擊</span><span class="instrument-tag">鍵盤</span><span class="instrument-tag">民歌結他</span><span class="instrument-tag">電子結他</span><span class="instrument-tag">夏威夷小結他</span><span class="instrument-tag">爵士鼓</span><span class="instrument-tag">木箱鼓</span><span class="instrument-tag">口風琴</span><span class="instrument-tag">拇指琴</span><span class="instrument-tag">非洲鼓</span><span class="instrument-tag">牧童笛</span>
                         </div>
                     </div>
-                </div>
-                
-                <!-- 修改：手機版雙按鈕區塊 -->
-                <div class="btn-wrapper">
-                    <a href="https://wa.me/85255777252" target="_blank" class="btn-outline">
-                        <span class="btn-icon"><i class="fab fa-whatsapp"></i></span>
-                        <span class="btn-text">預約課程諮詢</span>
-                        <span class="btn-arrow"><i class="fas fa-chevron-right"></i></span>
-                    </a>
-                    <a href="https://musicfriendly.com/" target="_blank" class="btn-outline">
-                        <span class="btn-icon"><i class="fas fa-external-link-alt"></i></span>
-                        <span class="btn-text">立即前往MF了解更多</span>
-                        <span class="btn-arrow"><i class="fas fa-chevron-right"></i></span>
-                    </a>
                 </div>
             </div>
             <div class="mobile-grid-4">
@@ -584,6 +573,21 @@
                 </div>
             </div>
         </div>
+
+        <!-- 修改：手機版雙按鈕區塊，現已移至所有手機版卡片的下方 -->
+        <div class="btn-wrapper-mobile">
+            <a href="https://wa.me/85255777252" target="_blank" class="btn-outline">
+                <span class="btn-icon"><i class="fab fa-whatsapp"></i></span>
+                <span class="btn-text">預約課程諮詢</span>
+                <span class="btn-arrow"><i class="fas fa-chevron-right"></i></span>
+            </a>
+            <a href="https://musicfriendly.com/" target="_blank" class="btn-outline">
+                <span class="btn-icon"><i class="fas fa-external-link-alt"></i></span>
+                <span class="btn-text">立即前往MF了解更多</span>
+                <span class="btn-arrow"><i class="fas fa-chevron-right"></i></span>
+            </a>
+        </div>
+        
     </div>
 </section>
 
