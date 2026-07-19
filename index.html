@@ -270,6 +270,15 @@
             font-size: 0.88rem;
             opacity: 0.85;
         }
+        /* 頁尾連結樣式，保持白色並可點擊 */
+        footer .footer-contact a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+        }
+        footer .footer-contact a:hover {
+            text-decoration: underline;
+            color: #fff;
+        }
         footer .footer-divider {
             width: 40px;
             height: 2px;
@@ -448,8 +457,16 @@
         <div class="footer-left">
             <div class="footer-brand">SUNSTAR CREATION</div>
             <div class="footer-divider"></div>
-            <div class="footer-contact"><i class="fab fa-whatsapp" style="margin-right: 6px;"></i> WhatsApp: +852 5577 7252</div>
-            <div class="footer-contact"><i class="fas fa-envelope" style="margin-right: 6px;"></i> Email: enquiry@sunstarcreation.com</div>
+            <!-- 修改：電話號碼直接連結到 WhatsApp -->
+            <div class="footer-contact">
+                <i class="fab fa-whatsapp" style="margin-right: 6px;"></i> 
+                <a href="https://wa.me/85255777252" target="_blank" rel="noopener">WhatsApp: +852 5577 7252</a>
+            </div>
+            <!-- 修改：郵箱直接連結到發送郵件 -->
+            <div class="footer-contact">
+                <i class="fas fa-envelope" style="margin-right: 6px;"></i> 
+                <a href="mailto:enquiry@sunstarcreation.com">Email: enquiry@sunstarcreation.com</a>
+            </div>
             <div class="footer-divider" style="margin-top: 8px;"></div>
             <div class="footer-copyright">&copy; 2026 Sunstar Creation Limited. All rights reserved.</div>
         </div>
