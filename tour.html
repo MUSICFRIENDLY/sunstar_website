@@ -165,6 +165,15 @@
         }
         .cta-block .cta-contact { font-size: 0.93rem; color: #555; margin: 4px 0; }
         .cta-block .cta-contact i { color: var(--primary-gray); margin-right: 6px; width: 18px; }
+        /* 確保CTA區塊內的連結也可點擊 */
+        .cta-block .cta-contact a {
+            color: #555;
+            text-decoration: none;
+        }
+        .cta-block .cta-contact a:hover {
+            color: var(--primary-blue);
+            text-decoration: underline;
+        }
         .cta-btn {
             display: inline-flex; align-items: center; gap: 8px;
             background: var(--primary-blue); color: #fff; padding: 14px 32px;
@@ -185,6 +194,15 @@
         footer .footer-left { text-align: left; flex: 1; min-width: 250px; }
         footer .footer-brand { font-size: 1.1rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 6px; }
         footer .footer-contact { margin: 3px 0; font-size: 0.88rem; opacity: 0.85; }
+        /* 頁尾連結樣式，保持白色並可點擊 */
+        footer .footer-contact a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+        }
+        footer .footer-contact a:hover {
+            text-decoration: underline;
+            color: #fff;
+        }
         footer .footer-divider { width: 40px; height: 2px; background: rgba(255,255,255,0.4); margin: 8px 0; }
         footer .footer-copyright { font-size: 0.78rem; opacity: 0.6; }
         footer .footer-badge { flex-shrink: 0; }
@@ -319,8 +337,9 @@
 
         <h2 class="section-title">歡迎安排會議進一步了解</h2>
         <div class="cta-block">
-            <p class="cta-contact"><i class="fab fa-whatsapp"></i> WhatsApp: +852 5577 7252</p>
-            <p class="cta-contact"><i class="fas fa-envelope"></i> Email: enquiry@sunstarcreation.com</p>
+            <!-- 修改：CTA區塊內的電話和郵箱也設置為可點擊連結 -->
+            <p class="cta-contact"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/85255777252" target="_blank" rel="noopener">WhatsApp: +852 5577 7252</a></p>
+            <p class="cta-contact"><i class="fas fa-envelope"></i> <a href="mailto:enquiry@sunstarcreation.com">Email: enquiry@sunstarcreation.com</a></p>
             <a href="https://wa.me/85255777252" target="_blank" class="cta-btn">
                 <i class="fab fa-whatsapp"></i> 立即聯絡安排會議
             </a>
@@ -333,8 +352,16 @@
         <div class="footer-left">
             <div class="footer-brand">SUNSTAR CREATION</div>
             <div class="footer-divider"></div>
-            <div class="footer-contact"><i class="fab fa-whatsapp" style="margin-right: 6px;"></i> WhatsApp: +852 5577 7252</div>
-            <div class="footer-contact"><i class="fas fa-envelope" style="margin-right: 6px;"></i> Email: enquiry@sunstarcreation.com</div>
+            <!-- 修改：電話號碼直接連結到 WhatsApp -->
+            <div class="footer-contact">
+                <i class="fab fa-whatsapp" style="margin-right: 6px;"></i> 
+                <a href="https://wa.me/85255777252" target="_blank" rel="noopener">WhatsApp: +852 5577 7252</a>
+            </div>
+            <!-- 修改：郵箱直接連結到發送郵件 -->
+            <div class="footer-contact">
+                <i class="fas fa-envelope" style="margin-right: 6px;"></i> 
+                <a href="mailto:enquiry@sunstarcreation.com">Email: enquiry@sunstarcreation.com</a>
+            </div>
             <div class="footer-divider" style="margin-top: 8px;"></div>
             <div class="footer-copyright">&copy; 2026 Sunstar Creation Limited. All rights reserved.</div>
         </div>
