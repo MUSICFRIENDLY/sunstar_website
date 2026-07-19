@@ -185,6 +185,7 @@
             color: var(--primary-blue);
             word-break: break-word;
         }
+        /* 確保連結顏色一致 */
         .contact-card .info .value a {
             color: var(--primary-blue);
             text-decoration: none;
@@ -247,6 +248,15 @@
             margin: 3px 0;
             font-size: 0.88rem;
             opacity: 0.85;
+        }
+        /* footer 連結樣式，保持白色並可點擊 */
+        footer .footer-contact a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+        }
+        footer .footer-contact a:hover {
+            text-decoration: underline;
+            color: #fff;
         }
         footer .footer-divider {
             width: 40px;
@@ -342,6 +352,7 @@
     </div>
 
     <div class="contact-grid">
+        <!-- WhatsApp 卡片：電話號碼直接連結到 WhatsApp -->
         <div class="contact-card">
             <div class="icon"><i class="fab fa-whatsapp"></i></div>
             <div class="info">
@@ -349,6 +360,7 @@
                 <div class="value"><a href="https://wa.me/85255777252" target="_blank" rel="noopener">+852 5577 7252</a></div>
             </div>
         </div>
+        <!-- 電郵卡片：郵箱直接連結到發送郵件 -->
         <div class="contact-card">
             <div class="icon"><i class="fas fa-envelope"></i></div>
             <div class="info">
@@ -356,6 +368,7 @@
                 <div class="value"><a href="mailto:enquiry@sunstarcreation.com">enquiry@sunstarcreation.com</a></div>
             </div>
         </div>
+        <!-- 地址卡片 (無連結) -->
         <div class="contact-card">
             <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
             <div class="info">
@@ -365,6 +378,7 @@
         </div>
     </div>
 
+    <!-- 主要WhatsApp按鈕 -->
     <div class="btn-wrapper">
         <a href="https://wa.me/85255777252" class="whatsapp-btn" target="_blank" rel="noopener">
             <i class="fab fa-whatsapp"></i> 立即 WhatsApp 查詢
@@ -377,8 +391,16 @@
         <div class="footer-left">
             <div class="footer-brand">SUNSTAR CREATION</div>
             <div class="footer-divider"></div>
-            <div class="footer-contact"><i class="fab fa-whatsapp" style="margin-right: 6px;"></i> WhatsApp: +852 5577 7252</div>
-            <div class="footer-contact"><i class="fas fa-envelope" style="margin-right: 6px;"></i> Email: enquiry@sunstarcreation.com</div>
+            <!-- Footer 電話：直接連結到 WhatsApp -->
+            <div class="footer-contact">
+                <i class="fab fa-whatsapp" style="margin-right: 6px;"></i> 
+                <a href="https://wa.me/85255777252" target="_blank" rel="noopener">WhatsApp: +852 5577 7252</a>
+            </div>
+            <!-- Footer 郵箱：直接連結到發送郵件 -->
+            <div class="footer-contact">
+                <i class="fas fa-envelope" style="margin-right: 6px;"></i> 
+                <a href="mailto:enquiry@sunstarcreation.com">Email: enquiry@sunstarcreation.com</a>
+            </div>
             <div class="footer-divider" style="margin-top: 8px;"></div>
             <div class="footer-copyright">&copy; 2026 Sunstar Creation Limited. All rights reserved.</div>
         </div>
