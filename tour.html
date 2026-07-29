@@ -117,7 +117,7 @@
         .three-col-card h3 { font-size: 1.1rem; color: var(--primary-blue); margin-bottom: 8px; }
         .three-col-card p { font-size: 0.9rem; color: #555; line-height: 1.7; }
 
-        /* ===== 活動照片（取代互動工具） ===== */
+        /* ===== 活動照片 - 橫向滾動 ===== */
         .photo-block {
             background: #fff; border-radius: 16px; padding: 28px 22px;
             box-shadow: var(--shadow); border: 1px solid #eee; margin-bottom: 32px;
@@ -130,32 +130,50 @@
             font-size: 0.95rem; color: var(--primary-gray); margin-bottom: 20px;
             text-align: center;
         }
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 16px;
+        .photo-scroll-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
+            padding: 8px 0 16px 0;
         }
-        .photo-grid .photo-item {
-            background: #f8f8f8;
+        .photo-scroll {
+            display: flex;
+            gap: 16px;
+            flex-wrap: nowrap;
+            padding: 4px 4px 8px 4px;
+        }
+        .photo-scroll .photo-item {
+            flex: 0 0 auto;
+            width: 320px;
+            aspect-ratio: 16 / 9;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            transition: 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            aspect-ratio: 16 / 9; /* 強制橫向 */
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            scroll-snap-align: start;
             background: #eaeef2;
         }
-        .photo-grid .photo-item img {
+        .photo-scroll .photo-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
-        .photo-grid .photo-item:hover {
-            transform: scale(1.01);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        /* 自訂 scrollbar */
+        .photo-scroll-wrapper::-webkit-scrollbar {
+            height: 6px;
+        }
+        .photo-scroll-wrapper::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 10px;
+        }
+        .photo-scroll-wrapper::-webkit-scrollbar-thumb {
+            background: #c0c0c0;
+            border-radius: 10px;
+        }
+        .photo-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+            background: #a0a0a0;
         }
 
         .data-block {
@@ -238,7 +256,6 @@
             .section-title { font-size: 2rem; }
             .vision-block { padding: 36px 32px; }
             .three-col-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-            .photo-grid { grid-template-columns: repeat(3, 1fr); }
             .data-highlights { grid-template-columns: repeat(4, 1fr); gap: 20px; }
             .data-stat { padding: 20px 16px; }
             .data-stat .number { font-size: 2rem; }
@@ -253,11 +270,11 @@
             .data-stat { padding: 14px 10px; }
             .data-stat .number { font-size: 1.5rem; }
             .data-stat .label { font-size: 0.75rem; }
-            .photo-grid { grid-template-columns: repeat(2, 1fr); }
         }
-        @media (max-width: 480px) {
-            .photo-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .photo-grid .photo-item { aspect-ratio: 16 / 9; }
+        @media (max-width: 600px) {
+            .photo-scroll .photo-item {
+                width: 240px;
+            }
         }
     </style>
 </head>
@@ -315,17 +332,19 @@
             <div class="three-col-card"><h3>服務學習</h3><p>具備高度靈活性：學生能發掘如心園的亮點，更可將導賞規劃與解說技巧應用於校園主題——親身走訪發掘學校特色，並為校內群體提供服務，將知識轉化為真實的社會實踐</p></div>
         </div>
 
-        <!-- ===== 活動照片（取代互動工具） ===== -->
+        <!-- ===== 活動照片（橫向滾動） ===== -->
         <h2 class="section-title">活動照片</h2>
         <div class="photo-block">
             <h3>社區大使計劃精彩回顧</h3>
             <p class="photo-subtitle">學生投入導賞訓練、實地考察與社區服務的珍貴時刻</p>
-    <div class="photo-grid">
-        <div class="photo-item"><img src="images/tour-photo-1.jpg" alt="活動照片 1"></div>
-        <div class="photo-item"><img src="images/tour-photo-2.jpg" alt="活動照片 2"></div>
-        <div class="photo-item"><img src="images/tour-photo-3.jpg" alt="活動照片 3"></div>
-        <div class="photo-item"><img src="images/tour-photo-4.jpg" alt="活動照片 4"></div>
-    </div>
+            <div class="photo-scroll-wrapper">
+                <div class="photo-scroll">
+                    <div class="photo-item"><img src="images/tour-photo-1.jpg" alt="活動照片 1"></div>
+                    <div class="photo-item"><img src="images/tour-photo-2.jpg" alt="活動照片 2"></div>
+                    <div class="photo-item"><img src="images/tour-photo-3.jpg" alt="活動照片 3"></div>
+                    <div class="photo-item"><img src="images/tour-photo-4.jpg" alt="活動照片 4"></div>
+                </div>
+            </div>
         </div>
 
         <h2 class="section-title">2026年先導計劃數據</h2>
