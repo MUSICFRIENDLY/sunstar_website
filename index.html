@@ -185,7 +185,7 @@
             padding: 0 4px;
         }
 
-        /* ===== 卡片 ===== */
+        /* ===== 卡片（含小圖片） ===== */
         .card-grid {
             display: flex;
             flex-direction: column;
@@ -202,6 +202,25 @@
             transition: 0.2s;
             display: flex;
             flex-direction: column;
+        }
+        .card .card-img {
+            width: 100%;
+            max-height: 140px;  /* 限制高度，讓圖片變小 */
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 14px;
+            background: #eaeef2;
+            flex-shrink: 0;
+        }
+        .card .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: 0.3s;
+        }
+        .card:hover .card-img img {
+            transform: scale(1.02);
         }
         .card h3 {
             font-size: 1.2rem;
@@ -270,7 +289,6 @@
             font-size: 0.88rem;
             opacity: 0.85;
         }
-        /* 頁尾連結樣式，保持白色並可點擊 */
         footer .footer-contact a {
             color: rgba(255,255,255,0.9);
             text-decoration: none;
@@ -365,14 +383,18 @@
                 justify-content: center;
             }
             .card {
-                flex: 1 1 280px;
-                max-width: 340px;
-                padding: 28px 24px;
+                flex: 1 1 260px;
+                max-width: 320px;
+                padding: 24px 20px;
                 transition: 0.3s;
             }
             .card:hover {
                 transform: translateY(-6px);
                 box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+            }
+            /* 桌機版圖片再小一點 */
+            .card .card-img {
+                max-height: 120px;
             }
 
             footer {
@@ -383,7 +405,10 @@
         @media (min-width: 1024px) {
             .hero-content h1 { font-size: 3.4rem; }
             section { padding: 80px 10%; }
-            .card { flex: 1 1 300px; max-width: 380px; }
+            .card { flex: 1 1 280px; max-width: 360px; }
+            .card .card-img {
+                max-height: 130px;
+            }
         }
     </style>
 </head>
@@ -428,22 +453,41 @@
     </p>
 
     <div class="card-grid">
+        <!-- 中華文化日 -->
         <div class="card">
+            <div class="card-img">
+                <img src="images/Chineseculture_game%20(8).jpg" alt="中華文化日">
+            </div>
             <h3>中華文化日</h3>
             <p>從傳統節慶到國學經典，為校園注入深厚的文化底蘊。</p>
             <a href="culture.html" class="card-btn">了解更多 <i class="fas fa-chevron-right"></i></a>
         </div>
+
+        <!-- 音樂課程與活動 -->
         <div class="card">
+            <div class="card-img">
+                <img src="images/music.jpeg" alt="音樂課程與活動">
+            </div>
             <h3>音樂課程與活動</h3>
             <p>合唱團、中樂團、流行音樂製作，讓音符在校園流動。</p>
             <a href="music.html" class="card-btn">了解更多 <i class="fas fa-chevron-right"></i></a>
         </div>
+
+        <!-- 校本視藝課程 -->
         <div class="card">
+            <div class="card-img">
+                <img src="images/ArtColor%20(2).jpg" alt="校本視藝課程">
+            </div>
             <h3>校本視藝課程</h3>
             <p>視覺藝術課程與展覽策劃，啟發學生的創意潛能。</p>
             <a href="art.html" class="card-btn">了解更多 <i class="fas fa-chevron-right"></i></a>
         </div>
+
+        <!-- 學生社區大使計劃 -->
         <div class="card">
+            <div class="card-img">
+                <img src="images/tour-photo-1" alt="學生社區大使計劃">
+            </div>
             <h3>學生社區大使計劃</h3>
             <p>歷史文化導賞，帶學生走出課室，體驗在地故事。</p>
             <a href="tour.html" class="card-btn">了解更多 <i class="fas fa-chevron-right"></i></a>
@@ -457,12 +501,10 @@
         <div class="footer-left">
             <div class="footer-brand">SUNSTAR CREATION</div>
             <div class="footer-divider"></div>
-            <!-- 修改：電話號碼直接連結到 WhatsApp -->
             <div class="footer-contact">
                 <i class="fab fa-whatsapp" style="margin-right: 6px;"></i> 
                 <a href="https://wa.me/85255777252" target="_blank" rel="noopener">WhatsApp: +852 5577 7252</a>
             </div>
-            <!-- 修改：郵箱直接連結到發送郵件 -->
             <div class="footer-contact">
                 <i class="fas fa-envelope" style="margin-right: 6px;"></i> 
                 <a href="mailto:enquiry@sunstarcreation.com">Email: enquiry@sunstarcreation.com</a>
