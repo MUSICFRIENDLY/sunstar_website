@@ -117,7 +117,7 @@
         .three-col-card h3 { font-size: 1.1rem; color: var(--primary-blue); margin-bottom: 8px; }
         .three-col-card p { font-size: 0.9rem; color: #555; line-height: 1.7; }
 
-        /* ===== 活動照片 Slider（與原本互動工具相同樣式） ===== */
+        /* ===== 活動照片 Slider ===== */
         .photo-block {
             background: #fff; border-radius: 16px; padding: 28px 22px;
             box-shadow: var(--shadow); border: 1px solid #eee; margin-bottom: 32px; text-align: center;
@@ -132,7 +132,7 @@
             position: relative;
             width: 100%;
             max-width: 480px;
-            height: 320px; /* 配合 16:9 比例 */
+            height: 320px;
             overflow: hidden;
             background: #f0f0f0;
             border-radius: 12px;
@@ -255,7 +255,7 @@
         footer .footer-divider { width: 40px; height: 2px; background: rgba(255,255,255,0.4); margin: 8px 0; }
         footer .footer-copyright { font-size: 0.78rem; opacity: 0.6; }
         footer .footer-badge { flex-shrink: 0; }
-        footer .footer-badge img { width: 108px; height: auto; display: inline-block; }
+        footer .footer-badge img { width: 72px; height: auto; display: inline-block; }
 
         @media (min-width: 768px) {
             body { padding-top: 72px; }
@@ -419,7 +419,7 @@
         }
     })();
 
-    // ===== 活動照片 Slider（與原本互動工具相同） =====
+    // ===== 活動照片 Slider =====
     let currentPhotoSlide = 0;
     const photoSlides = document.querySelectorAll('#photoSlider .slides img');
     const totalPhotoSlides = photoSlides.length;
