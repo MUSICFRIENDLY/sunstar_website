@@ -37,19 +37,19 @@
             z-index: 1000;
             min-height: 64px;
         }
+        /* 品牌區塊改為 logo 圖片 */
         nav .brand {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #000;
-            letter-spacing: 1.5px;
-            white-space: nowrap;
-            line-height: 1.2;
-            text-align: left;
+            display: flex;
+            align-items: center;
+            line-height: 1;
+            flex-shrink: 0;
         }
-        nav .brand .brand-top,
-        nav .brand .brand-bottom {
+        nav .brand img {
             display: block;
-            font-size: 1rem;
+            height: 40px;
+            width: auto;
+            max-height: 48px;
+            object-fit: contain;
         }
         .menu-toggle {
             display: flex;
@@ -185,7 +185,6 @@
             color: var(--primary-blue);
             word-break: break-word;
         }
-        /* 確保連結顏色一致 */
         .contact-card .info .value a {
             color: var(--primary-blue);
             text-decoration: none;
@@ -249,7 +248,6 @@
             font-size: 0.88rem;
             opacity: 0.85;
         }
-        /* footer 連結樣式，保持白色並可點擊 */
         footer .footer-contact a {
             color: rgba(255,255,255,0.9);
             text-decoration: none;
@@ -280,8 +278,10 @@
         @media (min-width: 768px) {
             body { padding-top: 72px; }
             nav { padding: 16px 5%; min-height: 72px; }
-            nav .brand { font-size: 1rem; }
-            nav .brand .brand-top, nav .brand .brand-bottom { font-size: 1.1rem; }
+            nav .brand img {
+                height: 44px;
+                max-height: 52px;
+            }
             .menu-toggle { display: none; }
             nav .links {
                 display: flex !important;
@@ -321,6 +321,14 @@
             section { padding: 80px 10%; }
             .contact-grid { max-width: 800px; }
             .btn-wrapper { margin-top: 56px; }
+            nav .brand img {
+                height: 48px;
+            }
+        }
+        @media (max-width: 480px) {
+            nav .brand img {
+                height: 34px;
+            }
         }
     </style>
 </head>
@@ -328,8 +336,8 @@
 
 <nav>
     <div class="brand">
-        <span class="brand-top">SUNSTAR</span>
-        <span class="brand-bottom">CREATION</span>
+        <!-- 替換為 logo.png -->
+        <img src="images/logo.png" alt="Sunstar Creation 標誌">
     </div>
     <button class="menu-toggle" id="menuToggle" aria-label="選單">
         <span></span><span></span><span></span>
@@ -352,7 +360,6 @@
     </div>
 
     <div class="contact-grid">
-        <!-- WhatsApp 卡片：電話號碼直接連結到 WhatsApp -->
         <div class="contact-card">
             <div class="icon"><i class="fab fa-whatsapp"></i></div>
             <div class="info">
@@ -360,7 +367,6 @@
                 <div class="value"><a href="https://wa.me/85255777252" target="_blank" rel="noopener">+852 5577 7252</a></div>
             </div>
         </div>
-        <!-- 電郵卡片：郵箱直接連結到發送郵件 -->
         <div class="contact-card">
             <div class="icon"><i class="fas fa-envelope"></i></div>
             <div class="info">
@@ -368,7 +374,6 @@
                 <div class="value"><a href="mailto:enquiry@sunstarcreation.com">enquiry@sunstarcreation.com</a></div>
             </div>
         </div>
-        <!-- 地址卡片 (無連結) -->
         <div class="contact-card">
             <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
             <div class="info">
@@ -378,7 +383,6 @@
         </div>
     </div>
 
-    <!-- 主要WhatsApp按鈕 -->
     <div class="btn-wrapper">
         <a href="https://wa.me/85255777252" class="whatsapp-btn" target="_blank" rel="noopener">
             <i class="fab fa-whatsapp"></i> 立即 WhatsApp 查詢
@@ -391,12 +395,10 @@
         <div class="footer-left">
             <div class="footer-brand">SUNSTAR CREATION</div>
             <div class="footer-divider"></div>
-            <!-- Footer 電話：直接連結到 WhatsApp -->
             <div class="footer-contact">
                 <i class="fab fa-whatsapp" style="margin-right: 6px;"></i> 
                 <a href="https://wa.me/85255777252" target="_blank" rel="noopener">WhatsApp: +852 5577 7252</a>
             </div>
-            <!-- Footer 郵箱：直接連結到發送郵件 -->
             <div class="footer-contact">
                 <i class="fas fa-envelope" style="margin-right: 6px;"></i> 
                 <a href="mailto:enquiry@sunstarcreation.com">Email: enquiry@sunstarcreation.com</a>
