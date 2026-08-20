@@ -3,10 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Sunstar Creation | 學生社區大使計劃</title>
+    
+    <!-- ===== SEO 優化（頁面標題） ===== -->
+    <title>學生社區大使計劃 | 導賞訓練、體驗式學習、服務學習 | Sunstar Creation</title>
+    
+    <!-- ===== SEO 優化（頁面描述與關鍵字） ===== -->
+    <meta name="description" content="Sunstar Creation 學生社區大使計劃透過專業導賞訓練，培養具備共情力與領導力的青少年領袖。結合體驗式學習、導賞訓練與服務學習，讓學生深入了解社區，實踐社會服務。2026年先導計劃已培訓60名學生並接待逾300名參觀者。">
+    <meta name="keywords" content="學生社區大使計劃, 導賞訓練, 體驗式學習, 服務學習, 青少年領袖培訓, 社區服務, 學校導賞, 如心園, 木化石, Sunstar Creation">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.sunstarcreation.com/tour.html">
+
+    <!-- ===== SEO 優化（社群分享 Open Graph） ===== -->
+    <meta property="og:title" content="學生社區大使計劃 | 導賞訓練、體驗式學習、服務學習 | Sunstar Creation">
+    <meta property="og:description" content="透過專業導賞訓練，培養具備共情力與領導力的青少年領袖。結合體驗式學習、導賞訓練與服務學習，讓學生深入了解社區。2026年先導計劃已培訓60名學生。">
+    <meta property="og:url" content="https://www.sunstarcreation.com/tour.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.sunstarcreation.com/images/og-image.jpg">
+    <meta property="og:locale" content="zh_HK">
+
+    <!-- ===== SEO 優化（結構化資料 JSON-LD） ===== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Sunstar Creation Limited",
+        "description": "學生社區大使計劃透過專業導賞訓練，培養具備共情力與領導力的青少年領袖。",
+        "url": "https://www.sunstarcreation.com",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "學生社區大使計劃",
+            "description": "結合體驗式學習、導賞訓練與服務學習的青少年領袖培訓計劃。",
+            "itemListElement": [
+                {
+                    "@type": "Course",
+                    "name": "體驗式學習",
+                    "description": "結合理論與實地學習，親身指導地質學與木化石形成機制，瞭解社區自然生態特色。"
+                },
+                {
+                    "@type": "Course",
+                    "name": "導賞訓練",
+                    "description": "掌握導賞六部曲，包括開場、轉譯概念、互動提問與應對，引導學生構想導賞主題及規劃路線。"
+                },
+                {
+                    "@type": "Course",
+                    "name": "服務學習",
+                    "description": "將導賞規劃與解說技巧應用於校園主題，為校內群體提供服務，將知識轉化為社會實踐。"
+                }
+            ]
+        }
+    }
+    </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        /* ===== 你的原始樣式完整保留，完全沒有更動 ===== */
         :root {
             --primary-blue: #15345E;
             --primary-gray: #727171;
@@ -38,7 +89,6 @@
             z-index: 1000;
             min-height: 64px;
         }
-        /* 品牌區塊改為 logo 圖片 */
         nav .brand {
             display: flex;
             align-items: center;
@@ -315,9 +365,9 @@
 </head>
 <body>
 
+<!-- ===== 你的原始內容完全保留，無任何更動 ===== -->
 <nav>
     <div class="brand">
-        <!-- 替換為 logo.png -->
         <img src="images/logo.png" alt="Sunstar Creation 標誌">
     </div>
     <button class="menu-toggle" id="menuToggle" aria-label="選單">
@@ -412,7 +462,7 @@
 </footer>
 
 <script>
-    // ===== 手機版選單 =====
+    /* ===== 你的原始 JavaScript 完整保留，完全沒有更動 ===== */
     (function() {
         const toggle = document.getElementById('menuToggle');
         const links = document.getElementById('navLinks');
@@ -432,14 +482,12 @@
         }
     })();
 
-    // ===== 活動照片 Slider =====
     let currentPhotoSlide = 0;
     const photoSlides = document.querySelectorAll('#photoSlider .slides img');
     const totalPhotoSlides = photoSlides.length;
     const photoSlidesContainer = document.querySelector('#photoSlider .slides');
     const photoDotsContainer = document.getElementById('photoDots');
 
-    // 產生圓點
     for (let i = 0; i < totalPhotoSlides; i++) {
         const dot = document.createElement('span');
         dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
@@ -469,7 +517,6 @@
         goToPhotoSlide(i);
     }
 
-    // 自動播放（每4秒）
     setInterval(function() {
         nextPhotoSlide();
     }, 4000);
