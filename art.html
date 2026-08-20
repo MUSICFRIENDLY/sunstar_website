@@ -38,19 +38,19 @@
             z-index: 1000;
             min-height: 64px;
         }
+        /* 品牌區塊改為 logo 圖片 */
         nav .brand {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #000;
-            letter-spacing: 1.5px;
-            white-space: nowrap;
-            line-height: 1.2;
-            text-align: left;
+            display: flex;
+            align-items: center;
+            line-height: 1;
+            flex-shrink: 0;
         }
-        nav .brand .brand-top,
-        nav .brand .brand-bottom {
+        nav .brand img {
             display: block;
-            font-size: 1rem;
+            height: 40px;          /* 調整高度符合導航列 */
+            width: auto;
+            max-height: 48px;
+            object-fit: contain;
         }
         .menu-toggle {
             display: flex;
@@ -310,8 +310,10 @@
         @media (min-width: 768px) {
             body { padding-top: 72px; }
             nav { padding: 16px 5%; min-height: 72px; }
-            nav .brand { font-size: 1rem; }
-            nav .brand .brand-top, nav .brand .brand-bottom { font-size: 1.1rem; }
+            nav .brand img {
+                height: 44px;        /* 桌機稍微大一點 */
+                max-height: 52px;
+            }
             .menu-toggle { display: none; }
             nav .links {
                 display: flex !important; flex-direction: row; position: static;
@@ -341,6 +343,15 @@
             section { padding: 80px 10%; }
             .card-slider { height: 200px; }
             .advanced-card .adv-image { height: 180px; }
+            nav .brand img {
+                height: 48px;
+            }
+        }
+        /* 手機版logo稍微縮小 */
+        @media (max-width: 480px) {
+            nav .brand img {
+                height: 34px;
+            }
         }
     </style>
 </head>
@@ -348,8 +359,8 @@
 
 <nav>
     <div class="brand">
-        <span class="brand-top">SUNSTAR</span>
-        <span class="brand-bottom">CREATION</span>
+        <!-- 替換為 logo.png，請確認 images/logo.png 存在 -->
+        <img src="images/logo.png" alt="Sunstar Creation 標誌">
     </div>
     <button class="menu-toggle" id="menuToggle" aria-label="選單">
         <span></span><span></span><span></span>
