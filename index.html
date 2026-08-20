@@ -44,22 +44,19 @@
             z-index: 1000;
             min-height: 64px;
         }
+        /* 品牌區塊改為 logo 圖片 */
         nav .brand {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #000;
-            letter-spacing: 1.5px;
-            white-space: nowrap;
-            line-height: 1.2;
-            text-align: left;
+            display: flex;
+            align-items: center;
+            line-height: 1;
+            flex-shrink: 0;
         }
-        nav .brand .brand-top {
+        nav .brand img {
             display: block;
-            font-size: 1rem;
-        }
-        nav .brand .brand-bottom {
-            display: block;
-            font-size: 1rem;
+            height: 40px;
+            width: auto;
+            max-height: 48px;
+            object-fit: contain;
         }
 
         .menu-toggle {
@@ -205,7 +202,7 @@
         }
         .card .card-img {
             width: 100%;
-            max-height: 140px;  /* 限制高度，讓圖片變小 */
+            max-height: 140px;
             border-radius: 10px;
             overflow: hidden;
             margin-bottom: 14px;
@@ -311,8 +308,8 @@
             flex-shrink: 0;
         }
         footer .footer-badge img {
-            width: 72px;       /* 保持原始縱橫比，等比例等比縮小 */
-            height: auto;      /* 不設高度限制，避免長寬比失真 */
+            width: 72px;
+            height: auto;
             display: block;
         }
 
@@ -324,14 +321,9 @@
                 padding: 16px 5%;
                 min-height: 72px;
             }
-            nav .brand {
-                font-size: 1rem;
-            }
-            nav .brand .brand-top {
-                font-size: 1.1rem;
-            }
-            nav .brand .brand-bottom {
-                font-size: 1.1rem;
+            nav .brand img {
+                height: 44px;
+                max-height: 52px;
             }
 
             .menu-toggle { display: none; }
@@ -392,7 +384,6 @@
                 transform: translateY(-6px);
                 box-shadow: 0 12px 35px rgba(0,0,0,0.08);
             }
-            /* 桌機版圖片再小一點 */
             .card .card-img {
                 max-height: 120px;
             }
@@ -409,6 +400,14 @@
             .card .card-img {
                 max-height: 130px;
             }
+            nav .brand img {
+                height: 48px;
+            }
+        }
+        @media (max-width: 480px) {
+            nav .brand img {
+                height: 34px;
+            }
         }
     </style>
 </head>
@@ -417,8 +416,8 @@
 <!-- ===== NAV ===== -->
 <nav>
     <div class="brand">
-        <span class="brand-top">SUNSTAR</span>
-        <span class="brand-bottom">CREATION</span>
+        <!-- 替換為 logo.png -->
+        <img src="images/logo.png" alt="Sunstar Creation 標誌">
     </div>
 
     <button class="menu-toggle" id="menuToggle" aria-label="選單">
