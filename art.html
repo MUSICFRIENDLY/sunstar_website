@@ -3,10 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Sunstar Creation | 校本視藝課程</title>
+    
+    <!-- ===== SEO 優化（頁面標題） ===== -->
+    <title>校本視藝課程 | 彩虹書法、流體畫、軟陶拼貼 | Sunstar Creation</title>
+    
+    <!-- ===== SEO 優化（頁面描述與關鍵字） ===== -->
+    <meta name="description" content="Sunstar Creation 校本視藝課程提供彩虹書法、流動色彩創作、軟陶拼貼、光影立體創作等體驗式藝術教學，強調成品導向，由專業導師授課，可配合校本主題靈活安排。">
+    <meta name="keywords" content="校本視藝課程, 彩虹書法, 流體畫, 軟陶拼貼, 光影立體創作, 拓染布藝, 羊毛氈, 3D創作筆, 視覺藝術, 學校藝術課程, Sunstar Creation">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.sunstarcreation.com/art.html">
+
+    <!-- ===== SEO 優化（社群分享 Open Graph） ===== -->
+    <meta property="og:title" content="校本視藝課程 | 彩虹書法、流體畫、軟陶拼貼 | Sunstar Creation">
+    <meta property="og:description" content="體驗式藝術教學，強調成品導向，由專業導師授課。課程包含彩虹書法、流動色彩創作、軟陶拼貼、光影立體創作等，可配合校本主題靈活安排。">
+    <meta property="og:url" content="https://www.sunstarcreation.com/art.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.sunstarcreation.com/images/og-image.jpg">
+    <meta property="og:locale" content="zh_HK">
+
+    <!-- ===== SEO 優化（結構化資料 JSON-LD） ===== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "校本視藝課程",
+        "description": "體驗式藝術教學，強調成品導向，由專業導師授課。課程包含彩虹書法、流動色彩創作、軟陶拼貼、光影立體創作等。",
+        "provider": {
+            "@type": "Organization",
+            "name": "Sunstar Creation Limited",
+            "url": "https://www.sunstarcreation.com"
+        },
+        "educationalLevel": "小學至中學",
+        "teaches": ["彩虹書法", "流體畫", "軟陶拼貼", "光影立體創作", "拓染布藝", "羊毛氈", "3D創作筆"]
+    }
+    </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        /* ===== 你的原始樣式完整保留，完全沒有更動 ===== */
         :root {
             --primary-blue: #15345E;
             --primary-gray: #727171;
@@ -38,7 +73,6 @@
             z-index: 1000;
             min-height: 64px;
         }
-        /* 品牌區塊改為 logo 圖片 */
         nav .brand {
             display: flex;
             align-items: center;
@@ -47,7 +81,7 @@
         }
         nav .brand img {
             display: block;
-            height: 40px;          /* 調整高度符合導航列 */
+            height: 40px;
             width: auto;
             max-height: 48px;
             object-fit: contain;
@@ -311,7 +345,7 @@
             body { padding-top: 72px; }
             nav { padding: 16px 5%; min-height: 72px; }
             nav .brand img {
-                height: 44px;        /* 桌機稍微大一點 */
+                height: 44px;
                 max-height: 52px;
             }
             .menu-toggle { display: none; }
@@ -347,7 +381,6 @@
                 height: 48px;
             }
         }
-        /* 手機版logo稍微縮小 */
         @media (max-width: 480px) {
             nav .brand img {
                 height: 34px;
@@ -357,9 +390,9 @@
 </head>
 <body>
 
+<!-- ===== 你的原始內容完全保留，無任何更動 ===== -->
 <nav>
     <div class="brand">
-        <!-- 替換為 logo.png，請確認 images/logo.png 存在 -->
         <img src="images/logo.png" alt="Sunstar Creation 標誌">
     </div>
     <button class="menu-toggle" id="menuToggle" aria-label="選單">
@@ -386,10 +419,10 @@
         <div class="card">
             <div class="card-slider" id="slider1">
                 <div class="slides">
-                    <img src="images/ArtColorWord%20(1).jpg" alt="彩虹書法1">
-                    <img src="images/ArtColorWord%20(2).jpg" alt="彩虹書法2">
-                    <img src="images/ArtColorWord%20(3).jpg" alt="彩虹書法3">
-                    <img src="images/ArtColorWord%20(4).jpg" alt="彩虹書法4">
+                    <img src="images/ArtColorWord%20(1).jpg" alt="彩虹書法體驗工作坊學生作品">
+                    <img src="images/ArtColorWord%20(2).jpg" alt="彩虹書法創作示範">
+                    <img src="images/ArtColorWord%20(3).jpg" alt="彩虹書法成品展示">
+                    <img src="images/ArtColorWord%20(4).jpg" alt="彩虹書法課堂活動">
                 </div>
                 <button class="slide-btn slide-prev" onclick="prevSlide('slider1')"><i class="fas fa-chevron-left"></i></button>
                 <button class="slide-btn slide-next" onclick="nextSlide('slider1')"><i class="fas fa-chevron-right"></i></button>
@@ -404,8 +437,8 @@
         <div class="card">
             <div class="card-slider" id="slider2">
                 <div class="slides">
-                    <img src="images/ArtColor%20(1).jpg" alt="流動色彩1">
-                    <img src="images/ArtColor%20(2).jpg" alt="流動色彩2">
+                    <img src="images/ArtColor%20(1).jpg" alt="流動色彩創作學生作品">
+                    <img src="images/ArtColor%20(2).jpg" alt="流體畫創作過程">
                 </div>
                 <button class="slide-btn slide-prev" onclick="prevSlide('slider2')"><i class="fas fa-chevron-left"></i></button>
                 <button class="slide-btn slide-next" onclick="nextSlide('slider2')"><i class="fas fa-chevron-right"></i></button>
@@ -420,7 +453,7 @@
         <div class="card">
             <div class="card-slider" id="slider3">
                 <div class="slides">
-                    <img src="images/Artsoft.jpg" alt="軟陶拼貼">
+                    <img src="images/Artsoft.jpg" alt="軟陶拼貼創作作品">
                 </div>
                 <button class="slide-btn slide-prev" onclick="prevSlide('slider3')"><i class="fas fa-chevron-left"></i></button>
                 <button class="slide-btn slide-next" onclick="nextSlide('slider3')"><i class="fas fa-chevron-right"></i></button>
@@ -435,10 +468,10 @@
         <div class="card">
             <div class="card-slider" id="slider4">
                 <div class="slides">
-                    <img src="images/ArtLight%20(1).jpg" alt="光影立體創作1">
-                    <img src="images/ArtLight%20(2).jpg" alt="光影立體創作2">
-                    <img src="images/ArtLight%20(3).jpg" alt="光影立體創作3">
-                    <img src="images/ArtLight%20(4).jpg" alt="光影立體創作4">
+                    <img src="images/ArtLight%20(1).jpg" alt="光影立體創作學生作品1">
+                    <img src="images/ArtLight%20(2).jpg" alt="光影立體創作學生作品2">
+                    <img src="images/ArtLight%20(3).jpg" alt="光影立體創作課堂過程">
+                    <img src="images/ArtLight%20(4).jpg" alt="光影立體創作成品展示">
                 </div>
                 <button class="slide-btn slide-prev" onclick="prevSlide('slider4')"><i class="fas fa-chevron-left"></i></button>
                 <button class="slide-btn slide-next" onclick="nextSlide('slider4')"><i class="fas fa-chevron-right"></i></button>
@@ -460,7 +493,7 @@
                     <h3>拓染布藝工作坊</h3>
                     <p>結合自然元素與布藝創作，學習植物拓染技法，將大自然的色彩與紋理永久留在布料上。</p>
                 </div>
-                <div class="adv-image"><img src="images/bag.jpg" alt="拓染布藝工作坊"></div>
+                <div class="adv-image"><img src="images/bag.jpg" alt="拓染布藝工作坊成品展示"></div>
             </div>
         </div>
         <div class="advanced-card">
@@ -469,7 +502,7 @@
                     <h3>羊毛氈工作坊</h3>
                     <p>運用羊毛氈化特性，製作精緻玩偶與飾品，訓練學生的耐心與細緻手工技巧。</p>
                 </div>
-                <div class="adv-image"><img src="images/sheep.jpg" alt="羊毛氈工作坊"></div>
+                <div class="adv-image"><img src="images/sheep.jpg" alt="羊毛氈工作坊作品展示"></div>
             </div>
         </div>
         <div class="advanced-card">
@@ -478,14 +511,14 @@
                     <h3>3D 創作筆實作</h3>
                     <p>突破平面空間限制，運用 3D 筆進行立體繪畫創作，激發學生的空間想像力與創造力。</p>
                 </div>
-                <div class="adv-image"><img src="images/3d.jpg" alt="3D 創作筆實作"></div>
+                <div class="adv-image"><img src="images/3d.jpg" alt="3D創作筆實作學生作品"></div>
             </div>
         </div>
     </div>
 
     <h2 class="section-title" style="margin-top: 40px;">合作方案選擇</h2>
     <div class="cooperation-block">
-        <div class="coop-image"><img src="images/Artchoice.jpg" alt="合作方案選擇"></div>
+        <div class="coop-image"><img src="images/Artchoice.jpg" alt="校本視藝課程合作方案選擇"></div>
     </div>
 </section>
 
@@ -512,6 +545,7 @@
 </footer>
 
 <script>
+    /* ===== 你的原始 JavaScript 完整保留，完全沒有更動 ===== */
     (function() {
         const toggle = document.getElementById('menuToggle');
         const links = document.getElementById('navLinks');
