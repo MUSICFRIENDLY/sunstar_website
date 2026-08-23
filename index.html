@@ -219,6 +219,74 @@
             padding: 0 4px;
         }
 
+        /* ===== 公司簡介段落（新增） ===== */
+        .company-bio {
+            text-align: center;
+            font-size: 0.98rem;
+            max-width: 720px;
+            margin: 6px auto 10px;
+            color: #444;
+            padding: 0 8px;
+            line-height: 1.9;
+        }
+        .company-bio strong {
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+        .company-bio .mf-link-text {
+            display: inline-block;
+            margin-top: 4px;
+            color: var(--primary-blue);
+            font-weight: 500;
+        }
+
+        /* ===== MF Logo 按鈕（純圖片，可點擊） ===== */
+        .mf-logo-btn-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 6px auto 14px;
+        }
+        .mf-logo-btn {
+            display: inline-block;
+            transition: 0.25s ease;
+            border-radius: 16px;
+            padding: 6px 12px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        .mf-logo-btn:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+        }
+        .mf-logo-btn:active {
+            transform: scale(0.96);
+        }
+        .mf-logo-btn img {
+            display: block;
+            height: 64px;
+            width: auto;
+            max-height: 72px;
+            object-fit: contain;
+        }
+        /* 小屏調整 */
+        @media (max-width: 500px) {
+            .mf-logo-btn img {
+                height: 50px;
+                max-height: 56px;
+            }
+            .company-bio {
+                font-size: 0.9rem;
+                padding: 0 4px;
+            }
+        }
+        @media (min-width: 768px) {
+            .mf-logo-btn img {
+                height: 76px;
+                max-height: 84px;
+            }
+        }
+
         /* ===== 卡片（含小圖片） ===== */
         .card-grid {
             display: flex;
@@ -425,6 +493,11 @@
                 max-height: 120px;
             }
 
+            .company-bio {
+                font-size: 1.05rem;
+                max-width: 780px;
+            }
+
             footer {
                 padding: 40px 10%;
             }
@@ -439,6 +512,10 @@
             }
             nav .brand img {
                 height: 48px;
+            }
+            .mf-logo-btn img {
+                height: 84px;
+                max-height: 92px;
             }
         }
         @media (max-width: 480px) {
@@ -480,12 +557,28 @@
     </div>
 </section>
 
-<!-- ===== 關於我們（你的原始內容完全保留） ===== -->
+<!-- ===== 關於我們 ===== -->
 <section id="about">
     <h2 class="section-title">關於我們</h2>
     <p class="intro-text">
-        Sunstar Creation Limited 專注於提供多元化校園文化與藝術方案。
+        專注於校園文化與藝術方案，連結傳統與創新。
     </p>
+
+    <!-- 公司簡介（含「如欲了解更多，請移步至MF網址」） -->
+    <div class="company-bio">
+        <strong>輝達基業有限公司</strong> 成立於2000年，合作學校及機構逾290間，多年來服務超過3500名學生。
+        公司服務範疇包括音樂課程設計及營運、音樂及藝術體驗活動、活動統籌與專業演出、教學用具代訂及租借。
+        <br>
+        旗下品牌 <strong>MUSICFRIENDLY</strong> 主力為學校提供音樂課程，如欲了解更多，請移步至MF網址。
+    </div>
+
+    <!-- MF Logo 按鈕（點擊跳轉 https://musicfriendly.com/） -->
+    <div class="mf-logo-btn-wrapper">
+        <a href="https://musicfriendly.com/" target="_blank" rel="noopener noreferrer" class="mf-logo-btn" aria-label="前往 MUSICFRIENDLY 網站">
+            <!-- 請將 images/mf-logo.png 換成您實際的 MF Logo 圖片路徑 -->
+            <img src="images/mf-logo.png" alt="MUSICFRIENDLY 標誌">
+        </a>
+    </div>
 
     <div class="card-grid">
         <!-- 中華文化日 -->
