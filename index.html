@@ -160,9 +160,9 @@
             color: var(--primary-gray);
         }
 
-        /* ===== HERO（藍色區域，包含公司簡介 + MF Logo） ===== */
+        /* ===== HERO（藍色區域：標題 + 副標 + 公司簡介） ===== */
         .hero {
-            min-height: 50vh;
+            min-height: 45vh;
             background: #15345E;
             display: flex;
             align-items: center;
@@ -201,51 +201,13 @@
             color: #fff;
             font-weight: 700;
         }
-
-        /* 藍色區域內的 MF Logo 按鈕 */
-        .hero-mf-logo {
-            display: flex;
-            justify-content: center;
-            margin-top: 16px;
-        }
-        .hero-mf-logo a {
-            display: inline-block;
-            transition: 0.25s ease;
-            border-radius: 16px;
-            padding: 4px 10px;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.10);
-        }
-        .hero-mf-logo a:hover {
-            transform: scale(1.05);
-            background: rgba(255,255,255,0.12);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.20);
-        }
-        .hero-mf-logo a:active {
-            transform: scale(0.96);
-        }
-        .hero-mf-logo img {
-            display: block;
-            height: 56px;
-            width: auto;
-            max-height: 64px;
-            object-fit: contain;
-        }
         @media (max-width: 500px) {
-            .hero-mf-logo img {
-                height: 44px;
-                max-height: 50px;
-            }
             .hero-bio {
                 font-size: 0.88rem;
                 padding: 0 2px;
             }
         }
         @media (min-width: 768px) {
-            .hero-mf-logo img {
-                height: 64px;
-                max-height: 72px;
-            }
             .hero-bio {
                 font-size: 1rem;
             }
@@ -258,10 +220,6 @@
         }
         @media (min-width: 1024px) {
             .hero-content h1 { font-size: 3.4rem; }
-            .hero-mf-logo img {
-                height: 72px;
-                max-height: 80px;
-            }
             .hero-bio {
                 font-size: 1.05rem;
             }
@@ -288,6 +246,54 @@
             bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
+        }
+
+        /* ===== MF Logo 按鈕（白色區域，關於我們標題上方） ===== */
+        .mf-logo-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        .mf-logo-btn {
+            display: inline-block;
+            transition: 0.25s ease;
+            border-radius: 16px;
+            padding: 6px 14px;
+            background: #f8fafc;
+            border: 1px solid rgba(21, 52, 94, 0.12);
+        }
+        .mf-logo-btn:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+            background: #ffffff;
+        }
+        .mf-logo-btn:active {
+            transform: scale(0.96);
+        }
+        .mf-logo-btn img {
+            display: block;
+            height: 64px;
+            width: auto;
+            max-height: 72px;
+            object-fit: contain;
+        }
+        @media (max-width: 500px) {
+            .mf-logo-btn img {
+                height: 50px;
+                max-height: 56px;
+            }
+        }
+        @media (min-width: 768px) {
+            .mf-logo-btn img {
+                height: 76px;
+                max-height: 84px;
+            }
+        }
+        @media (min-width: 1024px) {
+            .mf-logo-btn img {
+                height: 84px;
+                max-height: 92px;
+            }
         }
 
         /* ===== 卡片 ===== */
@@ -460,7 +466,7 @@
             }
 
             .hero {
-                min-height: 55vh;
+                min-height: 50vh;
                 padding: 70px 40px 50px;
             }
 
@@ -536,7 +542,7 @@
     </div>
 </nav>
 
-<!-- ===== HERO（藍色區域：標題 + 副標 + 公司簡介 + MF Logo） ===== -->
+<!-- ===== HERO（藍色區域：標題 + 副標 + 公司簡介） ===== -->
 <section class="hero">
     <div class="hero-content">
         <h1>點亮校園文化創造無限可能</h1>
@@ -549,19 +555,19 @@
             <br>
             旗下品牌 <strong>MUSICFRIENDLY</strong> 主力為學校提供音樂課程，如欲了解更多，請移步至MF網址。
         </div>
-
-        <!-- MF Logo 按鈕（放在藍色區域，公司簡介下方） -->
-        <div class="hero-mf-logo">
-            <a href="https://musicfriendly.com/" target="_blank" rel="noopener noreferrer" aria-label="前往 MUSICFRIENDLY 網站">
-                <!-- 請將 images/mf-logo.png 換成您實際的 MF Logo 圖片路徑 -->
-                <img src="images/mf-logo.png" alt="MUSICFRIENDLY 標誌">
-            </a>
-        </div>
     </div>
 </section>
 
-<!-- ===== 關於我們（白色區域：標題 + 服務卡片） ===== -->
+<!-- ===== 關於我們（白色區域：MF Logo + 標題 + 服務卡片） ===== -->
 <section id="about">
+    <!-- MF Logo 按鈕（放在關於我們標題上方） -->
+    <div class="mf-logo-wrapper">
+        <a href="https://musicfriendly.com/" target="_blank" rel="noopener noreferrer" class="mf-logo-btn" aria-label="前往 MUSICFRIENDLY 網站">
+            <!-- 請將 images/mf-logo.png 換成您實際的 MF Logo 圖片路徑 -->
+            <img src="images/mf-logo.png" alt="MUSICFRIENDLY 標誌">
+        </a>
+    </div>
+
     <h2 class="section-title">關於我們</h2>
 
     <div class="card-grid">
