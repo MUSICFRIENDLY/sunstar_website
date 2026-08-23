@@ -162,7 +162,7 @@
 
         /* ===== HERO（藍色區域：標題 + 副標 + 公司簡介） ===== */
         .hero {
-            min-height: 45vh;
+            min-height: 40vh;
             background: #15345E;
             display: flex;
             align-items: center;
@@ -186,6 +186,7 @@
             font-size: 1rem;
             margin-top: 12px;
         }
+        /* 藍色區域內的公司簡介（不包含 MF 那句話） */
         .hero-bio {
             color: rgba(255,255,255,0.92);
             font-size: 0.95rem;
@@ -215,6 +216,9 @@
             }
             .hero-content .hero-sub {
                 font-size: 1.1rem;
+            }
+            .hero {
+                min-height: 45vh;
             }
         }
         @media (min-width: 1024px) {
@@ -247,12 +251,24 @@
             transform: translateX(-50%);
         }
 
-        /* ===== MF Logo 區塊（白色區域，關於我們標題上方） ===== */
-        .mf-logo-wrapper {
+        /* ===== MF 區塊（白色區域，關於我們標題上方） ===== */
+        .mf-section {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-bottom: 10px;
+        }
+        .mf-intro-text {
+            font-size: 1rem;
+            color: #444;
+            text-align: center;
+            line-height: 1.8;
+            max-width: 620px;
+            margin-bottom: 14px;
+        }
+        .mf-intro-text strong {
+            color: var(--primary-blue);
+            font-weight: 700;
         }
         .mf-logo-btn {
             display: inline-flex;
@@ -328,6 +344,10 @@
             .mf-hint-text {
                 font-size: 0.75rem;
             }
+            .mf-intro-text {
+                font-size: 0.9rem;
+                padding: 0 4px;
+            }
         }
         @media (min-width: 768px) {
             .mf-logo-btn img {
@@ -340,6 +360,9 @@
             }
             .mf-logo-btn .mf-arrow {
                 font-size: 1.2rem;
+            }
+            .mf-intro-text {
+                font-size: 1.05rem;
             }
         }
 
@@ -512,11 +535,6 @@
                 border-radius: 6px;
             }
 
-            .hero {
-                min-height: 50vh;
-                padding: 70px 40px 50px;
-            }
-
             section {
                 padding: 60px 8%;
             }
@@ -589,7 +607,7 @@
     </div>
 </nav>
 
-<!-- ===== HERO（藍色區域：標題 + 副標 + 公司簡介） ===== -->
+<!-- ===== HERO（藍色區域：標題 + 副標 + 公司簡介，不含 MF 那句話） ===== -->
 <section class="hero">
     <div class="hero-content">
         <h1>點亮校園文化創造無限可能</h1>
@@ -598,24 +616,27 @@
         <div class="hero-bio">
             <strong>輝達基業有限公司</strong> 成立於2000年，合作學校及機構逾290間，多年來服務超過3500名學生。
             公司服務範疇包括音樂課程設計及營運、音樂及藝術體驗活動、活動統籌與專業演出、教學用具代訂及租借。
-            <br>
-            旗下品牌 <strong>MUSICFRIENDLY</strong> 主力為學校提供音樂課程，如欲了解更多，請移步至MF網址。
         </div>
     </div>
 </section>
 
-<!-- ===== 關於我們（白色區域：MF Logo + 標題 + 服務卡片） ===== -->
+<!-- ===== 關於我們（白色區域：MF 引導文字 + MF Logo + 標題 + 服務卡片） ===== -->
 <section id="about">
-    <!-- MF Logo 按鈕（加上「前往網站」文字 + 箭頭，下方有提示） -->
-    <div class="mf-logo-wrapper">
+    <!-- MF 引導文字 + Logo 按鈕 -->
+    <div class="mf-section">
+        <div class="mf-intro-text">
+            旗下品牌 <strong>MUSICFRIENDLY</strong> 主力為學校提供音樂課程，如欲了解更多，請移步至MF網址。
+        </div>
+
         <a href="https://musicfriendly.com/" target="_blank" rel="noopener noreferrer" class="mf-logo-btn" aria-label="前往 MUSICFRIENDLY 網站">
             <img src="images/mf-logo.png" alt="MUSICFRIENDLY 標誌">
             <span class="mf-arrow">
                 前往網站 <i class="fas fa-arrow-right"></i>
             </span>
         </a>
+
         <div class="mf-hint-text">
-            </i> 點擊進入 MUSICFRIENDLY 網站了解更多
+            <i class="fas fa-mouse-pointer"></i> 點擊標誌進入 MUSICFRIENDLY 官方網站
         </div>
     </div>
 
