@@ -186,7 +186,6 @@
             font-size: 1rem;
             margin-top: 12px;
         }
-        /* 藍色區域內的公司簡介（白色文字） */
         .hero-bio {
             color: rgba(255,255,255,0.92);
             font-size: 0.95rem;
@@ -248,51 +247,99 @@
             transform: translateX(-50%);
         }
 
-        /* ===== MF Logo 按鈕（白色區域，關於我們標題上方） ===== */
+        /* ===== MF Logo 區塊（白色區域，關於我們標題上方） ===== */
         .mf-logo-wrapper {
             display: flex;
-            justify-content: center;
-            margin-bottom: 16px;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
         }
         .mf-logo-btn {
-            display: inline-block;
-            transition: 0.25s ease;
-            border-radius: 16px;
-            padding: 6px 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
             background: #f8fafc;
-            border: 1px solid rgba(21, 52, 94, 0.12);
+            border: 2px dashed rgba(21, 52, 94, 0.25);
+            border-radius: 20px;
+            padding: 12px 28px 12px 20px;
+            text-decoration: none;
+            transition: 0.3s ease;
+            cursor: pointer;
         }
         .mf-logo-btn:hover {
-            transform: scale(1.04);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.10);
             background: #ffffff;
+            border-color: var(--primary-blue);
+            box-shadow: 0 8px 28px rgba(21, 52, 94, 0.12);
+            transform: translateY(-2px);
         }
         .mf-logo-btn:active {
-            transform: scale(0.96);
+            transform: scale(0.97);
         }
         .mf-logo-btn img {
             display: block;
-            height: 64px;
+            height: 52px;
             width: auto;
-            max-height: 72px;
+            max-height: 60px;
             object-fit: contain;
         }
+        .mf-logo-btn .mf-arrow {
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+        .mf-logo-btn .mf-arrow i {
+            font-size: 0.9rem;
+            transition: transform 0.3s;
+        }
+        .mf-logo-btn:hover .mf-arrow i {
+            transform: translateX(6px);
+        }
+        /* 按鈕下方小提示 */
+        .mf-hint-text {
+            margin-top: 8px;
+            font-size: 0.82rem;
+            color: #888;
+            letter-spacing: 0.5px;
+        }
+        .mf-hint-text i {
+            margin-right: 4px;
+            color: var(--primary-blue);
+            opacity: 0.6;
+        }
+
         @media (max-width: 500px) {
+            .mf-logo-btn {
+                padding: 10px 16px 10px 12px;
+                gap: 10px;
+                border-radius: 14px;
+            }
             .mf-logo-btn img {
-                height: 50px;
-                max-height: 56px;
+                height: 40px;
+                max-height: 46px;
+            }
+            .mf-logo-btn .mf-arrow {
+                font-size: 0.9rem;
+            }
+            .mf-hint-text {
+                font-size: 0.75rem;
             }
         }
         @media (min-width: 768px) {
             .mf-logo-btn img {
-                height: 76px;
-                max-height: 84px;
+                height: 60px;
+                max-height: 68px;
             }
-        }
-        @media (min-width: 1024px) {
-            .mf-logo-btn img {
-                height: 84px;
-                max-height: 92px;
+            .mf-logo-btn {
+                padding: 14px 36px 14px 24px;
+                gap: 18px;
+            }
+            .mf-logo-btn .mf-arrow {
+                font-size: 1.2rem;
             }
         }
 
@@ -548,7 +595,6 @@
         <h1>點亮校園文化創造無限可能</h1>
         <p class="hero-sub">專注於校園文化與藝術方案，連結傳統與創新。</p>
 
-        <!-- 公司簡介（白色文字） -->
         <div class="hero-bio">
             <strong>輝達基業有限公司</strong> 成立於2000年，合作學校及機構逾290間，多年來服務超過3500名學生。
             公司服務範疇包括音樂課程設計及營運、音樂及藝術體驗活動、活動統籌與專業演出、教學用具代訂及租借。
@@ -560,12 +606,17 @@
 
 <!-- ===== 關於我們（白色區域：MF Logo + 標題 + 服務卡片） ===== -->
 <section id="about">
-    <!-- MF Logo 按鈕（放在關於我們標題上方） -->
+    <!-- MF Logo 按鈕（加上「前往網站」文字 + 箭頭，下方有提示） -->
     <div class="mf-logo-wrapper">
         <a href="https://musicfriendly.com/" target="_blank" rel="noopener noreferrer" class="mf-logo-btn" aria-label="前往 MUSICFRIENDLY 網站">
-            <!-- 請將 images/mf-logo.png 換成您實際的 MF Logo 圖片路徑 -->
             <img src="images/mf-logo.png" alt="MUSICFRIENDLY 標誌">
+            <span class="mf-arrow">
+                前往網站 <i class="fas fa-arrow-right"></i>
+            </span>
         </a>
+        <div class="mf-hint-text">
+            <i class="fas fa-mouse-pointer"></i> 點擊標誌進入 MUSICFRIENDLY 官方網站
+        </div>
     </div>
 
     <h2 class="section-title">關於我們</h2>
